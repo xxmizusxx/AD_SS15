@@ -108,9 +108,15 @@ Testergebnisse
 
   // Experiments
   for(i = 0; i < 100; i ++) {
+     x = Math.ceil(Math.random() * 50);
+    y = Math.ceil(Math.random() * 500)
+    d =  Math.ceil(Math.random() * 35)
+
     ad_1_1_data.push({
       experiment : i,
-      value : steps(Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 10000), Math.ceil(Math.random() * 97))
+      entfernung : y-x,
+      step_groesse : d,
+      steps : steps(x, y,d)
       //value : step_naiv(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))
     });
   }
@@ -150,10 +156,10 @@ new Morris.Line({
   // The name of the data record attribute that contains x-values.
   xkey: 'experiment',
   // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
+  ykeys: ['steps', 'entfernung', 'step_groesse'],
+  // Labels for the' ykeys -- will be displayed when you hover over the
   // chart.
-  labels: ['Value']
+  labels: ['steps', 'entfernung',  'Step_Size']
 });
 </script>
 
