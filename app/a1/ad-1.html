@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>L&ouml;sungsblatt Vorlage</title>
+<title>L&ouml;sungsblatt Vorlage Stephan Wekwert und Sebastian Ewert</title>
 <!-- morris graph lib -->
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -30,19 +30,10 @@
 </script>
 </head>
 <body>
-<h1 id="title">L&ouml;sungsblatt Vorlage</h1>
+<h1 id="title"> Stephan Wekwert u. Sebstian Ewert</h1>
 
-Vorlage zur L&ouml;sung des ersten Aufgabenblatts.
 <ul>
-<li>
-Die erste &Uuml;berschrift soll Ihre Namen enthalten.
-</li>
-<li>
-Die Korrektheit Ihrer Implementierung muss durch sinnvolle Tests abgesichert sein.
-</li>
-<li>
-&Uuml;berlegen Sie sich sinnvolle Eingaben und Wiederholungen f&uuml;r die Experimente.
-</li>
+
 </ul>
 
 <h2>
@@ -73,7 +64,7 @@ Antwort 1
 </h2>
 <ol>
 <li>
-TODO
+    Naive Steps ist O(n)
 </li>
 <li>
 TODO
@@ -95,22 +86,47 @@ Testergebnisse
 <script id="ad-1-1-code">
   var ad_1_1_data = [];
 
-  // Code
-  MyClass = function() {
-    this.value = Math.ceil(Math.random()*100);
+  <!-- x = Ausgangspunkt, y = endpunkt, d = Schrittmass -->
+
+  function steps(x,y,d){
+    if(d<=0) return "error";
+    else if ( x>=y) return 0;
+    else{
+      return Math.ceil((y-x)/d);
+    }
+  }
+
+
+  function step_naiv(x, y, d){
+    if( d <= 0) return "error";
+    var count_step= 0;
+    for(i = x; i < y; i= i+d ){
+      count_step++;
+    }
+    return count_step;
   }
 
   // Experiments
   for(i = 0; i < 100; i ++) {
     ad_1_1_data.push({
       experiment : i,
-      value : new MyClass().value
-      });
+      value : steps(Math.ceil(Math.random() * 50), Math.ceil(Math.random() * 10000), Math.ceil(Math.random() * 97))
+      //value : step_naiv(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))
+    });
   }
 
   // Tests
-  assert(ad_1_1_data.length === 100, "experiments have collected data");
-  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+  assert(steps(15,80,30) === 3, "Beispielaufruf nach Vorgabe");
+  assert(steps(150,91, 30) === 0, "X > Y");
+  assert(steps(15, 80, -1) === "error" ," d <= 0 ");
+  assert(steps(37,297,43) === step_naiv(37, 297, 43), "Beide funktionen liefern das gleiche Ergebnis");
+
+  assert(step_naiv(15, 80, 30) === 3 ,"Beispielaufruf nach Vorgabe");
+
+  assert(step_naiv(150,91, 30) === 0, "X > Y");
+  assert(step_naiv(15, 80, -1) === "error" ," d >= 0 ");
+
+
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
