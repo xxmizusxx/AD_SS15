@@ -502,6 +502,9 @@ value : counter,
 // Tests
 assert(fibo4(10) === 55, "fibo4(10) == 55");
 assert(fibo4(1) === 1 ,"fibo4(1) = 1");
+
+
+
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
@@ -533,6 +536,246 @@ labels: ['Value', 'erg']
 </script>
 
 
+<!-- Aufgabe 2 -->
+<h2>
+Aufgabe 3
+</h2>
+Dies ist nur eine Vorlage
+<h2>
+Antwort 3
+</h2>
+<ol>
+<li>
+TODO
+</li>
+</ol>
+<h3>
+Implementierung
+</h3>
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
+<pre id="ad-1-6-source"></pre>
+<h3>
+Testergebnisse
+</h3>
+<div id="ad-1-6-results"></div>
+<!-- Code und Tests hier hin -->
+<script id="ad-1-6-code">
+var ad_1_6_data = [];
+
+    var newLinkedList = function(){
+        var instanceOfLinkedList = Object.create()
+        instanceOfLinkedList.head = null;
+       // instanceOfLinkedList.tail = null;
+        return instanceOfLinkedList;
+    }
+
+
+    function cons(x, list){
+        var newNode = makeNode(x)
+        if(!list.head) this.head = newNode;
+        else{
+            newNode.next = list.head;
+            list.head =newNode;
+        }
+        return list;
+    }
+
+    function head(list){
+        return list.head;
+    }
+
+    function tail(list){
+        return list.head.next;
+    }
+
+    function length(list){
+        var counter = 1;
+        if(!list.head) return 0
+        var elem = list.head.next;
+        while(elem.next != null){
+            elem = elem.next
+            counter++
+        }
+        return counter;
+    }
+
+    function isEmpty(list){
+        (!list.head) ? true:false;
+    }
+    // prüfen
+    function insert(x, n, list){
+        if(n == 0) return cons(x, list);
+        else if (n > length(list)+1){
+            return list;
+        }else{
+            elem = list.head
+            for(pos = 1; pos < n; pos++){
+                elem =  list.next
+            }
+            var tail = elem.next
+            var newNode=  makeNode(x)
+            elem.data = newNode
+            newNode.next = tail
+        }
+        return list
+    }
+
+    var makeNode = function (val){
+        var instanceOfNode = {
+            data : val,
+            next : null
+        };
+        return instanceOfNode
+    }
+
+// Tests
+
+assert(isEmpty(newLinkedList()) === true, "liste ist empty");
+
+var consList = cons(1, newLinkedList())
+assert(consList.head.data = 1, "Cons funkt")
+assert(typeof(steps) === 'function', "function 'steps' not implemented");
+</script>
+<!-- dieser Code zeigt die Implementierung und die Tests an -->
+<script>
+$('pre#ad-1-6-source').html($('#ad-1-6-code').html())
+assert(isEmpty(list) === true, "liste ist empty");
+assert(typeof(steps) === 'function', "function 'steps' not implemented");
+</script>
+
+<h3>
+Experimente
+</h3>
+
+<div id="ad-1-6-experiments" style="height: 250px;"></div>
+<script>
+new Morris.Line({
+// ID of the element in which to draw the chart.
+element: 'ad-1-6-experiments',
+// do values relate to dates (time)?
+parseTime: false,
+// Chart data records -- each entry in this array corresponds to a point on
+// the chart.
+data: ad_1_6_data,
+// The name of the data record attribute that contains x-values.
+xkey: 'experiment',
+// A list of names of data record attributes that contain y-values.
+ykeys: ['value'],
+// Labels for the ykeys -- will be displayed when you hover over the
+// chart.
+labels: ['Value']
+});
+</script>
+
+
+
+
+
+
+<!-- Aufgabe 3.2-->
+<h2>
+Aufgabe 3.2
+</h2>
+Dies ist nur eine Vorlage
+<h2>
+Antwort 3.2
+</h2>
+<ol>
+<li>
+TODO
+</li>
+</ol>
+<h3>
+Implementierung
+</h3>
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
+<pre id="ad-1-7-source"></pre>
+<h3>
+Testergebnisse
+</h3>
+<div id="ad-1-7-results"></div>
+<!-- Code und Tests hier hin -->
+<script id="ad-1-7-code">
+var ad_1_2_data = [];
+
+var newArrayList = function(){
+    var instanceOfArrayList = Object.create()
+    instanceOfArrayList.array = [];
+    instanceOfArrayList.elem_count= 0;
+    // instanceOfArrayList.tail = null;
+    return instanceOfArrayList;
+}
+
+
+function consA(x, list){
+    return insertA(x,0, list)
+}
+
+function headA(list){
+    return  list.array[0]
+}
+
+function tailA(list){
+    var tmpList = newArrayList();
+    for(i =1; i < list.elem_count; i++){
+        tmpList.array[i] = list.array[i]
+    }
+    tmpList.elem_count = list.elem_count-1;
+    return tmpList
+}
+
+function lengthA(list){
+    return list.elem_count
+}
+
+function isEmptyA(list){
+    (lengthA(list) === 0) ? true:false;
+}
+// prüfen
+function insertA(x, n, list){
+    if(n > list.size+1) return list
+    templist = newArrayList()
+    for (i = this.elem_count; i >= n; i--) {
+        tempList.array[i + 1] = list.array[i];
+    }
+    tempList.array[n] = x
+    return tempList
+}
+
+
+
+// Tests
+assert(ad_1_7_data.length === 10, "experiments have collected data");
+assert(typeof(steps) === 'function', "function 'steps' not implemented");
+</script>
+<!-- dieser Code zeigt die Implementierung und die Tests an -->
+<script>
+$('pre#ad-1-7-source').html($('#ad-1-7-code').html())
+</script>
+
+<h3>
+Experimente
+</h3>
+
+<div id="ad-1-7-experiments" style="height: 250px;"></div>
+<script>
+new Morris.Line({
+// ID of the element in which to draw the chart.
+element: 'ad-1-7-experiments',
+// do values relate to dates (time)?
+parseTime: false,
+// Chart data records -- each entry in this array corresponds to a point on
+// the chart.
+data: ad_1_7_data,
+// The name of the data record attribute that contains x-values.
+xkey: 'experiment',
+// A list of names of data record attributes that contain y-values.
+ykeys: ['value'],
+// Labels for the ykeys -- will be displayed when you hover over the
+// chart.
+labels: ['Value']
+});
+</script>
 
 
 
