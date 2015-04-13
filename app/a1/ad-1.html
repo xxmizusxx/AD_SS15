@@ -563,23 +563,25 @@ Dies ist nur eine Vorlage
 
     var newLinkedList = function () {
         var instanceOfLinkedList = Object.create(linkedListcreate)
-        instanceOfLinkedList.head = null;
+        instanceOfLinkedList.head = makeNode();
         instanceOfLinkedList.zugrCounter = 0;
         return instanceOfLinkedList;
     }
 
     var linkedListcreate = {
-        test: {
+        toString: function() {
+            if (this.head.data === null) return null;
+            while (typeof this.head.next === "undefined") {
+                return console.log(this.head.data)
+            }
         }
     }
 
-
     function cons(x, list) {
-        //var newNode = makeNode(x)
         var newNode = makeNode();
-        newNode.head = x;
-        if (!list.head) this.head = newNode
+        if (list.head.data === null) this.head.data = x
         else {
+            newNode.data = x;
             newNode.next = list.head;
             list.head = newNode;
         }
@@ -594,49 +596,74 @@ Dies ist nur eine Vorlage
         return list.head.next;
     }
 
+    function isEmpty(list) {
+        if (typeof list.head.data === "undefined") {return true;}
+        else {return false;}
+    }
+
     function length(list) {
         var counter = 1;
-        if (!list.head) return 0
+        if ( typeof list.head.data === "undefined") return 0
         var elem = list.head.next;
-        while (elem.next != null) {
+        while (typeof elem.data != "undefined") {
             elem = elem.next
             counter++
         }
         return counter;
     }
 
-    function isEmpty(list) {
-        (!list.head) ? true : false;
-    }
-
     // prüfen
+//    function insert(x, n, list) {
+//        if (n == 0) return cons(x, list)
+//        else if (n > length(list) + 1) {
+//            return list;
+//        } else {
+//            var elem = list.head
+//            for (pos = 1; pos < n; pos++) {
+//                elem = list.head.next
+//            }
+//            var tail = elem.head.next
+//            var newNode = makeNode()
+//            newNode.data = x
+//            elem.data = newNode
+//            newNode.next = tail
+//        }
+//        return list
+//    }
+
+
+    // fügt nicht ein?!?!?
+
     function insert(x, n, list) {
         if (n == 0) return cons(x, list)
         else if (n > length(list) + 1) {
             return list;
         } else {
-            elem = list.head
+            var newList = newLinkedList()
             for (pos = 1; pos < n; pos++) {
-                elem = list.next, addZugr()
+                newList.head.data = list.head.data
+                newList.head.next = list.head.next
             }
-            var tail = elem.next
-            var newNode = makeNode(x)
-            elem.data = newNode
+            var tail = list.head.next
+            var newNode = makeNode()
+            newNode.data = x
             newNode.next = tail
+            newList.head.next = newNode
         }
-        return list
+        return newList
     }
-
-
-    // muss überprüft werden
 
     var makeNode = function (val) {
         var instanceOfNode = {
             data: val,
-            next: null
+            next: "undefined"
         };
         return instanceOfNode
     }
+
+
+
+
 
     // Zugriffszählermethoden
     function resetZugr(list) {
@@ -656,6 +683,8 @@ Dies ist nur eine Vorlage
     }
 
 
+
+
     // Experiments
     for (i = 1; i <= 20; i++) {
         counter = 0;
@@ -670,17 +699,25 @@ Dies ist nur eine Vorlage
     }
 
     // Tests
-
+    //  window.alert(myList.head.data);
 
     assert(typeof(steps) === 'function', "function 'steps' not implemented");
     var myList = newLinkedList();
-    // cleanZugr(myList);
+   // myList.toString(); muss überarbeitet werden
     assert(isEmpty(myList) === true, "liste ist empty");
-    assert(myList.head === null, "Head ist null");
-
+    assert(length(myList) === 0, "Laenge myList ist 0");
     cons(1, myList);
-    assert(myList.head === 1, "Cons funkt");
-
+    assert(head(myList) === 1, "cons(1, myList) funktioniert");
+    assert(length(myList) === 1, "Laenge myList ist 1");
+    cons(2, myList);
+    assert(head(myList) === 2, "cons(2, myList) funktioniert");
+    assert(length(myList) === 2, "Laenge myList ist 2");
+    assert(head(myList) === 2, "head(myList) funktioniert");
+    // Um tail-Funktion zu testen .data rangehängt
+    assert(tail(myList).data === 1, "tail(myList) funktioniert");
+    insert(3,2,myList)
+    assert(length(myList) === 3, "Laenge myList ist 3");
+    window.alert(myList.head.next.next.data);
 
 
 </script>
