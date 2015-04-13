@@ -557,33 +557,37 @@ Dies ist nur eine Vorlage
 <div id="ad-1-6-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-6-code">
+
     var ad_1_6_data = [];
 
 
     var newLinkedList = function () {
-        var instanceOfLinkedList = Object.create()
+        var instanceOfLinkedList = Object.create(linkedListcreate)
         instanceOfLinkedList.head = null;
         instanceOfLinkedList.zugrCounter = 0;
         return instanceOfLinkedList;
     }
 
+    var linkedListcreate = {
+        test: {
+        }
+    }
+
 
     function cons(x, list) {
-        var newNode = makeNode(x)
-        addZugr()
-        if (!list.head) this.head = newNode,
-                addZugr()
+        //var newNode = makeNode(x)
+        var newNode = makeNode();
+        newNode.head = x;
+        if (!list.head) this.head = newNode
         else {
             newNode.next = list.head;
-            addZugr();
             list.head = newNode;
-            addZugr()
         }
         return list;
     }
 
     function head(list) {
-        return list.head;
+        return list.head.data;
     }
 
     function tail(list) {
@@ -594,10 +598,8 @@ Dies ist nur eine Vorlage
         var counter = 1;
         if (!list.head) return 0
         var elem = list.head.next;
-        addZugr();
         while (elem.next != null) {
             elem = elem.next
-            addZugr();
             counter++
         }
         return counter;
@@ -609,28 +611,25 @@ Dies ist nur eine Vorlage
 
     // prüfen
     function insert(x, n, list) {
-        if (n == 0) return cons(x, list), addZugr();
+        if (n == 0) return cons(x, list)
         else if (n > length(list) + 1) {
             return list;
         } else {
             elem = list.head
-            addZugr()
             for (pos = 1; pos < n; pos++) {
                 elem = list.next, addZugr()
             }
             var tail = elem.next
-            addZugr()
             var newNode = makeNode(x)
-            addZugr();
             elem.data = newNode
-            addZugr()
             newNode.next = tail
-            addZugr()
         }
         return list
     }
 
-    // Zugriff wird beim Aufruf mitgezählt
+
+    // muss überprüft werden
+
     var makeNode = function (val) {
         var instanceOfNode = {
             data: val,
@@ -645,14 +644,16 @@ Dies ist nur eine Vorlage
     }
 
     function addZugr(list) {
-        list.zugrCounter++;
+        list.zugrCounter = list.zugrCounter +1;
     }
 
     function getZugr(list) {
         return list.zugrCounter;
     }
 
-
+    function cleanZugr(list) {
+        return list.zugrCounter = 0;
+    }
 
 
     // Experiments
@@ -670,11 +671,15 @@ Dies ist nur eine Vorlage
 
     // Tests
 
+
     assert(typeof(steps) === 'function', "function 'steps' not implemented");
     var myList = newLinkedList();
+    // cleanZugr(myList);
     assert(isEmpty(myList) === true, "liste ist empty");
+    assert(myList.head === null, "Head ist null");
+
     cons(1, myList);
-    assert(myList.head.data === 1, "Cons funkt");
+    assert(myList.head === 1, "Cons funkt");
 
 
 
@@ -734,80 +739,84 @@ Dies ist nur eine Vorlage
 <div id="ad-1-7-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-7-code">
-    var ad_1_2_data = [];
+    var ad_1_7_data = [];
 
     var newArrayList = function () {
-        var instanceOfArrayList = Object.create()
+        var instanceOfArrayList = Object.create(arrayListcreate)
         instanceOfArrayList.array = [];
         instanceOfArrayList.elem_count = 0;
         instanceOfArrayList.zugrCounter = 0;
         return instanceOfArrayList;
+    };
+
+
+    var arrayListcreate = {
+        test: {
+        }
     }
 
 
     function consA(x, list) {
         return insertA(x, 0, list)
-    }
+    };
 
     function headA(list) {
-        return list.array[0],
-                addZugrA
-    }
+        addZugrA
+        return list.array[0];
+    };
 
     function tailA(list) {
         var tmpList = newArrayList();
         for (i = 1; i < list.elem_count; i++) {
-            tmpList.array[i] = list.array[i]
             addZugrA
+            tmpList.array[i] = list.array[i]
         }
-        tmpList.elem_count = list.elem_count - 1;
         addZugrA
+        tmpList.elem_count = list.elem_count - 1;
         return tmpList
-    }
+    };
 
     function lengthA(list) {
         return list.elem_count
         addZugrA
-    }
+    };
 
     function isEmptyA(list) {
         (lengthA(list) === 0) ? true : false;
-    }
+    };
     // prüfen
     function insertA(x, n, list) {
         if (n > list.size + 1) return list
         addZugrA
-        templist = newArrayList()
+        templist = newArrayList();
         for (i = this.elem_count; i >= n; i--) {
             tempList.array[i + 1] = list.array[i];
             addZugrA
         }
-        tempList.array[n] = x
+        templist.array[n] = x
         addZugrA
-        return tempList
-    }
+        return templist
+    };
 
     // Zugriffszählermethoden
     function resetZugrA(list) {
        list.zugrCounter = 0;
-    }
+    };
 
     function addZugrA(list) {
         list.zugrCounter++;
-    }
+    };
 
     function getZugrA(list) {
         return list.zugrCounter;
-    }
-
-
+    };
 
     // Tests
     assert(typeof(steps) === 'function', "function 'steps' not implemented");
 
     var myList = newArrayList();
-    assert(isEmpty(myList) === true, "liste ist empty");
-    cons(1, myList);
+    assert(isEmptyA(myList) === true, "liste ist empty");
+    consA(1, myList);
     assert(headA(myList) === 1, "ConsA funkt");
 
 </script>

@@ -99,64 +99,6 @@ Testergebnisse
 
 
 
-  var newArrayList = function () {
-    var instanceOfArrayList = Object.create()
-    instanceOfArrayList.array = [];
-    instanceOfArrayList.elem_count = 0;
-    // instanceOfArrayList.tail = null;
-    return instanceOfArrayList;
-  }
-
-
-  function consA(x, list) {
-    return insertA(x, 0, list)
-  }
-
-  function headA(list) {
-    return list.array[0]
-  }
-
-  function tailA(list) {
-    var tmpList = newArrayList();
-    for (i = 1; i < list.elem_count; i++) {
-      tmpList.array[i] = list.array[i]
-    }
-    tmpList.elem_count = list.elem_count - 1;
-    return tmpList
-  }
-
-  function lengthA(list) {
-    return list.elem_count
-  }
-
-  function isEmptyA(list) {
-    (lengthA(list) === 0) ? true : false;
-  }
-  // pr�fen
-  function insertA(x, n, list) {
-    if (n > list.size + 1) return list
-    templist = newArrayList()
-    for (i = this.elem_count; i >= n; i--) {
-      tempList.array[i + 1] = list.array[i];
-    }
-    tempList.array[n] = x
-    return tempList
-  }
-
-
-  // Tests
-  assert(typeof(steps) === 'function', "function 'steps' not implemented");
-
-  var myList = newArrayList();
-  assert(isEmpty(myList) === true, "liste ist empty");
-  cons(1, myList);
-  assert(headA(myList) === 1, "ConsA funkt");
-
-
-
-
-
-
 
 
 
