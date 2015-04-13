@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>L&ouml;sungsblatt Vorlage Stephan Wekwert und Sebastian Ewert</title>
-<!-- morris graph lib -->
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-<!-- LaTeX-style equations -->
-<script type="text/x-mathjax-config">
+    <title>L&ouml;sungsblatt Vorlage Stephan Wekwert und Sebastian Ewert</title>
+    <!-- morris graph lib -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <!-- LaTeX-style equations -->
+    <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- tests -->
-<script>
-  function assert(value, desc) {
-    var li = document.createElement("li");
-    li.style.color = value ? "green" : "red";
-    li.appendChild(document.createTextNode(desc));
-    var list = document.getElementById("results");
-    if (!list) {
-      list = document.createElement("div");
-      document.body.appendChild(list);
-    }
-    list.appendChild(li);
-  }
-</script>
+
+    </script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <!-- tests -->
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.style.color = value ? "green" : "red";
+            li.appendChild(document.createTextNode(desc));
+            var list = document.getElementById("results");
+            if (!list) {
+                list = document.createElement("div");
+                document.body.appendChild(list);
+            }
+            list.appendChild(li);
+        }
+    </script>
 </head>
 <body>
 <h1 id="title"> Stephan Wekwert u. Sebstian Ewert</h1>
@@ -37,132 +38,136 @@
 </ul>
 
 <h2>
-Aufgabe 1
+    Aufgabe 1
 </h2>
+
 <p>
-Gegeben seien ein Startpunkt $x \in \mathbb{N}$ und ein Zielpunkt $y \in \mathbb{N}$ auf einer Geraden,
-sowie ein Schrittma&szlig; $d \in \mathbb{N}$. Gesucht ist die Anzahl der Schritte
-$steps(x, y, d) \in \mathbb{N}$, die ben&ouml;tigt werden, um einen Punkt zu erreichen, dessen Wert
-gr&ouml;&szlig;er als $y$ ist.
+    Gegeben seien ein Startpunkt $x \in \mathbb{N}$ und ein Zielpunkt $y \in \mathbb{N}$ auf einer Geraden,
+    sowie ein Schrittma&szlig; $d \in \mathbb{N}$. Gesucht ist die Anzahl der Schritte
+    $steps(x, y, d) \in \mathbb{N}$, die ben&ouml;tigt werden, um einen Punkt zu erreichen, dessen Wert
+    gr&ouml;&szlig;er als $y$ ist.
 </p>
+
 <p>
-Beispiel: Bei der Eingabe $x = 15$, $y = 80$, $d = 30$ sind drei Schritte n&ouml;tig.
+    Beispiel: Bei der Eingabe $x = 15$, $y = 80$, $d = 30$ sind drei Schritte n&ouml;tig.
 </p>
 <ol>
-<li>
-In Abh&auml;gigkeit von welchem Wert bestimmen Sie Laufzeit und Speicherplatzbedarf?
-</li>
-<li>
-Welchen Zeit- und welchen Platzaufwand hat eine naive Implementierung?
-</li>
-<li>
-Implementieren Sie die Methode $steps(x,y,d)$, welche die gesuchte Anzahl der Schritte in Zeitaufwand $O(1)$ und  Platzaufwand $O(1)$ berechnet.
-</li>
+    <li>
+        In Abh&auml;gigkeit von welchem Wert bestimmen Sie Laufzeit und Speicherplatzbedarf?
+    </li>
+    <li>
+        Welchen Zeit- und welchen Platzaufwand hat eine naive Implementierung?
+    </li>
+    <li>
+        Implementieren Sie die Methode $steps(x,y,d)$, welche die gesuchte Anzahl der Schritte in Zeitaufwand $O(1)$ und
+        Platzaufwand $O(1)$ berechnet.
+    </li>
 </ol>
 <h2>
-Antwort 1
+    Antwort 1
 </h2>
 <ol>
-<li>
-    Naive Steps ist O(n)
-</li>
-<li>
-TODO
-</li>
-<li>
-TODO
-</li>
+    <li>
+        Naive Steps ist O(n)
+    </li>
+    <li>
+        TODO
+    </li>
+    <li>
+        TODO
+    </li>
 </ol>
 <h3>
-Implementierung
+    Implementierung
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
 <pre id="ad-1-1-source"></pre>
 <h3>
-Testergebnisse
+    Testergebnisse
 </h3>
+
 <div id="ad-1-1-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-1-code">
-  var ad_1_1_data = [];
+    var ad_1_1_data = [];
 
-  <!-- x = Ausgangspunkt, y = endpunkt, d = Schrittmass -->
+    <!-- x = Ausgangspunkt, y = endpunkt, d = Schrittmass -->
 
-  function steps(x,y,d){
-    if(d<=0) return "error";
-    else if ( x>=y) return 0;
-    else{
-      return Math.ceil((y-x)/d);
+    function steps(x, y, d) {
+        if (d <= 0) return "error";
+        else if (x >= y) return 0;
+        else {
+            return Math.ceil((y - x) / d);
+        }
     }
-  }
 
 
-  function step_naiv(x, y, d){
-    if( d <= 0) return "error";
-    var count_step= 0;
-    for(i = x; i < y; i= i+d ){
-      count_step++;
+    function step_naiv(x, y, d) {
+        if (d <= 0) return "error";
+        var count_step = 0;
+        for (i = x; i < y; i = i + d) {
+            count_step++;
+        }
+        return count_step;
     }
-    return count_step;
-  }
 
-  // Experiments
-  for(i = 0; i < 100; i ++) {
-     x = Math.ceil(Math.random() * 50);
-    y = Math.ceil(Math.random() * 500)
-    d =  Math.ceil(Math.random() * 35)
+    // Experiments
+    for (i = 0; i < 100; i++) {
+        x = Math.ceil(Math.random() * 50);
+        y = Math.ceil(Math.random() * 500)
+        d = Math.ceil(Math.random() * 35)
 
-    ad_1_1_data.push({
-      experiment : i,
-      entfernung : y-x,
-      step_groesse : d,
-      steps : steps(x, y,d)
-      //value : step_naiv(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))
-    });
-  }
+        ad_1_1_data.push({
+            experiment: i,
+            entfernung: y - x,
+            step_groesse: d,
+            steps: steps(x, y, d)
+            //value : step_naiv(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))
+        });
+    }
 
-  // Tests
-  assert(steps(15,80,30) === 3, "Beispielaufruf nach Vorgabe");
-  assert(steps(150,91, 30) === 0, "X > Y");
-  assert(steps(15, 80, -1) === "error" ," d <= 0 ");
-  assert(steps(37,297,43) === step_naiv(37, 297, 43), "Beide funktionen liefern das gleiche Ergebnis");
+    // Tests
+    assert(steps(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");
+    assert(steps(150, 91, 30) === 0, "X > Y");
+    assert(steps(15, 80, -1) === "error", " d <= 0 ");
+    assert(steps(37, 297, 43) === step_naiv(37, 297, 43), "Beide funktionen liefern das gleiche Ergebnis");
 
-  assert(step_naiv(15, 80, 30) === 3 ,"Beispielaufruf nach Vorgabe");
+    assert(step_naiv(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");
 
-  assert(step_naiv(150,91, 30) === 0, "X > Y");
-  assert(step_naiv(15, 80, -1) === "error" ," d >= 0 ");
+    assert(step_naiv(150, 91, 30) === 0, "X > Y");
+    assert(step_naiv(15, 80, -1) === "error", " d >= 0 ");
 
 
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-1-1-source').html($('#ad-1-1-code').html())
+    $('pre#ad-1-1-source').html($('#ad-1-1-code').html())
 
 
 </script>
 
 <h3>
-Experimente
+    Experimente
 </h3>
 
 <div id="ad-1-1-experiments" style="height: 250px;"></div>
 <script>
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'ad-1-1-experiments',
-  // do values relate to dates (time)?
-  parseTime: false,
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: ad_1_1_data,
-  // The name of the data record attribute that contains x-values.
-  xkey: 'experiment',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['steps', 'entfernung', 'step_groesse'],
-  // Labels for the' ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['steps', 'entfernung',  'Step_Size']
-});
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'ad-1-1-experiments',
+        // do values relate to dates (time)?
+        parseTime: false,
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: ad_1_1_data,
+        // The name of the data record attribute that contains x-values.
+        xkey: 'experiment',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['steps', 'entfernung', 'step_groesse'],
+        // Labels for the' ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['steps', 'entfernung', 'Step_Size']
+    });
 </script>
 
 <!-- Aufgabe 2 -->
@@ -186,6 +191,7 @@ Dies ist nur eine Vorlage
 <h3>
     Testergebnisse
 </h3>
+
 <div id="ad-1-2-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-2-code">
@@ -196,25 +202,23 @@ Dies ist nur eine Vorlage
     var counter = 0;
 
 
-
-    function fibo(n){
+    function fibo(n) {
         counter++;
-        if(n <= 1) return n;
-        else{
-            return fibo(n-1) + fibo(n-2);
+        if (n <= 1) return n;
+        else {
+            return fibo(n - 1) + fibo(n - 2);
         }
     }
 
 
-
     // Experiments
-    for(i = 0; i < 20; i ++) {
+    for (i = 0; i < 20; i++) {
         counter = 0;
         var erg = fibo(i);
 
         ad_1_2_data.push({
-            experiment : i,
-            value :  counter, //new MyClass().value
+            experiment: i,
+            value: counter, //new MyClass().value
             erg: erg
         });
     }
@@ -273,6 +277,7 @@ Dies ist nur eine Vorlage
 <h3>
     Testergebnisse
 </h3>
+
 <div id="ad-1-3-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-3-code">
@@ -285,14 +290,13 @@ Dies ist nur eine Vorlage
     var map = new Map();
 
 
-
-    function fibo2(n){
+    function fibo2(n) {
         counter++;
-        if(n <  2) return n;
-        else{
+        if (n < 2) return n;
+        else {
             var val = map.get(n)
-            if(typeof val === "undefined"){
-                val = fibo2(n-1) + fibo2(n-2)
+            if (typeof val === "undefined") {
+                val = fibo2(n - 1) + fibo2(n - 2)
                 map.set(n, val)
 
             }
@@ -302,14 +306,14 @@ Dies ist nur eine Vorlage
 
 
     // Experiments
-    for(i = 0; i < 20; i ++) {
+    for (i = 0; i < 20; i++) {
         counter = 0;
         var erg = fibo2(i);
 
         ad_1_3_data.push({
-            experiment : i,
-            value :  counter, //new MyClass().value
-          //  erg: erg
+            experiment: i,
+            value: counter //new MyClass().value
+            //  erg: erg
         });
 
         map = new Map();
@@ -350,433 +354,491 @@ Dies ist nur eine Vorlage
 </script>
 
 
-
-
-
-
-
 <!-- Aufgabe 2.4 -->
 <h2>
-Aufgabe 2.4
+    Aufgabe 2.4
 </h2>
 Dies ist nur eine Vorlage
 <h2>
-Antwort 2.4
+    Antwort 2.4
 </h2>
 <ol>
-<li>
-TODO
-</li>
+    <li>
+        TODO
+    </li>
 </ol>
 <h3>
-Implementierung
+    Implementierung
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-1-4-source"></pre>
 <h3>
-Testergebnisse
+    Testergebnisse
 </h3>
+
 <div id="ad-1-4-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-4-code">
-var ad_1_4_data = [];
+    var ad_1_4_data = [];
 
-var  tcounter = 0;
-// Code
-function fibo3(n){
-    return fibo_rek(n,1,1)
-}
-
-function fibo_rek(n, x, y){
-    tcounter++;
-    if(n < 2) return x;
-    else{
-        return fibo_rek(n-1, y, x+y)
+    var tcounter = 0;
+    // Code
+    function fibo3(n) {
+        return fibo_rek(n, 1, 1)
     }
-}
 
-// Experiments
-for(i = 0; i < 20; i ++) {
-    tcounter= 0;
-    fibo3(i)
-ad_1_4_data.push({
-experiment : i,
-value : tcounter
-});
-}
+    function fibo_rek(n, x, y) {
+        tcounter++;
+        if (n < 2) return x;
+        else {
+            return fibo_rek(n - 1, y, x + y)
+        }
+    }
 
-// Tests
-assert(fibo3(10) === 55, "fibo3(10) == 55");
-assert(fibo3(1) === 1 ,"fibo3(1) = 1");
+    // Experiments
+    for (i = 0; i < 20; i++) {
+        tcounter = 0;
+        fibo3(i)
+        ad_1_4_data.push({
+            experiment: i,
+            value: tcounter
+        });
+    }
+
+    // Tests
+    assert(fibo3(10) === 55, "fibo3(10) == 55");
+    assert(fibo3(1) === 1, "fibo3(1) = 1");
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-1-2-source').html($('#ad-1-2-code').html())
+    $('pre#ad-1-2-source').html($('#ad-1-2-code').html())
 </script>
 
 <h3>
-Experimente
+    Experimente
 </h3>
 
 <div id="ad-1-4-experiments" style="height: 250px;"></div>
 <script>
-new Morris.Line({
+    new Morris.Line({
 // ID of the element in which to draw the chart.
-element: 'ad-1-4-experiments',
+        element: 'ad-1-4-experiments',
 // do values relate to dates (time)?
-parseTime: false,
+        parseTime: false,
 // Chart data records -- each entry in this array corresponds to a point on
 // the chart.
-data: ad_1_4_data,
+        data: ad_1_4_data,
 // The name of the data record attribute that contains x-values.
-xkey: 'experiment',
+        xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-ykeys: ['value'],
+        ykeys: ['value'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-labels: ['Value']
-});
+        labels: ['Value']
+    });
 </script>
-
-
-
-
 
 
 <!-- Aufgabe 2.5 -->
 <h2>
-Aufgabe 2.5
+    Aufgabe 2.5
 </h2>
 Dies ist nur eine Vorlage
 <h2>
-Antwort 2.5
+    Antwort 2.5
 </h2>
 <ol>
-<li>
-TODO
-</li>
+    <li>
+        TODO
+    </li>
 </ol>
 <h3>
-Implementierung
+    Implementierung
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-1-5-source"></pre>
 <h3>
-Testergebnisse
+    Testergebnisse
 </h3>
+
 <div id="ad-1-5-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-5-code">
-var ad_1_5_data = [];
+    var ad_1_5_data = [];
 
-var counter = 0;
-// Code
-function fibo4(n){
-    if(n ===1 ) return 1;
-    if(n ===0 ) return 0;
-    var ret = 0;
-    var h1 = 0;
-    var h2 = 1;
-    for( i =1; i < n; ++i){
-        counter++;
-        ret = h1 +h2;
-        h1=h2;
-        h2 =ret;
+    var counter = 0;
+    // Code
+    function fibo4(n) {
+        if (n === 1) return 1;
+        if (n === 0) return 0;
+        var ret = 0;
+        var h1 = 0;
+        var h2 = 1;
+        for (i = 1; i < n; ++i) {
+            counter++;
+            ret = h1 + h2;
+            h1 = h2;
+            h2 = ret;
+        }
+        return ret;
     }
-    return ret;
-}
 
 
-// Experiments
-for(i = 1; i <= 20; i++) {
-    counter= 0;
-    var erg_val = fibo4(i);
+    // Experiments
+    for (i = 1; i <= 20; i++) {
+        counter = 0;
+        var erg_val = fibo4(i);
 
-ad_1_5_data.push({
-experiment : i,
-value : counter,
-    erg: erg_val
-});
-}
+        ad_1_5_data.push({
+            experiment: i,
+            value: counter,
+            erg: erg_val
+        });
+    }
 
-// Tests
-assert(fibo4(10) === 55, "fibo4(10) == 55");
-assert(fibo4(1) === 1 ,"fibo4(1) = 1");
-
+    // Tests
+    assert(fibo4(10) === 55, "fibo4(10) == 55");
+    assert(fibo4(1) === 1, "fibo4(1) = 1");
 
 
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-1-5-source').html($('#ad-1-5-code').html())
+    $('pre#ad-1-5-source').html($('#ad-1-5-code').html())
 </script>
 
 <h3>
-Experimente
+    Experimente
 </h3>
 
 <div id="ad-1-5-experiments" style="height: 250px;"></div>
 <script>
-new Morris.Line({
+    new Morris.Line({
 // ID of the element in which to draw the chart.
-element: 'ad-1-5-experiments',
+        element: 'ad-1-5-experiments',
 // do values relate to dates (time)?
-parseTime: false,
+        parseTime: false,
 // Chart data records -- each entry in this array corresponds to a point on
 // the chart.
-data: ad_1_5_data,
+        data: ad_1_5_data,
 // The name of the data record attribute that contains x-values.
-xkey: 'experiment',
+        xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-ykeys: ['value', 'erg'],
+        ykeys: ['value', 'erg'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-labels: ['Value', 'erg']
-});
+        labels: ['Value', 'erg']
+    });
 </script>
 
 
 <!-- Aufgabe 2 -->
 <h2>
-Aufgabe 3
+    Aufgabe 3
 </h2>
 Dies ist nur eine Vorlage
 <h2>
-Antwort 3
+    Antwort 3
 </h2>
 <ol>
-<li>
-TODO
-</li>
+    <li>
+        TODO
+    </li>
 </ol>
 <h3>
-Implementierung
+    Implementierung
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-1-6-source"></pre>
 <h3>
-Testergebnisse
+    Testergebnisse
 </h3>
+
 <div id="ad-1-6-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-6-code">
-var ad_1_6_data = [];
+    var ad_1_6_data = [];
 
-    var newLinkedList = function(){
+
+    var newLinkedList = function () {
         var instanceOfLinkedList = Object.create()
         instanceOfLinkedList.head = null;
-       // instanceOfLinkedList.tail = null;
+        instanceOfLinkedList.zugrCounter = 0;
         return instanceOfLinkedList;
     }
 
 
-    function cons(x, list){
+    function cons(x, list) {
         var newNode = makeNode(x)
-        if(!list.head) this.head = newNode;
-        else{
+        addZugr()
+        if (!list.head) this.head = newNode,
+                addZugr()
+        else {
             newNode.next = list.head;
-            list.head =newNode;
+            addZugr();
+            list.head = newNode;
+            addZugr()
         }
         return list;
     }
 
-    function head(list){
+    function head(list) {
         return list.head;
     }
 
-    function tail(list){
+    function tail(list) {
         return list.head.next;
     }
 
-    function length(list){
+    function length(list) {
         var counter = 1;
-        if(!list.head) return 0
+        if (!list.head) return 0
         var elem = list.head.next;
-        while(elem.next != null){
+        addZugr();
+        while (elem.next != null) {
             elem = elem.next
+            addZugr();
             counter++
         }
         return counter;
     }
 
-    function isEmpty(list){
-        (!list.head) ? true:false;
+    function isEmpty(list) {
+        (!list.head) ? true : false;
     }
-    // pr�fen
-    function insert(x, n, list){
-        if(n == 0) return cons(x, list);
-        else if (n > length(list)+1){
+
+    // prüfen
+    function insert(x, n, list) {
+        if (n == 0) return cons(x, list), addZugr();
+        else if (n > length(list) + 1) {
             return list;
-        }else{
+        } else {
             elem = list.head
-            for(pos = 1; pos < n; pos++){
-                elem =  list.next
+            addZugr()
+            for (pos = 1; pos < n; pos++) {
+                elem = list.next, addZugr()
             }
             var tail = elem.next
-            var newNode=  makeNode(x)
+            addZugr()
+            var newNode = makeNode(x)
+            addZugr();
             elem.data = newNode
+            addZugr()
             newNode.next = tail
+            addZugr()
         }
         return list
     }
 
-    var makeNode = function (val){
+    // Zugriff wird beim Aufruf mitgezählt
+    var makeNode = function (val) {
         var instanceOfNode = {
-            data : val,
-            next : null
+            data: val,
+            next: null
         };
         return instanceOfNode
     }
 
-// Tests
+    // Zugriffszählermethoden
+    function resetZugr(list) {
+        list.zugrCounter = 0;
+    }
 
-assert(isEmpty(newLinkedList()) === true, "liste ist empty");
+    function addZugr(list) {
+        list.zugrCounter++;
+    }
 
-var consList = cons(1, newLinkedList())
-assert(consList.head.data = 1, "Cons funkt")
-assert(typeof(steps) === 'function', "function 'steps' not implemented");
+    function getZugr(list) {
+        return list.zugrCounter;
+    }
+
+
+
+
+    // Experiments
+    for (i = 1; i <= 20; i++) {
+        counter = 0;
+        // var erg_val = fibo4(i);
+
+        ad_1_6_data.push({
+            experiment: i,
+            value: counter
+            //   value : counter,
+            //   erg: erg_val
+        });
+    }
+
+    // Tests
+
+    assert(typeof(steps) === 'function', "function 'steps' not implemented");
+    var myList = newLinkedList();
+    assert(isEmpty(myList) === true, "liste ist empty");
+    cons(1, myList);
+    assert(myList.head.data === 1, "Cons funkt");
+
+
+
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-1-6-source').html($('#ad-1-6-code').html())
-assert(isEmpty(list) === true, "liste ist empty");
-assert(typeof(steps) === 'function', "function 'steps' not implemented");
+    $('pre#ad-1-6-source').html($('#ad-1-6-code').html())
 </script>
 
 <h3>
-Experimente
+    Experimente
 </h3>
 
 <div id="ad-1-6-experiments" style="height: 250px;"></div>
 <script>
-new Morris.Line({
+    new Morris.Line({
 // ID of the element in which to draw the chart.
-element: 'ad-1-6-experiments',
+        element: 'ad-1-6-experiments',
 // do values relate to dates (time)?
-parseTime: false,
+        parseTime: false,
 // Chart data records -- each entry in this array corresponds to a point on
 // the chart.
-data: ad_1_6_data,
+        data: ad_1_6_data,
 // The name of the data record attribute that contains x-values.
-xkey: 'experiment',
+        xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-ykeys: ['value'],
+        ykeys: ['value'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-labels: ['Value']
-});
+        labels: ['Value']
+    });
 </script>
-
-
-
-
 
 
 <!-- Aufgabe 3.2-->
 <h2>
-Aufgabe 3.2
+    Aufgabe 3.2
 </h2>
 Dies ist nur eine Vorlage
 <h2>
-Antwort 3.2
+    Antwort 3.2
 </h2>
 <ol>
-<li>
-TODO
-</li>
+    <li>
+        TODO
+    </li>
 </ol>
 <h3>
-Implementierung
+    Implementierung
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-1-7-source"></pre>
 <h3>
-Testergebnisse
+    Testergebnisse
 </h3>
+
 <div id="ad-1-7-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-7-code">
-var ad_1_2_data = [];
+    var ad_1_2_data = [];
 
-var newArrayList = function(){
-    var instanceOfArrayList = Object.create()
-    instanceOfArrayList.array = [];
-    instanceOfArrayList.elem_count= 0;
-    // instanceOfArrayList.tail = null;
-    return instanceOfArrayList;
-}
-
-
-function consA(x, list){
-    return insertA(x,0, list)
-}
-
-function headA(list){
-    return  list.array[0]
-}
-
-function tailA(list){
-    var tmpList = newArrayList();
-    for(i =1; i < list.elem_count; i++){
-        tmpList.array[i] = list.array[i]
+    var newArrayList = function () {
+        var instanceOfArrayList = Object.create()
+        instanceOfArrayList.array = [];
+        instanceOfArrayList.elem_count = 0;
+        instanceOfArrayList.zugrCounter = 0;
+        return instanceOfArrayList;
     }
-    tmpList.elem_count = list.elem_count-1;
-    return tmpList
-}
 
-function lengthA(list){
-    return list.elem_count
-}
 
-function isEmptyA(list){
-    (lengthA(list) === 0) ? true:false;
-}
-// pr�fen
-function insertA(x, n, list){
-    if(n > list.size+1) return list
-    templist = newArrayList()
-    for (i = this.elem_count; i >= n; i--) {
-        tempList.array[i + 1] = list.array[i];
+    function consA(x, list) {
+        return insertA(x, 0, list)
     }
-    tempList.array[n] = x
-    return tempList
-}
+
+    function headA(list) {
+        return list.array[0],
+                addZugrA
+    }
+
+    function tailA(list) {
+        var tmpList = newArrayList();
+        for (i = 1; i < list.elem_count; i++) {
+            tmpList.array[i] = list.array[i]
+            addZugrA
+        }
+        tmpList.elem_count = list.elem_count - 1;
+        addZugrA
+        return tmpList
+    }
+
+    function lengthA(list) {
+        return list.elem_count
+        addZugrA
+    }
+
+    function isEmptyA(list) {
+        (lengthA(list) === 0) ? true : false;
+    }
+    // prüfen
+    function insertA(x, n, list) {
+        if (n > list.size + 1) return list
+        addZugrA
+        templist = newArrayList()
+        for (i = this.elem_count; i >= n; i--) {
+            tempList.array[i + 1] = list.array[i];
+            addZugrA
+        }
+        tempList.array[n] = x
+        addZugrA
+        return tempList
+    }
+
+    // Zugriffszählermethoden
+    function resetZugrA(list) {
+       list.zugrCounter = 0;
+    }
+
+    function addZugrA(list) {
+        list.zugrCounter++;
+    }
+
+    function getZugrA(list) {
+        return list.zugrCounter;
+    }
 
 
 
-// Tests
-assert(ad_1_7_data.length === 10, "experiments have collected data");
-assert(typeof(steps) === 'function', "function 'steps' not implemented");
+    // Tests
+    assert(typeof(steps) === 'function', "function 'steps' not implemented");
+
+    var myList = newArrayList();
+    assert(isEmpty(myList) === true, "liste ist empty");
+    cons(1, myList);
+    assert(headA(myList) === 1, "ConsA funkt");
+
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-1-7-source').html($('#ad-1-7-code').html())
+    $('pre#ad-1-7-source').html($('#ad-1-7-code').html())
 </script>
 
 <h3>
-Experimente
+    Experimente
 </h3>
 
 <div id="ad-1-7-experiments" style="height: 250px;"></div>
 <script>
-new Morris.Line({
+    new Morris.Line({
 // ID of the element in which to draw the chart.
-element: 'ad-1-7-experiments',
+        element: 'ad-1-7-experiments',
 // do values relate to dates (time)?
-parseTime: false,
+        parseTime: false,
 // Chart data records -- each entry in this array corresponds to a point on
 // the chart.
-data: ad_1_7_data,
+        data: ad_1_7_data,
 // The name of the data record attribute that contains x-values.
-xkey: 'experiment',
+        xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-ykeys: ['value'],
+        ykeys: ['value'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-labels: ['Value']
-});
+        labels: ['Value']
+    });
 </script>
-
 
 
 </body>

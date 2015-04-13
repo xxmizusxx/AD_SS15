@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lösungsblatt Vorlage</title>
+    <!-- Um Sonderzeichen richtig zu behandeln -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <!-- Bootstrap Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Nötig damit die Charts die Größe nach dem Tabwechsel behalten -->
+    <style type="text/css">
+        svg {
+            width: 100% !important
+        }
+    </style>
+    <!-- Jquery (gebraucht für Morris und Bootstrap js) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- morris graph lib -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <!-- LaTeX-style equations -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+
+    </script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <!-- Assert Färbung -->
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.style.color = value ? "green" : "red";
+            li.appendChild(document.createTextNode(desc));
+            //var list = document.getElementById("results");
+            var thisScript = document.scripts[document.scripts.length - 1];
+            var list = thisScript.parentNode;
+            if (!list) {
+                list = document.createElement("div");
+                document.body.appendChild(list);
+            }
+            list.appendChild(li);
+        }
+        var charts = [];
+    </script>
+    <!-- Zeichnet die Charts bei Tabwechsel neu -->
+    <script>
+        $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
+            $.each(charts, function (index, value) {
+                value.redraw();
+            });
+        });
+    </script>
+</head>
+
+<h1 id="title">Michael Bernhardt und Konstantin Böhm</h1>
+
+
+<div role="tabpanel">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#exercise1" aria-controls="exercise1" role="tab" data-toggle="tab" data-identifier="line">Aufgabe 1</a>
+        </li>
+        <li role="presentation">
+            <a href="#exercise2" aria-controls="exercise2" role="tab" data-toggle="tab" data-identifier="line">Aufgabe 2</a>
+        </li>
+        <li role="presentation">
+            <a href="#exercise3" aria-controls="exercise3" role="tab" data-toggle="tab" data-identifier="line">Aufgabe 3</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!-- Aufgabe 1 -->
+        <div role="tabpanel" class="tab-pane active" id="exercise1">
+            <h2>Aufgabe 1</h2>
+            <!-- Antwort 1 -->
+            <div class="answer1">
+                <h3>Antwort 1</h3>
+
+                <p class="answer_text">
+                    Eine naive Implementierung hat ein Platz- und Zeitaufwand von O(n).
+                </p>
+            </div>
+            <!-- Antwort 2 -->
+            <div class="answer2">
+                <h3>Antwort 2</h3>
+
+                <p class="answer_text">
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
+                    <pre id="ad-1-1-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-1-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-1-code">
+                        var ad_1_1_data = [];
+
+                        // Code
+
+                        // naive Lösung
+                        function steps_naiv(x, y, d) {
+                            if (d == 0) {
+                                return "undefined";
+                            }
+                            var step_count = 0;
+                            while (x <= y) {
+                                x = x + d;
+                                step_count++;
+                            }
+                            return step_count;
+                        }
+
+                        function steps(x, y, d) {
+                            if (x > y) {
+                                return 0;
+                            } else if (d == 0) {
+                                return "undefined";
+                            } else {
+                                return Math.ceil((y + 1 - x) / d);
+                            }
+                        }
+
+                        // Experiments
+                        for (i = 0; i < 100; i++) {
+                            ad_1_1_data.push({
+                                experiment: i + 1,
+                                value: steps(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))
+                            });
+                        }
+
+                        // Tests
+                        assert(steps_naiv(15, 80, 0) === "undefined", "Naiv: Steps ist undefined für d = 0.");
+                        assert(steps(15, 80, 0) === "undefined", "Steps ist undefined für d = 0.");
+                        assert(steps_naiv(85, 10, 10) === 0, "Naiv: Steps gibt immer 0 zurück wenn das Ziel schon erreicht.");
+                        assert(steps(85, 10, 10) === 0, "Steps gibt immer 0 zurück wenn das Ziel schon erreicht.");
+                        assert(steps_naiv(15, 20, 10) === 1, "Naiv: Steps gibt immer 1 zurück wenn das Ziel nach einem Schritt das Ziel überschritten ist.");
+                        assert(steps(15, 20, 10) === 1, "Steps gibt immer 1 zurück wenn das Ziel nach einem Schritt das Ziel überschritten ist.");
+                        var x = Math.ceil(Math.random() * 10);
+                        var y = Math.ceil(Math.random() * 1000);
+                        var d = Math.ceil(Math.random() * 10);
+                        assert(steps(x, y, d) === steps_naiv(x, y, d), "Die naiven und die nicht naiven Step Methode geben für die gleichen Zufallszahlen das selbe Ergebnis zurück.");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-1-source').html($('#ad-1-1-code').html())
+                    </script>
+                </div>
+                <div class="chart">
+                    <h3>
+                        Experimente
+                    </h3>
+
+                    <div id="ad-1-1-experiments" style="height: 250px;"></div>
+                    <script>
+                        charts.push(new Morris.Line({
+                            // ID of the element in which to draw the chart.
+                            element: 'ad-1-1-experiments',
+                            // do values relate to dates (time)?
+                            parseTime: false,
+                            // Chart data records -- each entry in this array corresponds to a point on
+                            // the chart.
+                            data: ad_1_1_data,
+                            // The name of the data record attribute that contains x-values.
+                            xkey: 'experiment',
+                            // A list of names of data record attributes that contain y-values.
+                            ykeys: ['value'],
+                            // Labels for the ykeys -- will be displayed when you hover over the
+                            // chart.
+                            labels: ['Value'],
+                            resize: true
+                        }));
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!-- Aufgabe 2 -->
+        <div role="tabpanel" class="tab-pane" id="exercise2">
+            <h2>
+                Aufgabe 2
+            </h2>
+            <!-- Antwort 1 -->
+            <div class="answer1">
+                <h3>
+                    Antwort 1
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben eine naive Lösung für die Fibonacci-Zahlen implementiert:
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-1-code angezeigt -->
+                    <pre id="ad-1-2-1-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-2-1-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-2-1-code">
+                        var timeCount = 0; // for counting the calls later
+
+                        // Code
+                        function fib(n) {
+                            timeCount++; // for counting the calls later
+                            if (n <= 1) {
+                                return n;
+                            } else {
+                                return fib(n - 1) + fib(n - 2);
+                            }
+                        }
+
+                        // Tests
+                        assert(fib(1) === 1, "Der Algorithmus löst fib(1) mit 1.");
+                        assert(fib(2) === 1, "Der Algorithmus löst fib(2) mit 1.");
+                        assert(fib(3) === 2, "Der Algorithmus löst fib(3) mit 2.");
+                        assert(fib(4) === 3, "Der Algorithmus löst fib(4) mit 3.");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-2-1-source').html($('#ad-1-2-1-code').html())
+                    </script>
+                </div>
+            </div>
+            <!-- Antwort 2 -->
+            <div class="answer2">
+                <h3>
+                    Antwort 2
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben ein Experiment mit dem Input der Zahlen 1-20 geprüft. Hierbei wird der Zeitaufwand durch
+                    die Aufrufe der Funktion abstrahiert.
+                    Der Zeitaufwand des naiven Algorithmus ist O(2^n).
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-2-code angezeigt -->
+                    <pre id="ad-1-2-2-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-2-2-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-2-2-code">
+                        var ad_1_2_2_data = [];
+
+                        // Experiments
+                        for (i = 0; i < 20; i++) {
+                            timeCount = 0;
+                            fib(i + 1);
+                            ad_1_2_2_data.push({
+                                experiment: i + 1,
+                                value: timeCount
+                            });
+                        }
+
+                        // Tests
+                        assert(ad_1_2_2_data.length === 20, "Chart Daten geladen. 20 Durchläufe werden angezeigt.");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-2-2-source').html($('#ad-1-2-2-code').html())
+                    </script>
+                </div>
+                <div class="chart">
+                    <h4>
+                        Experimente
+                    </h4>
+
+                    <div id="ad-1-2-2-experiments" style="height: 250px;"></div>
+                    <script>
+                        charts.push(new Morris.Line({
+                            // ID of the element in which to draw the chart.
+                            element: 'ad-1-2-2-experiments',
+                            // do values relate to dates (time)?
+                            parseTime: false,
+                            // Chart data records -- each entry in this array corresponds to a point on
+                            // the chart.
+                            data: ad_1_2_2_data,
+                            // The name of the data record attribute that contains x-values.
+                            xkey: 'experiment',
+                            // A list of names of data record attributes that contain y-values.
+                            ykeys: ['value'],
+                            // Labels for the ykeys -- will be displayed when you hover over the
+                            // chart.
+                            labels: ['Time Count'],
+                            resize: true
+                        }));
+                    </script>
+                </div>
+            </div>
+            <!-- Antwort 3 -->
+            <div class="answer3">
+                <h3>
+                    Antwort 3
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben sowohl eine Lösung mit memoization als auch ohne für die Fibonacci-Zahlen implementiert:
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-3-code angezeigt -->
+                    <pre id="ad-1-2-3-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-2-3-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-2-3-code">
+                        // Für später um die Aufrufe zu zählen
+                        var timeCount = 0;
+
+                        // Für die memoization
+                        var memo = [];
+                        // Memo initialisieren
+                        memo[0] = 0;
+
+                        // Code
+
+                        // Mit memoization
+                        function fib2(n) {
+                            timeCount++;
+                            if (n < 2) {
+                                return n;
+                            } else {
+                                var f = memo[n];
+                                if (typeof f === "undefined") {
+                                    f = fib2(n - 1) + fib2(n - 2);
+                                    memo[n] = f;
+                                }
+                                return f;
+                            }
+                        }
+
+                        // Ohne memoization
+                        function fib3(n) {
+                            timeCount++;
+                            return fib3_(n, 1, 1);
+                        }
+
+                        // Rekursive Hilfe für fib3
+                        function fib3_(n, f1, f2) {
+                            timeCount++;
+                            if (n < 2) {
+                                return f1;
+                            } else {
+                                return fib3_(n - 1, f2, f1 + f2);
+                            }
+                        }
+                        // TODO fib4
+                        // TODO fib2 === fib3
+                        // Tests
+                        assert(fib2(1) === 1, "Der Algorithmus löst fib2(1) mit 1.");
+                        assert(fib2(2) === 1, "Der Algorithmus löst fib2(2) mit 1");
+                        assert(fib2(3) === 2, "Der Algorithmus löst fib2(3) mit 2");
+                        assert(fib2(4) === 3, "Der Algorithmus löst fib2(4) mit 3");
+                        assert(fib3(1) === 1, "Der Algorithmus löst fib3(1) mit 1");
+                        assert(fib3(2) === 1, "Der Algorithmus löst fib3(2) mit 1");
+                        assert(fib3(3) === 2, "Der Algorithmus löst fib3(3) mit 2");
+                        assert(fib3(4) === 3, "Der Algorithmus löst fib3(4) mit 3");
+                        var randomNumber = Math.ceil(Math.random() * 10);
+                        assert(fib(randomNumber) === fib2(randomNumber), "Der Algorithmus fib2(Zufallszahl) löst genauso wie fib(Zufallszahl)");
+                        assert(fib(randomNumber) === fib3(randomNumber), "Der Algorithmus fib3(Zufallszahl) löst genauso wie fib(Zufallszahl)");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-2-3-source').html($('#ad-1-2-3-code').html())
+                    </script>
+                </div>
+            </div>
+            <!-- Antwort 4 -->
+            <div class="answer4">
+                <h3>
+                    Antwort 4
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben die beiden Algorithmen experimentel mit dem Input der Zahlen 1-20 geprüft. Hierbei wird
+                    der Zeitaufwand durch die Aufrufe der Funktion abstrahiert.
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-4-code angezeigt -->
+                    <pre id="ad-1-2-4-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-2-4-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-2-4-code">
+                        var ad_1_2_4_1_data = [];
+                        var ad_1_2_4_2_data = [];
+
+                        // Experiment 1
+                        for (i = 0; i < 20; i++) {
+                            timeCount = 0;
+                            fib2(i + 1);
+                            ad_1_2_4_1_data.push({
+                                experiment: i + 1,
+                                value: timeCount
+                            });
+                            // Memo zurücksetzen
+                            memo = [];
+                            memo[0] = 0;
+                        }
+
+                        // Experiment 2
+                        for (i = 0; i < 20; i++) {
+                            timeCount = 0;
+                            fib3(i + 1);
+                            ad_1_2_4_2_data.push({
+                                experiment: i + 1,
+                                value: timeCount
+                            });
+
+                        }
+
+                        // Tests
+                        assert(ad_1_2_4_1_data.length === 20, "Chart Daten für das erste Experiment(fib2) geladen. 20 Durchläufe werden angezeigt.");
+                        assert(ad_1_2_4_2_data.length === 20, "Chart Daten für das zweite Experiment(fib3) geladen. 20 Durchläufe werden angezeigt.");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-2-4-source').html($('#ad-1-2-4-code').html())
+                    </script>
+                </div>
+                <div class="chart">
+                    <h4>
+                        Experimente
+                    </h4>
+
+                    <div>
+                        <div id="ad-1-2-4-1-experiments" style="height: 250px;"></div>
+                        <script>
+                            charts.push(new Morris.Line({
+                                // ID of the element in which to draw the chart.
+                                element: 'ad-1-2-4-1-experiments',
+                                // do values relate to dates (time)?
+                                parseTime: false,
+                                // Chart data records -- each entry in this array corresponds to a point on
+                                // the chart.
+                                data: ad_1_2_4_1_data,
+                                // The name of the data record attribute that contains x-values.
+                                xkey: 'experiment',
+                                // A list of names of data record attributes that contain y-values.
+                                ykeys: ['value'],
+                                // Labels for the ykeys -- will be displayed when you hover over the
+                                // chart.
+                                labels: ['Time Count'],
+                                resize: true
+                            }));
+                        </script>
+                        <div id="ad-1-2-4-2-experiments" style="height: 250px;"></div>
+                        <script>
+                            charts.push(new Morris.Line({
+                                // ID of the element in which to draw the chart.
+                                element: 'ad-1-2-4-2-experiments',
+                                // do values relate to dates (time)?
+                                parseTime: false,
+                                // Chart data records -- each entry in this array corresponds to a point on
+                                // the chart.
+                                data: ad_1_2_4_2_data,
+                                // The name of the data record attribute that contains x-values.
+                                xkey: 'experiment',
+                                // A list of names of data record attributes that contain y-values.
+                                ykeys: ['value'],
+                                // Labels for the ykeys -- will be displayed when you hover over the
+                                // chart.
+                                labels: ['Time Count'],
+                                resize: true
+                            }));
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <!-- Antwort 5 -->
+            <div class="answer5">
+                <h3>
+                    Antwort 5
+                </h3>
+
+                <p class="answer_text">
+                    Die Variante mit memoization hat einen Platzaufwand von O(n), da alle Zahlen gespeichert werden. Die andere Variante hingegen
+                    hat einen Platzaufwand von O(1), weil es sich nur die zwei Parameter der Rekursion merken muss.
+                </p>
+            </div>
+            <!-- Antwort 6 -->
+            <div class="answer6">
+                <h3>
+                    Antwort 6
+                </h3>
+
+                <p class="answer_text">
+                    Hier die Implementierung der iterativen Methode von Fibonacci:
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-3-code angezeigt -->
+                    <pre id="ad-1-2-6-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-2-6-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-2-6-code">
+                        // Code
+
+                        // Iterative Methode für Fibonacci
+                        function fib4(n) {
+                            if (n < 2) {
+                                return n;
+                            }
+                            var f1 = 1;
+                            var f2 = 1;
+                            while (n >= 2) {
+                                var tmp = f1;
+                                f1 = f2;
+                                f2 = tmp + f2;
+                                n--;
+                            }
+                            return f1;
+                        }
+
+                        // Tests
+                        assert(fib4(1) === 1, "Der Algorithmus fib4(1) löst mit 1.");
+                        assert(fib4(2) === 1, "Der Algorithmus fib4(2) löst mit 1");
+                        assert(fib4(3) === 2, "Der Algorithmus fib4(3) löst mit 2");
+                        assert(fib4(4) === 3, "Der Algorithmus fib4(4) löst mit 3");
+                        var randomNumber = Math.ceil(Math.random() * 10);
+                        assert(fib(randomNumber) === fib4(randomNumber), "Der Algorithmus fib4(Zufallszahl) löst genauso wie fib(Zufallszahl)");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-2-6-source').html($('#ad-1-2-6-code').html())
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!-- Aufgabe 3 -->
+        <div role="tabpanel" class="tab-pane" id="exercise3">
+            <h2>
+                Aufgabe 3
+            </h2>
+            <!-- Antwort 1 -->
+            <div class="answer1">
+
+                <!-- Sonderfall für counter code. Muss vorher geladen werden daher hier! -->
+                <div id="ad-1-3-2-results"></div>
+                <!-- Code und Tests hier hin -->
+                <script id="ad-1-3-2-code">
+                    this.refCounter = 0;
+
+                    function resetCounter(){
+                        this.refCounter = 0;
+                    }
+
+                    function countRef() {
+                        this.refCounter++;
+                    }
+
+                    function getCounter(){
+                        return this.refCounter;
+                    }
+                </script>
+                <h3>
+                    Antwort 1
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben die einfach verkette Liste implementiert:
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-3-1-code angezeigt -->
+                    <pre id="ad-1-3-1-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-3-1-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-3-1-code">
+
+                        // Constructor
+                        var newLinkedList = function () {
+                            var newLinkedList = Object.create(methodsOfLinkedList);
+                            newLinkedList.head = null;
+                            return newLinkedList;
+                        };
+
+                        var methodsOfLinkedList = {
+                            cons: function (value) {
+                                var newListElem = listElem(value);
+
+                                // Setze gleich Head falls leere Liste
+                                if (!this.head) {
+                                    this.head = newListElem;
+                                    countRef();
+                                } else {
+                                    newListElem.next = this.head;
+                                    countRef();
+                                    this.head = newListElem;
+                                    countRef();
+                                }
+                            },
+
+                            getHead: function () {
+                                return this.head.data;
+                            },
+
+                            getTail: function () {
+                                var cloneList = newLinkedList();
+                                var elem = this.head.next;
+                                countRef();
+                                var cloneElem = listElem(elem.data);
+                                countRef();
+                                cloneList.head = cloneElem;
+                                countRef();
+                                debugger;
+                                while (elem.next) {
+                                    elem = elem.next;
+                                    countRef();
+                                    cloneElem.next = listElem(elem.data);
+                                    countRef();
+                                    cloneElem = cloneElem.next;
+                                    countRef();
+                                }
+                                // Auf Nachfolger referenzieren
+                                cloneList.head = this.head.next;
+                                countRef();
+                                return cloneList;
+                            },
+
+                            length: function () {
+                                if (!this.head) {
+                                    return 0;
+                                } else {
+                                    var elem = this.head;
+                                    var length = 1;
+                                    while (elem.next != null) {
+                                        elem = elem.next;
+                                        length++;
+                                    }
+                                    return length;
+                                }
+                            },
+
+                            isEmpty: function () {
+                                return !this.head
+                            },
+
+                            insert: function (x, n) {
+                                if (this.length() < n) {
+                                    return false;
+                                } else if (n == 0) {
+                                    this.cons(x);
+                                } else {
+                                    var currentListElem = this.head;
+                                    countRef();
+                                    for (i = 1; i < n; i++) {
+                                        currentListElem = currentListElem.next;
+                                        countRef();
+                                    }
+                                    var elem = listElem(x);
+                                    countRef();
+                                    var next = currentListElem.next;
+                                    countRef();
+                                    currentListElem.next = elem;
+                                    countRef();
+                                    elem.next = next;
+                                    countRef();
+                                }
+                                return true;
+                            }
+                        };
+
+                        var listElem = function (value) {
+                            // Neues Listen Element initialisieren
+                            var newListElem = {
+                                data: value,
+                                next: null
+                            };
+                            return newListElem;
+                        };
+
+                        // Tests
+                        var testList = newLinkedList();
+                        assert(testList.isEmpty() === true, "Eine neue LinkedList is leer");
+                        testList.cons(1);
+                        assert(testList.isEmpty() === false, "Eine neue LinkedList mit einem Element ist nicht leer");
+                        assert(testList.getHead() === 1, "Die Methode cons(1) hat eine 1 in den Head geschrieben.");
+                        testList.cons(2);
+                        assert(testList.getHead() === 2, "Danach hat die Methode cons(2) hat eine 2 in den Head geschrieben.");
+                        testList.cons(3);
+                        assert(testList.getHead() === 3, "Danach hat die Methode cons(3) hat eine 3 in den Head geschrieben.");
+                        var tailList = testList.getTail();
+                        assert(tailList.getHead() === 2, "Die Tail-Liste hat als Head eine 2.");
+                        assert(tailList.head.next.data === 1, "Die Tail-Liste hat als zweites Element eine 1.");
+                        assert(testList.length() === 3, "Die Test-Liste hat eine Länge von 3.");
+                        assert(tailList.length() === 2, "Die Tail-Liste der Test-Liste hat eine Länge von 2.");
+                        assert(testList.insert(0, 0) === true, "Es ist möglich ein Element einzufügen.");
+                        assert(testList.insert(0, 9999) === false, "Es ist nicht möglich ein Element in einem zu hohem Index einzufügen.");
+                        assert(testList.getHead() === 0, "Insert(0, 0) fügt an Index 0 eine 0 an");
+                        testList.insert(4, 1);
+                        assert(testList.head.next.data === 4, "Insert(4, 1) fügt an Index 1 eine 4 an");
+                        testList.insert(5, 2);
+                        assert(testList.head.next.next.data === 5, "Insert(5, 2) fügt an Index 2 eine 5 an");
+                        testList.insert(6, 3);
+                        assert(testList.head.next.next.next.data === 6, "Insert(6, 3) fügt an Index 3 eine 6 an");
+                        testList.insert(99, testList.length() - 1);
+                        assert(testList.head.next.next.next.next.next.next.data === 99, "Fügt am Ende der Liste eine 99 an");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-3-1-source').html($('#ad-1-3-1-code').html())
+                    </script>
+                </div>
+            </div>
+            <!-- Antwort 2 -->
+            <div class="answer2">
+                <h3>
+                    Antwort 2
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben Funktionen implementiert die unsere Zähler zu benutzen:
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-3-2-code angezeigt -->
+                    <pre id="ad-1-3-2-source"></pre>
+
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-3-2-source').html($('#ad-1-3-2-code').html())
+                    </script>
+                </div>
+            </div>
+            <!-- Antwort 6 -->
+            <div class="answer6">
+                <h3>
+                    Antwort 6
+                </h3>
+
+                <p class="answer_text">
+                    Wir haben die array basierte Liste implementiert:
+                </p>
+
+                <div class="code_and_tests">
+                    <h4>
+                        Implementierung
+                    </h4>
+                    <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-3-6-code angezeigt -->
+                    <pre id="ad-1-3-6-source"></pre>
+                    <h4>
+                        Testergebnisse
+                    </h4>
+
+                    <div id="ad-1-3-6-results"></div>
+                    <!-- Code und Tests hier hin -->
+                    <script id="ad-1-3-6-code">
+
+                        // Constructor
+                        var newArrayList = function (size, step_size) {
+                            var newArrayList = Object.create(methodsOfArrayList);
+                            newArrayList.array = [];
+                            newArrayList.size = size;
+                            newArrayList.elem_count = 0;
+                            newArrayList.step_size = step_size;
+                            return newArrayList;
+                        };
+
+                        var methodsOfArrayList = {
+                            cons: function (value) {
+                                this.insert(value, 0);
+                            },
+
+                            getHead: function () {
+                                return this.array[0];
+                            },
+
+                            getTail: function () {
+                                // Größe der neuen Liste berechnen
+                                var newSize = this.size - this.elem_count - 1 > this.step_size ? this.size : this.size - this.step_size;
+                                // Tail-Liste initialisieren
+                                var newList = newArrayList(newSize, this.step_size);
+                                // Falls leer oder nur ein Element, dann leere Liste
+                                if (this.size <= 1) {
+                                    return newList;
+                                }
+
+
+                                // Element Anzahl setzen
+                                newList.elem_count = this.elem_count - 1;
+
+                                // Deepcopy ohne das erste Element
+                                for (i = 0; i < this.elem_count; i++) {
+                                    newList.array[i] = this.array[i + 1];
+                                }
+                                return newList;
+                            },
+
+                            length: function () {
+                                return this.elem_count;
+                            },
+
+                            isEmpty: function () {
+                                return this.elem_count == 0;
+                            },
+
+                            insert: function (x, n) {
+                                if (n > this.elem_count) {
+                                    return false;
+                                }
+                                // Prüfen on Array-Größe erhöht werden muss und dann array in neues Array kopieren
+                                if (this.elem_count == this.size) {
+                                    var newArray = []
+                                    this.size += this.step_size;
+                                    // Deepcopy ohne das erste Element
+                                    for (i = 0; i < this.elem_count; i++) {
+                                        newArray[i] = this.array[i];
+                                    }
+                                    this.array = newArray;
+                                }
+
+                                // Alle Elemente ab Index n um eine Position nach rechts verschieben
+                                for (i = this.elem_count; i >= n; i--) {
+                                    this.array[i + 1] = this.array[i];
+                                }
+                                // Element einfügen und Element Anzahl erhöhen
+                                this.array[n] = x;
+                                this.elem_count++;
+                                return true;
+                            }
+                        };
+
+                        // Tests
+                        // Um Vergrößerung zu testen, extra mit 2, 2 initialisiert
+                        var testList = newArrayList(2, 2);
+                        assert(testList.isEmpty() === true, "Eine neue ArrayList is leer");
+                        testList.cons(1);
+                        assert(testList.isEmpty() === false, "Eine neue ArrayList mit einem Element ist nicht leer");
+                        assert(testList.getHead() === 1, "Die Methode cons(1) hat eine 1 in den Head geschrieben.");
+                        testList.cons(2);
+                        assert(testList.getHead() === 2, "Danach hat die Methode cons(2) hat eine 2 in den Head geschrieben.");
+                        testList.cons(3);
+                        assert(testList.getHead() === 3, "Danach hat die Methode cons(3) hat eine 3 in den Head geschrieben.");
+                        var tailList = testList.getTail();
+                        assert(tailList.getHead() === 2, "Die Tail-Liste hat als Head eine 2.");
+                        assert(tailList.array[1] === 1, "Die Tail-Liste hat als zweites Element eine 1.");
+                        assert(testList.length() === 3, "Die Test-Liste hat eine Länge von 3.");
+                        assert(tailList.length() === 2, "Die Tail-Liste der Test-Liste hat eine Länge von 2.");
+                        assert(testList.insert(0, 0) === true, "Es ist möglich ein Element einzufügen.");
+                        assert(testList.insert(0, 9999) === false, "Es ist nicht möglich ein Element in einem zu hohem Index einzufügen.");
+                        assert(testList.getHead() === 0, "Insert(0, 0) fügt an Index 0 eine 0 an");
+                        testList.insert(4, 1);
+                        assert(testList.array[1] === 4, "Insert(4, 1) fügt an Index 1 eine 4 an");
+                        testList.insert(5, 2);
+                        assert(testList.array[2] === 5, "Insert(5, 2) fügt an Index 2 eine 5 an");
+                        testList.insert(6, 3);
+                        assert(testList.array[3] === 6, "Insert(6, 3) fügt an Index 3 eine 6 an");
+                        testList.insert(99, testList.length());
+                        assert(testList.array[testList.length() - 1] === 99, "Fügt am Ende der Liste eine 99 an");
+                    </script>
+                    <!-- dieser Code zeigt die Implementierung und die Tests an -->
+                    <script>
+                        $('pre#ad-1-3-6-source').html($('#ad-1-3-6-code').html())
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
