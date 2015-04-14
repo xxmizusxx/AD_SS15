@@ -68,14 +68,13 @@
 </h2>
 <ol>
     <li>
-        Naive Steps ist O(n)
+        Die steps_naiv-Funktion(x,y,d) benoetigt bei der naiven Implementation einen Platz- und Zeitaufwand von O(n), da die Berechnung schrittweise durchgefuehrt wird.
     </li>
     <li>
-        TODO
+        Die steps-Funktion(x,y,d) ist mit einem Platz- und Zeitaufwand von O(1) implementiert worden, da nur einmal eine Berechnung durchgefuehrt wird.
+
     </li>
-    <li>
-        TODO
-    </li>
+
 </ol>
 <h3>
     Implementierung
@@ -174,11 +173,67 @@
 <h2>
     Aufgabe 2
 </h2>
-Dies ist nur eine Vorlage
+
+
+<p>
+    Die Fibonacci-Zahlen. Gegeben sei die folgende Funktion:
+    fib(n) =(1; n <= 1)
+            (fib(n - 1) + fib(n - 2) n > 1)
+</p>
+
+
+<ol>
+    <li>
+        Implementieren Sie fib direkt (also naiv).
+    </li>
+     <li>
+        Bestimmen Sie experimentell den Zeitaufwand von fib und stellen Sie das Ergebnis graphisch
+        dar. Geben Sie die gemessene Laufzeitklasse m&ouml;glichst pr&auml;zise in der O-Notation
+        an.
+    </li>
+    <li>
+        Die Fibonacci Zahlen k&ouml;nnen auch schneller berechnet werden. Schreiben Sie jetzt zwei
+        verbesserte Funktionen fib2 und fib3, die rekursiv mit linearem Zeitaufwand ablaufen
+        (O(n)) dar.
+        fib2 soll memoization verwenden.
+        fib3 soll ohne memoization auskommen.
+    </li>
+    <li>
+        Bestimmen Sie experimentell den jeweiligen Zeitaufwand von fib2 und fib3 und stellen
+        Sie die Ergebnisse graphisch dar.
+    </li>
+    <li>
+        Erl&auml;utern Sie, ob und wie sich Ihre Implementierung fib2 und fib3 im Platzaufwand
+        unterscheiden.
+    </li>
+    <li>
+        Implementieren Sie fib4 als iterative Version von fib3.
+        Alle Versionen fib1, ... fib4 m&uuml;ssen durch Tests abgedeckt sein.
+    </li>
+
+</ol>
 <h2>
     Antwort 2
 </h2>
 <ol>
+    <li>
+        Die fibo()-Funktion ist naiv implemetiert weil,
+    </li>
+    <li>
+        TODO
+    </li>
+    <li>
+        TODO
+    </li>
+    <li>
+        TODO
+    </li>
+    <li>
+        TODO
+    </li>
+    <li>
+        TODO
+    </li>
     <li>
         TODO
     </li>
@@ -200,7 +255,6 @@ Dies ist nur eine Vorlage
     // Code
 
     var counter = 0;
-
 
     function fibo(n) {
         counter++;
@@ -260,7 +314,11 @@ Dies ist nur eine Vorlage
 <h2>
     Aufgabe 2.3
 </h2>
-Dies ist nur eine Vorlage
+<li>
+    Bestimmen Sie experimentell den Zeitaufwand von fib und stellen Sie das Ergebnis graphisch
+    dar. Geben Sie die gemessene Laufzeitklasse m&ouml;glichst pr&auml;zise in der O-Notation
+    an.
+</li>
 <h2>
     Antwort 2.3
 </h2>
@@ -565,7 +623,6 @@ Dies ist nur eine Vorlage
     var newLinkedList = function () {
         var instanceOfLinkedList = Object.create(linkedListcreate)
         instanceOfLinkedList.head = makeNode();
-        //instanceOfLinkedList.zugrCounter = 0;
         return instanceOfLinkedList;
     }
 
@@ -709,11 +766,7 @@ Dies ist nur eine Vorlage
     }
 
     // Tests
-    //  window.alert(myList.head.data);
-
-    assert(typeof(steps) === 'function', "function 'steps' not implemented");
     var myList = newLinkedList();
-   // myList.toString(); muss überarbeitet werden
     assert(isEmpty(myList) === true, "liste ist empty");
     assert(length(myList) === 0, "Laenge myList ist 0");
     cons(1, myList);
@@ -727,7 +780,6 @@ Dies ist nur eine Vorlage
     assert(tail(myList).data === 1, "tail(myList) funktioniert");
     myList = insert(3,2,myList)
     assert(length(myList) === 3, "Laenge myList ist 3");
-   // window.alert(myList.head.next.data);
 
 
 </script>
@@ -759,7 +811,6 @@ Dies ist nur eine Vorlage
         labels: ['A','B','C']
     });
 </script>
-
 
 <!-- Aufgabe 3.2-->
 <h2>
@@ -794,17 +845,13 @@ Dies ist nur eine Vorlage
         var instanceOfArrayList = Object.create(arrayListcreate)
         instanceOfArrayList.elem_count = 0;
         instanceOfArrayList.array = new Array(instanceOfArrayList.elem_count);
-
-      //  instanceOfArrayList.zugrCounter = 0;
         return instanceOfArrayList;
     };
-
 
     var arrayListcreate = {
         test: {
         }
     }
-
 
     function consA(x, list) {
         return insertA(x, 1, list)
@@ -869,6 +916,7 @@ Dies ist nur eine Vorlage
         return zugrCounter_A;
     };
 
+    // Experimentmethoden
     function experiment_A_I(list_A, anzahl){
         for(a = 0; a < anzahl; a++)
             list_A = consA(a, list_A)
@@ -912,11 +960,7 @@ Dies ist nur eine Vorlage
         });
     }
 
-
-
     // Tests
-   // assert(typeof(steps) === 'function', "function 'steps' not implemented");
-
     var myList2 = newArrayList();
     assert(isEmptyA(myList2) === true, "liste ist empty");
     consA(1, myList2);
