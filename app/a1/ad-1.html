@@ -839,15 +839,14 @@ Dies ist nur eine Vorlage
        }
     };
 
-    // ToDo es werden keine Elemente hinzugefügt
-    // ToDo es muss dass Array eine Größe beide der Initizalierung mitübergeben werden...
     function insertA(x, n, list) {
         if (n > list.elem_count + 1 || n < 0 ) {
             return list;
-        }else if(n === list.elem_count ) {
+        }else if(n === list.elem_count +1 ) {
             list.elem_count++;
-            list.array[n+1] = x;
+            list.array[n] = x;
             addZugrA();
+            //window.alert("bingo");
             return list;
         }else{
             list.elem_count++;
@@ -933,8 +932,8 @@ Dies ist nur eine Vorlage
     assert(lengthA(myList2) === 3, "Anzahl Elemente: " + myList2.elem_count +" lengthA() funktioniert");
 
     assert(lengthA(list_A) === anzahl_Zahlen, "Anzahl Elemente: " + list_A.elem_count +" Elemente wurde hinzugefuegt " + list_A.array[list_A.elem_count-3]);
-    assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt");
-    assert(lengthA(list_C) === anzahl_Zahlen, "Anzahl Elemente: " + list_C.elem_count +" Elemente wurde hinzugefuegt");
+    assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt" +  list_B.array[list_A.elem_count-3]);
+    assert(lengthA(list_C) === anzahl_Zahlen, "Anzahl Elemente: " + list_C.elem_count +" Elemente wurde hinzugefuegt" +  list_C.array[list_A.elem_count-3]);
 
 
 </script>
