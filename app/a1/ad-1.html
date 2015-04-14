@@ -560,11 +560,12 @@ Dies ist nur eine Vorlage
 
     var ad_1_6_data = [];
 
+    var zugrCounter = 0;
 
     var newLinkedList = function () {
         var instanceOfLinkedList = Object.create(linkedListcreate)
         instanceOfLinkedList.head = makeNode();
-        instanceOfLinkedList.zugrCounter = 0;
+        //instanceOfLinkedList.zugrCounter = 0;
         return instanceOfLinkedList;
     }
 
@@ -661,22 +662,20 @@ Dies ist nur eine Vorlage
 
     // Zugriffszählermethoden
     function resetZugr(list) {
-        list.zugrCounter = 0;
+        zugrCounter = 0;
     }
 
     function addZugr(list) {
-        list.zugrCounter = list.zugrCounter +1;
+        zugrCounter += 1;
     }
 
     function getZugr(list) {
-        return list.zugrCounter;
+        return zugrCounter;
     }
 
     function cleanZugr(list) {
-        return list.zugrCounter = 0;
+        return zugrCounter = 0;
     }
-
-
 
 
     // Experiments
