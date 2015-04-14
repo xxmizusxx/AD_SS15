@@ -842,9 +842,9 @@ Dies ist nur eine Vorlage
     // ToDo es werden keine Elemente hinzugefügt
     // ToDo es muss dass Array eine Größe beide der Initizalierung mitübergeben werden...
     function insertA(x, n, list) {
-        if (n > list.size + 1 || n < 0 ) {
+        if (n > list.elem_count + 1 || n < 0 ) {
             return list;
-        }else if(n === list.size ) {
+        }else if(n === list.elem_count ) {
             list.elem_count++;
             list.array[n+1] = x;
             addZugrA();
@@ -852,7 +852,7 @@ Dies ist nur eine Vorlage
         }else{
             list.elem_count++;
             var templist = list;
-            for (qw = this.elem_count; qw >= n; qw--) {
+            for (qw = list.elem_count; qw >= n; qw--) {
                 templist.array[qw + 1] = list.array[qw];
                 addZugrA;
             }
@@ -921,16 +921,16 @@ Dies ist nur eine Vorlage
 
 
     // Tests
-    assert(typeof(steps) === 'function', "function 'steps' not implemented");
+   // assert(typeof(steps) === 'function', "function 'steps' not implemented");
 
     var myList2 = newArrayList();
     assert(isEmptyA(myList2) === true, "liste ist empty");
     consA(1, myList2);
     assert(headA(myList2) === 1, "ConsA funkt");
     myList2 = insertA(3,2,myList2);
-    assert(lengthA(myList2) === 2, "Anzahl Elemente: " + myList2.elem_count +" length() funktioniert");
+    assert(lengthA(myList2) === 2, "Anzahl Elemente: " + myList2.elem_count +" lengthA() funktioniert");
     myList2 = insertA(2,2, myList2);
-    assert(lengthA(myList2) === 3, "Anzahl Elemente: " + myList2.elem_count +" length() funktioniert");
+    assert(lengthA(myList2) === 3, "Anzahl Elemente: " + myList2.elem_count +" lengthA() funktioniert");
 
     assert(lengthA(list_A) === anzahl_Zahlen, "Anzahl Elemente: " + list_A.elem_count +" Elemente wurde hinzugefuegt " + list_A.array[list_A.elem_count-3]);
     assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt");

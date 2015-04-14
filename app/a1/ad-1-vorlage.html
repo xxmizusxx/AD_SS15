@@ -96,6 +96,128 @@ Testergebnisse
   var ad_1_1_data = [];
 
 
+  var zugrCounterA = 0;
+
+  var newArrayList = function () {
+    var instanceOfArrayList = Object.create(arrayListcreate)
+    instanceOfArrayList.elem_count = 0;
+    instanceOfArrayList.array = new Array(instanceOfArrayList.elem_count);
+
+    //  instanceOfArrayList.zugrCounter = 0;
+    return instanceOfArrayList;
+  };
+
+
+  var arrayListcreate = {
+    test: {
+    }
+  }
+
+
+  function consA(x, list) {
+    return insertA(x, 1, list)
+  };
+
+  function headA(list) {
+    addZugrA
+    return list.array[1];
+  };
+
+  function tailA(list) {
+    var tmpList = newArrayList();
+    for (i = 1; i < list.elem_count; i++) {
+      addZugrA
+      tmpList.array[i] = list.array[i]
+    }
+    addZugrA
+    tmpList.elem_count = list.elem_count - 1;
+    return tmpList
+  };
+
+  function lengthA(list) {
+    return list.elem_count
+    addZugrA
+  };
+
+  function isEmptyA(list) {
+    if (lengthA(list) === 0) {
+      return true;
+    } else {
+      false;
+    }
+  };
+
+  // ToDo es werden keine Elemente hinzugefügt
+  // ToDo es muss dass Array eine Größe beide der Initizalierung mitübergeben werden...
+
+  function insertA(x, n, list) {
+    if (n > list.elem_count + 1 || n < 0 ) {
+      return list;
+    }else if(n === list.elem_count ) {
+      list.elem_count++;
+      list.array[n+1] = x;
+      addZugrA();
+      return list;
+    }else{
+      list.elem_count++;
+      var templist = list;
+      for (qw = list.elem_count; qw >= n; qw--) {
+        templist.array[qw + 1] = list.array[qw];
+        addZugrA;
+      }
+      templist.array[n] = x
+      addZugrA();
+      return templist;
+    }
+  };
+
+  // Zugriffszählermethoden
+  function resetZugrA() {
+    zugrCounterA = 0;
+  };
+
+  function addZugrA() {
+    zugrCounterA += 1;
+  };
+
+  function getZugrA() {
+    return zugrCounterA
+  };
+
+  function experiment_A_I(listA, anzahl){
+    for(a = 0; a < anzahl; a++)
+      listA = consA(a, listA)
+    return listA;
+  }
+
+  function experiment_A_II(listA, anzahl){
+    for(a = 0; a < anzahl; a++)
+      listA = insertA(a, lengthA(listA)+1, listA)
+    return listA;
+  }
+
+  function experiment_A_III(listA, anzahl){
+    for(a = 0; a < anzahl; a++)
+      listA = insertA(a, Math.ceil(Math.random() * lengthA(listA)+1), listA);
+    return listA;
+  }
+
+  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+
+  var list_A, list_B, list_C;
+
+  list_A = newArrayList(5);
+
+   insertA(1,0,list_A);
+   insertA(2,1,list_A);
+  // var listtest = insertA(2,2,list_A);
+
+ // window.alert(list_A[0]);
+  window.alert(list_A.array[1]);
+  window.alert(list_A.array[2]);
+
+
+
 
 
 
@@ -161,13 +283,13 @@ Testergebnisse
 
   // Code  
 
-  // Experiments
-  for(i = 0; i < 10; i ++) {
-    ad_1_2_data.push({
-      experiment : i,
-      value : new MyClass().value
-      });
-  }
+//  // Experiments
+//  for(i = 0; i < 10; i ++) {
+//    ad_1_2_data.push({
+//      experiment : i,
+//      value : new MyClass().value
+//      });
+//  }
 
   // Tests
   assert(ad_1_2_data.length === 10, "experiments have collected data");
