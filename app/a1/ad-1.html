@@ -570,7 +570,7 @@ Dies ist nur eine Vorlage
 
     var linkedListcreate = {
         toString: function() {
-            if (this.head.data === "undefined") return null;
+            if (typeof this.head.data === "undefined") return null;
             while (typeof this.head.next === "undefined") {
                 return console.log(this.head.data)
             }
@@ -579,11 +579,15 @@ Dies ist nur eine Vorlage
 
     function cons(x, list) {
         var newNode = makeNode();
-        if (list.head.data === "undefined") this.head.data = x
-        else {
+        if (list.head.data === "undefined") {this.head.data = x;
+            addZugr();
+        } else {
             newNode.data = x;
             newNode.next = list.head;
             list.head = newNode;
+            addZugr();
+            addZugr();
+            addZugr();
         }
         return list;
     }
@@ -597,39 +601,30 @@ Dies ist nur eine Vorlage
     }
 
     function isEmpty(list) {
-        if (typeof list.head.data === "undefined") {return true;}
-        else {return false;}
+        if (typeof list.head.data === "undefined") {
+            return true;
+            addZugr();
+        } else {return false;
+            addZugr();
+        }
     }
 
     function length(list) {
         var counter = 1;
-        if ( typeof list.head.data === "undefined") return 0
+        if ( typeof list.head.data === "undefined") {
+            return 0;
+            addZugr();
+        }
         var elem = list.head.next;
+        addZugr();
         while (typeof elem.data != "undefined") {
             elem = elem.next
             counter++
+            addZugr();
+            addZugr();
         }
         return counter;
     }
-
-    // prüfen
-//    function insert(x, n, list) {
-//        if (n == 0) return cons(x, list)
-//        else if (n > length(list) + 1) {
-//            return list;
-//        } else {
-//            var elem = list.head
-//            for (pos = 1; pos < n; pos++) {
-//                elem = list.head.next
-//            }
-//            var tail = elem.head.next
-//            var newNode = makeNode()
-//            newNode.data = x
-//            elem.data = newNode
-//            newNode.next = tail
-//        }
-//        return list
-//    }
 
     function insert(x, n, list) {
         if (n === 0) return cons(x, list)
@@ -640,12 +635,18 @@ Dies ist nur eine Vorlage
             for (pos = 1; pos < n; pos++) {
                 newList.head.data = list.head.data
                 newList.head.next = list.head.next
+                addZugr();
+                addZugr();
             }
             var tail = list.head.next
+            addZugr();
             var newNode = makeNode()
             newNode.data = x
             newNode.next = tail
             newList.head.next = newNode
+            addZugr();
+            addZugr();
+            addZugr();
         }
         return newList
     }
@@ -657,10 +658,6 @@ Dies ist nur eine Vorlage
         };
         return instanceOfNode
     }
-
-
-
-
 
     // Zugriffszählermethoden
     function resetZugr(list) {
