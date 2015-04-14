@@ -570,7 +570,7 @@ Dies ist nur eine Vorlage
 
     var linkedListcreate = {
         toString: function() {
-            if (this.head.data === null) return null;
+            if (this.head.data === "undefined") return null;
             while (typeof this.head.next === "undefined") {
                 return console.log(this.head.data)
             }
@@ -579,7 +579,7 @@ Dies ist nur eine Vorlage
 
     function cons(x, list) {
         var newNode = makeNode();
-        if (list.head.data === null) this.head.data = x
+        if (list.head.data === "undefined") this.head.data = x
         else {
             newNode.data = x;
             newNode.next = list.head;
@@ -631,12 +631,9 @@ Dies ist nur eine Vorlage
 //        return list
 //    }
 
-
-    // fügt nicht ein?!?!?
-
     function insert(x, n, list) {
-        if (n == 0) return cons(x, list)
-        else if (n > length(list) + 1) {
+        if (n === 0) return cons(x, list)
+         else if (n > length(list) + 1) {
             return list;
         } else {
             var newList = newLinkedList()
@@ -715,9 +712,9 @@ Dies ist nur eine Vorlage
     assert(head(myList) === 2, "head(myList) funktioniert");
     // Um tail-Funktion zu testen .data rangehängt
     assert(tail(myList).data === 1, "tail(myList) funktioniert");
-    insert(3,2,myList)
+    myList = insert(3,2,myList)
     assert(length(myList) === 3, "Laenge myList ist 3");
-    window.alert(myList.head.next.next.data);
+   // window.alert(myList.head.next.data);
 
 
 </script>
