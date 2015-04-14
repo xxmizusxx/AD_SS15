@@ -788,7 +788,7 @@ Dies ist nur eine Vorlage
 <script id="ad-1-7-code">
     var ad_1_7_data = [];
 
-    var zugrCounterA = 0;
+    var zugrCounter_A = 0;
 
     var newArrayList = function () {
         var instanceOfArrayList = Object.create(arrayListcreate)
@@ -811,24 +811,20 @@ Dies ist nur eine Vorlage
     };
 
     function headA(list) {
-        addZugrA
         return list.array[1];
     };
 
     function tailA(list) {
         var tmpList = newArrayList();
         for (i = 1; i < list.elem_count; i++) {
-            addZugrA
             tmpList.array[i] = list.array[i]
         }
-        addZugrA
         tmpList.elem_count = list.elem_count - 1;
         return tmpList
     };
 
     function lengthA(list) {
         return list.elem_count
-        addZugrA
     };
 
     function isEmptyA(list) {
@@ -853,7 +849,7 @@ Dies ist nur eine Vorlage
             var templist = list;
             for (qw = list.elem_count; qw >= n; qw--) {
                 templist.array[qw + 1] = list.array[qw];
-                addZugrA;
+                addZugrA();
             }
             templist.array[n] = x
             addZugrA();
@@ -863,33 +859,33 @@ Dies ist nur eine Vorlage
 
     // Zugriffszählermethoden
     function resetZugrA() {
-       zugrCounterA = 0;
+       zugrCounter_A = 0;
     };
 
     function addZugrA() {
-        zugrCounterA += 1;
+        zugrCounter_A += 1;
     };
 
     function getZugrA() {
-        return zugrCounterA
+        return zugrCounter_A;
     };
 
-    function experiment_A_I(listA, anzahl){
+    function experiment_A_I(list_A, anzahl){
         for(a = 0; a < anzahl; a++)
-            listA = consA(a, listA)
-        return listA;
+            list_A = consA(a, list_A)
+        return list_A;
     }
 
-    function experiment_A_II(listA, anzahl){
+    function experiment_A_II(list_B, anzahl){
         for(a = 0; a < anzahl; a++)
-            listA = insertA(a, lengthA(listA)+1, listA)
-        return listA;
+            list_B = insertA(a, lengthA(list_B)+1, list_B)
+        return list_B;
     }
 
-    function experiment_A_III(listA, anzahl){
+    function experiment_A_III(list_C, anzahl){
         for(a = 0; a < anzahl; a++)
-            listA = insertA(a, Math.ceil(Math.random() * lengthA(listA)+1), listA);
-        return listA;
+            list_C = insertA(a, Math.ceil(Math.random() * lengthA(list_C)+1), list_C);
+        return list_C;
     }
 
     var list_A, list_B, list_C
@@ -898,7 +894,7 @@ Dies ist nur eine Vorlage
     // Experiments
     for (q = 1; q <= 20; q++) {
         resetZugrA();
-        anzahl_Zahlen = Math.ceil(Math.random()*100);
+        var anzahl_Zahlen = Math.ceil(Math.random()*100);
         list_A = experiment_A_I(newArrayList(), anzahl_Zahlen);
         var zugrCounterA_A = getZugrA();
         resetZugrA();
@@ -932,8 +928,8 @@ Dies ist nur eine Vorlage
     assert(lengthA(myList2) === 3, "Anzahl Elemente: " + myList2.elem_count +" lengthA() funktioniert");
 
     assert(lengthA(list_A) === anzahl_Zahlen, "Anzahl Elemente: " + list_A.elem_count +" Elemente wurde hinzugefuegt " + list_A.array[list_A.elem_count-3]);
-    assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt" +  list_B.array[list_A.elem_count-3]);
-    assert(lengthA(list_C) === anzahl_Zahlen, "Anzahl Elemente: " + list_C.elem_count +" Elemente wurde hinzugefuegt" +  list_C.array[list_A.elem_count-3]);
+    assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt " +  list_B.array[list_A.elem_count-3]);
+    assert(lengthA(list_C) === anzahl_Zahlen, "Anzahl Elemente: " + list_C.elem_count +" Elemente wurde hinzugefuegt " +  list_C.array[list_A.elem_count-3]);
 
 
 </script>
