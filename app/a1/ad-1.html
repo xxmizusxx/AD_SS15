@@ -792,8 +792,9 @@ Dies ist nur eine Vorlage
 
     var newArrayList = function () {
         var instanceOfArrayList = Object.create(arrayListcreate)
-        instanceOfArrayList.array = [];
         instanceOfArrayList.elem_count = 0;
+        instanceOfArrayList.array = new Array(instanceOfArrayList.elem_count);
+
       //  instanceOfArrayList.zugrCounter = 0;
         return instanceOfArrayList;
     };
@@ -838,24 +839,26 @@ Dies ist nur eine Vorlage
        }
     };
 
-    // prüfen
+    // ToDo es werden keine Elemente hinzugefügt
+    // ToDo es muss dass Array eine Größe beide der Initizalierung mitübergeben werden...
     function insertA(x, n, list) {
         if (n > list.size + 1 || n < 0 ) {
-            return list
-        }else if(n === list.size + 1) {
+            return list;
+        }else if(n === list.size ) {
             list.elem_count++;
-            list.array[n] = x;
+            list.array[n+1] = x;
             addZugrA();
+            return list;
         }else{
             list.elem_count++;
             var templist = list;
-            for (i = this.elem_count; i >= n; i--) {
-                templist.array[i + 1] = list.array[i];
+            for (qw = this.elem_count; qw >= n; qw--) {
+                templist.array[qw + 1] = list.array[qw];
                 addZugrA;
             }
             templist.array[n] = x
             addZugrA();
-            return templist
+            return templist;
         }
     };
 
@@ -890,25 +893,28 @@ Dies ist nur eine Vorlage
         return listA;
     }
 
+    var list_A, list_B, list_C
+
+
     // Experiments
-    for (i = 1; i <= 20; i++) {
+    for (q = 1; q <= 20; q++) {
         resetZugrA();
-        var anzahl_Zahlen = Math.ceil(Math.random()*100);
-        experiment_A_I(newArrayList(), anzahl_Zahlen);
+        anzahl_Zahlen = Math.ceil(Math.random()*100);
+        list_A = experiment_A_I(newArrayList(), anzahl_Zahlen);
         var zugrCounterA_A = getZugrA();
         resetZugrA();
-        experiment_A_II(newArrayList(), anzahl_Zahlen);
+        list_B = experiment_A_II(newArrayList(), anzahl_Zahlen);
         var zugrCounterA_B = getZugrA();
         resetZugrA();
-        experiment_A_III(newArrayList(), anzahl_Zahlen);
+        list_C = experiment_A_III(newArrayList(), anzahl_Zahlen);
         var zugrCounterA_C = getZugrA();
         resetZugrA();
 
         ad_1_7_data.push({
-            experiment: i,
-            value: zugrCounterA_A,
-            val2: zugrCounterA_B,
-            val3: zugrCounterA_C
+            experiment: anzahl_Zahlen,
+            value_b: zugrCounterA_A,
+            value_a: zugrCounterA_B,
+            value_c: zugrCounterA_C
         });
     }
 
@@ -926,6 +932,9 @@ Dies ist nur eine Vorlage
     myList2 = insertA(2,2, myList2);
     assert(lengthA(myList2) === 3, "Anzahl Elemente: " + myList2.elem_count +" length() funktioniert");
 
+    assert(lengthA(list_A) === anzahl_Zahlen, "Anzahl Elemente: " + list_A.elem_count +" Elemente wurde hinzugefuegt " + list_A.array[list_A.elem_count-3]);
+    assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt");
+    assert(lengthA(list_C) === anzahl_Zahlen, "Anzahl Elemente: " + list_C.elem_count +" Elemente wurde hinzugefuegt");
 
 
 </script>
@@ -951,7 +960,7 @@ Dies ist nur eine Vorlage
 // The name of the data record attribute that contains x-values.
         xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-        ykeys: ['value', 'val2', 'val3'],
+        ykeys: ['value_a', 'value_b', 'value_c'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
         labels: ['A','B','C']
