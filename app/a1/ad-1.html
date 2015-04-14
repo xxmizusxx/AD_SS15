@@ -587,8 +587,6 @@ Dies ist nur eine Vorlage
             newNode.next = list.head;
             list.head = newNode;
             addZugr();
-            addZugr();
-            addZugr();
         }
         return list;
     }
@@ -604,9 +602,8 @@ Dies ist nur eine Vorlage
     function isEmpty(list) {
         if (typeof list.head.data === "undefined") {
             return true;
-            addZugr();
-        } else {return false;
-            addZugr();
+        } else {
+            return false;
         }
     }
 
@@ -614,21 +611,18 @@ Dies ist nur eine Vorlage
         var counter = 1;
         if ( typeof list.head.data === "undefined") {
             return 0;
-            addZugr();
+          //  addZugr();
         }
         var elem = list.head.next;
-        addZugr();
         while (typeof elem.data != "undefined") {
             elem = elem.next
             counter++
-            addZugr();
-            addZugr();
         }
         return counter;
     }
 
     function insert(x, n, list) {
-        if (n === 0) return cons(x, list)
+        if (n === 0 || length(list) === 0) return cons(x, list)
          else if (n > length(list) + 1) {
             return list;
         } else {
@@ -637,16 +631,12 @@ Dies ist nur eine Vorlage
                 newList.head.data = list.head.data
                 newList.head.next = list.head.next
                 addZugr();
-                addZugr();
             }
             var tail = list.head.next
-            addZugr();
             var newNode = makeNode()
             newNode.data = x
             newNode.next = tail
             newList.head.next = newNode
-            addZugr();
-            addZugr();
             addZugr();
         }
         return newList
@@ -685,13 +675,13 @@ Dies ist nur eine Vorlage
 
     function experiment_II(list, val){
         for(a = 0; a < val; a++)
-            insert(a, length(list)+1, list);
+           list = insert(a, length(list)+1, list);
         return list;
     }
 
     function experiment_III(list, val){
         for(a=0; a < val; a++)
-           insert(a, Math.ceil(Math.random()*length(list)+1), list);
+          list = insert(a, Math.ceil(Math.random()*length(list)+1), list);
         return list;
     }
 
