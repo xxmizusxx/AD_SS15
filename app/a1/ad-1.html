@@ -838,11 +838,10 @@ Dies ist nur eine Vorlage
     function insertA(x, n, list) {
         if (n > list.elem_count + 1 || n < 0 ) {
             return list;
-        }else if(n === list.elem_count +1 ) {
+        }else if(n === (lengthA(list) +1) ) {
             list.elem_count++;
             list.array[n] = x;
             addZugrA();
-            //window.alert("bingo");
             return list;
         }else{
             list.elem_count++;
@@ -907,8 +906,8 @@ Dies ist nur eine Vorlage
 
         ad_1_7_data.push({
             experiment: anzahl_Zahlen,
-            value_b: zugrCounterA_A,
-            value_a: zugrCounterA_B,
+            value_a: zugrCounterA_A,
+            value_b: zugrCounterA_B,
             value_c: zugrCounterA_C
         });
     }
