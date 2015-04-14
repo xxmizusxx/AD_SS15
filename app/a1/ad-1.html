@@ -771,11 +771,13 @@ Dies ist nur eine Vorlage
 <script id="ad-1-7-code">
     var ad_1_7_data = [];
 
+    var zugrCounterA = 0;
+
     var newArrayList = function () {
         var instanceOfArrayList = Object.create(arrayListcreate)
         instanceOfArrayList.array = [];
         instanceOfArrayList.elem_count = 0;
-        instanceOfArrayList.zugrCounter = 0;
+      //  instanceOfArrayList.zugrCounter = 0;
         return instanceOfArrayList;
     };
 
@@ -812,12 +814,19 @@ Dies ist nur eine Vorlage
     };
 
     function isEmptyA(list) {
-        (lengthA(list) === 0) ? true : false;
+       if (lengthA(list) === 0) {
+            return true;
+       } else {
+           false;
+       }
     };
+
     // prüfen
     function insertA(x, n, list) {
-        if (n > list.size + 1) return list
-        addZugrA
+        if (n > list.size + 1) {
+            return list
+            addZugrA
+        }
         templist = newArrayList();
         for (i = this.elem_count; i >= n; i--) {
             tempList.array[i + 1] = list.array[i];
@@ -825,29 +834,33 @@ Dies ist nur eine Vorlage
         }
         templist.array[n] = x
         addZugrA
+        for (i = n; i === 0; i--) {
+            tempList.array[i - 1] = list.array[i];
+            addZugrA
+        }
         return templist
     };
 
     // Zugriffszählermethoden
     function resetZugrA(list) {
-       list.zugrCounter = 0;
+       zugrCounterA = 0;
     };
 
     function addZugrA(list) {
-        list.zugrCounter++;
+        zugrCounterA += 1;
     };
 
     function getZugrA(list) {
-        return list.zugrCounter;
+        return zugrCounterA
     };
 
     // Tests
     assert(typeof(steps) === 'function', "function 'steps' not implemented");
 
-    var myList = newArrayList();
-    assert(isEmptyA(myList) === true, "liste ist empty");
-    consA(1, myList);
-    assert(headA(myList) === 1, "ConsA funkt");
+    var myList2 = newArrayList();
+    assert(isEmptyA(myList2) === true, "liste ist empty");
+    consA(1, myList2);
+    assert(headA(myList2) === 1, "ConsA funkt");
 
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
