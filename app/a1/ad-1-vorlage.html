@@ -151,9 +151,9 @@ Testergebnisse
   // ToDo es muss dass Array eine Größe beide der Initizalierung mitübergeben werden...
 
   function insertA(x, n, list) {
-    if (n > list.elem_count + 1 || n < 0 ) {
+    if (n > list.size + 1 || n < 0 ) {
       return list;
-    }else if(n === list.elem_count ) {
+    }else if(n === list.size ) {
       list.elem_count++;
       list.array[n+1] = x;
       addZugrA();
@@ -161,7 +161,7 @@ Testergebnisse
     }else{
       list.elem_count++;
       var templist = list;
-      for (qw = list.elem_count; qw >= n; qw--) {
+      for (qw = this.elem_count; qw >= n; qw--) {
         templist.array[qw + 1] = list.array[qw];
         addZugrA;
       }
@@ -206,15 +206,13 @@ Testergebnisse
 
   var list_A, list_B, list_C;
 
-  list_A = newArrayList(5);
+  list_A = newArrayList();
+  list_A
 
-   insertA(1,0,list_A);
-   insertA(2,1,list_A);
+ // consA(1,list_A);
   // var listtest = insertA(2,2,list_A);
 
- // window.alert(list_A[0]);
-  window.alert(list_A.array[1]);
-  window.alert(list_A.array[2]);
+  window.alert(list_A[0]);
 
 
 
@@ -283,13 +281,13 @@ Testergebnisse
 
   // Code  
 
-//  // Experiments
-//  for(i = 0; i < 10; i ++) {
-//    ad_1_2_data.push({
-//      experiment : i,
-//      value : new MyClass().value
-//      });
-//  }
+  // Experiments
+  for(i = 0; i < 10; i ++) {
+    ad_1_2_data.push({
+      experiment : i,
+      value : new MyClass().value
+      });
+  }
 
   // Tests
   assert(ad_1_2_data.length === 10, "experiments have collected data");
