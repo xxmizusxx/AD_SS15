@@ -1076,7 +1076,7 @@ Implementierung
             experiment: i,
             value:      getZugr(linkList_A),
             val2:       getZugr(linkList_B),
-            val3:       getZugr(linkList_C),
+      //      val3:       getZugr(linkList_C),
             val4:       Math.ceil(mittelWert)
         });
         resetZugr(linkList_A);
@@ -1129,10 +1129,13 @@ Implementierung
 // The name of the data record attribute that contains x-values.
         xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-        ykeys: ['value', 'val2', 'val3', 'val4'],
+//        ykeys: ['value', 'val2', 'val3', 'val4'],
+
+        ykeys: ['value', 'val2', 'val4'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-        labels: ['A','E','Z', 'M']
+//        labels: ['A','E','Z', 'M']
+        labels: ['A','E', 'M']
     });
 </script>
 
@@ -1166,63 +1169,70 @@ Dies ist nur eine Vorlage
 
 
 
-    var newArrayList = function () {
+    var newArrayList = function (capacity) {
         var instanceOfArrayList = Object.create(arrayListcreate);
-        instanceOfArrayList.elem_count = 0;
-        instanceOfArrayList.array = new Array(instanceOfArrayList.elem_count);
+        instanceOfArrayList.size_a = 0;
         instanceOfArrayList.zugrCounter_A = 0;
-        instanceOfArrayList.step_count = 10;
+        instanceOfArrayList.capacity = capacity  ? capacity : 10;
+        instanceOfArrayList.array = new Array(instanceOfArrayList.capacity);
         return instanceOfArrayList;
     };
 
 
     var arrayListcreate = {
-        test: {
-        }
+
     }
 
 
     function consA(x, list) {
-        return insertA(x, 1, list);
-    };
+        return insertA(x, 0, list);
+    }
 
     function headA(list) {
-        return list.array[1];
-    };
+        return list.array[0];
+    }
 
     function tailA(list) {
         var tmpList = newArrayList();
-        for (i = 1; i < list.elem_count; i++) {
-            tmpList.array[i] = list.array[i];
+        for (i = 0; i < list.size_a; i++) {
+            tmpList.array[i] = list.array[i+1];
         }
-        tmpList.elem_count = list.elem_count - 1;
+        tmpList.size_a = list.size_a - 1;
         return tmpList;
-    };
+    }
 
     function lengthA(list) {
-        return list.elem_count
-    };
+        return list.size_a;
+    }
 
     function isEmptyA(list) {
-       if (lengthA(list) === 0) {
-            return true;
-       } else {
-           false;
-       }
-    };
+       return lengthA(list) === 0 ? true:false;
+    }
 
     function insertA(x, n, list) {
-        if (n > list.elem_count + 1 || n < 0 ) {
+        if (n > list.size_a + 1 || n < 0 ) {
             return list;
         }else if(n === (lengthA(list) +1) ) {
-            list.elem_count++;
+            list.size_a++;
             list.array[n] = x;
             addZugrA(list);
             return list;
         }else{
-            list.elem_count++;
+            //ToDO einbauen der Capacity
+//            if(list.size_a <= list.capacity){
+//                var old_ary = list;
+//                list.capacity += list.capacity;
+//                list = newArrayList(list.capacity);
+//                for(old = 0; old <old_ary.capacity; old++){
+//                    list[old] = old_ary[old];
+//
+//                }
+//            }
+
+            list.size_a++;
+
             var templist = list;
-            for (qw = list.elem_count; qw >= n; qw--) {
+            for (qw = list.size_a; qw >= n; qw--) {
                 templist.array[qw + 1] = list.array[qw];
                 addZugrA(templist);
             }
@@ -1238,7 +1248,7 @@ Dies ist nur eine Vorlage
     };
 
     function addZugrA(list) {
-        list.zugrCounter_A += 1;
+        list.zugrCounter_A++;
     };
 
     function getZugrA(list) {
@@ -1251,18 +1261,28 @@ Dies ist nur eine Vorlage
     var list_D = newArrayList();
 
     // Experiments
-    for (q = 1; q <= 20; q++) {
-        insertA(i, 0, lengthA());
-        insertA(i, lengthA(linkList_B)+1, list_B);
-        insertA(i, Math.ceil(Math.random()+lengthA(linkList_C)+1), linkList_C);
+    for (q = 0; q < 100; q++) {
+        list_A = insertA(q, 0, list_A);
+        list_B = insertA(q, lengthA(list_B)+1, list_B);
+        list_C = insertA(q, Math.ceil(Math.random()*lengthA(list_C)), list_C);
 
+        var mittelWert_A = 0;
+        var iterationen = 100;
+
+        for(var po =0; po < iterationen; po++) {
+            list_D = insertA(q, Math.ceil(Math.random()*q), list_D);
+            mittelWert_A += getZugrA(list_D);
+            resetZugrA(list_D);
+        }
+        mittelWert_A = mittelWert_A/iterationen;
 
 
         ad_1_7_data.push({
-            experiment: anzahl_Zahlen,
+            experiment: q,
             value_a: getZugrA(list_A),
             value_b: getZugrA(list_B),
-            value_c: getZugrA(list_C)
+            value_c: getZugrA(list_C),
+            value_d: mittelWert_A
         });
         resetZugrA(list_A);
         resetZugrA(list_B);
@@ -1274,18 +1294,18 @@ Dies ist nur eine Vorlage
     // Tests
    // assert(typeof(steps) === 'function', "function 'steps' not implemented");
 
-    var myList2 = newArrayList();
-    assert(isEmptyA(myList2) === true, "liste ist empty");
-    consA(1, myList2);
-    assert(headA(myList2) === 1, "ConsA funkt");
-    myList2 = insertA(3,2,myList2);
-    assert(lengthA(myList2) === 2, "Anzahl Elemente: " + myList2.elem_count +" lengthA() funktioniert");
-    myList2 = insertA(2,2, myList2);
-    assert(lengthA(myList2) === 3, "Anzahl Elemente: " + myList2.elem_count +" lengthA() funktioniert");
+    var arrayList = newArrayList();
+    assert(isEmptyA(arrayList) === true, "liste ist empty  " + arrayList.size_a);
+    consA(1, arrayList);
+    assert(headA(arrayList) === 1, "ConsA funkt");
+    arrayList = insertA(3,2,arrayList);
+    assert(lengthA(arrayList) === 2, "Anzahl Elemente: " + arrayList.size_a +" lengthA() funktioniert");
+    arrayList = insertA(2,2, arrayList);
+    assert(lengthA(arrayList) === 3, "Anzahl Elemente: " + arrayList.size_a +" lengthA() funktioniert");
 
-    assert(lengthA(list_A) === anzahl_Zahlen, "Anzahl Elemente: " + list_A.elem_count +" Elemente wurde hinzugefuegt " + list_A.array[list_A.elem_count-3]);
-    assert(lengthA(list_B) === anzahl_Zahlen, "Anzahl Elemente: " + list_B.elem_count +" Elemente wurde hinzugefuegt " +  list_B.array[list_A.elem_count-3]);
-    assert(lengthA(list_C) === anzahl_Zahlen, "Anzahl Elemente: " + list_C.elem_count +" Elemente wurde hinzugefuegt " +  list_C.array[list_A.elem_count-3]);
+    assert(lengthA(list_A) === 100, "Anzahl Elemente: " + list_A.size_a +" Elemente wurde hinzugefuegt " + list_A.array[list_A.size_a-3]);
+    assert(lengthA(list_B) === 100, "Anzahl Elemente: " + list_B.size_a +" Elemente wurde hinzugefuegt " +  list_B.array[list_A.size_a-3]);
+    assert(lengthA(list_C) === 100, "Anzahl Elemente: " + list_C.size_a +" Elemente wurde hinzugefuegt " +  list_C.array[list_A.size_a-3]);
 
 
 </script>
@@ -1311,10 +1331,10 @@ Dies ist nur eine Vorlage
 // The name of the data record attribute that contains x-values.
         xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-        ykeys: ['value_a', 'value_b', 'value_c'],
+        ykeys: ['value_a', 'value_b', 'value_c','value_d'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-        labels: ['A','B','C']
+        labels: ['A','E','Z','M']
 
     });
 </script>
