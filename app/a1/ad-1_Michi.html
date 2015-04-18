@@ -124,9 +124,9 @@
                             var step_count = 0;
                             while (x <= y) {
                                 x = x + d;
-                                step_count++;
+                                capacity++;
                             }
-                            return step_count;
+                            return capacity;
                         }
 
                         function steps(x, y, d) {
@@ -815,7 +815,7 @@
                             var newArrayList = Object.create(methodsOfArrayList);
                             newArrayList.array = [];
                             newArrayList.size = size;
-                            newArrayList.elem_count = 0;
+                            newArrayList.size_a = 0;
                             newArrayList.step_size = step_size;
                             return newArrayList;
                         };
@@ -831,7 +831,7 @@
 
                             getTail: function () {
                                 // Größe der neuen Liste berechnen
-                                var newSize = this.size - this.elem_count - 1 > this.step_size ? this.size : this.size - this.step_size;
+                                var newSize = this.size - this.size_a - 1 > this.step_size ? this.size : this.size - this.step_size;
                                 // Tail-Liste initialisieren
                                 var newList = newArrayList(newSize, this.step_size);
                                 // Falls leer oder nur ein Element, dann leere Liste
@@ -841,45 +841,45 @@
 
 
                                 // Element Anzahl setzen
-                                newList.elem_count = this.elem_count - 1;
+                                newList.size_a = this.size_a - 1;
 
                                 // Deepcopy ohne das erste Element
-                                for (i = 0; i < this.elem_count; i++) {
+                                for (i = 0; i < this.size_a; i++) {
                                     newList.array[i] = this.array[i + 1];
                                 }
                                 return newList;
                             },
 
                             length: function () {
-                                return this.elem_count;
+                                return this.size_a;
                             },
 
                             isEmpty: function () {
-                                return this.elem_count == 0;
+                                return this.size_a == 0;
                             },
 
                             insert: function (x, n) {
-                                if (n > this.elem_count) {
+                                if (n > this.size_a) {
                                     return false;
                                 }
                                 // Prüfen on Array-Größe erhöht werden muss und dann array in neues Array kopieren
-                                if (this.elem_count == this.size) {
+                                if (this.size_a == this.size) {
                                     var newArray = []
                                     this.size += this.step_size;
                                     // Deepcopy ohne das erste Element
-                                    for (i = 0; i < this.elem_count; i++) {
+                                    for (i = 0; i < this.size_a; i++) {
                                         newArray[i] = this.array[i];
                                     }
                                     this.array = newArray;
                                 }
 
                                 // Alle Elemente ab Index n um eine Position nach rechts verschieben
-                                for (i = this.elem_count; i >= n; i--) {
+                                for (i = this.size_a; i >= n; i--) {
                                     this.array[i + 1] = this.array[i];
                                 }
                                 // Element einfügen und Element Anzahl erhöhen
                                 this.array[n] = x;
-                                this.elem_count++;
+                                this.size_a++;
                                 return true;
                             }
                         };
