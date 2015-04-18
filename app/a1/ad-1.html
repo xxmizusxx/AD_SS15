@@ -33,6 +33,505 @@
 <body>
 <h1 id="title"> Stephan Wekwert u. Sebstian Ewert</h1>
 
+<!--<ul>-->
+
+<!--</ul>-->
+
+<!--<h2>-->
+    <!--Aufgabe 1-->
+<!--</h2>-->
+
+<!--<p>-->
+    <!--Gegeben seien ein Startpunkt $x \in \mathbb{N}$ und ein Zielpunkt $y \in \mathbb{N}$ auf einer Geraden,-->
+    <!--sowie ein Schrittma&szlig; $d \in \mathbb{N}$. Gesucht ist die Anzahl der Schritte-->
+    <!--$steps(x, y, d) \in \mathbb{N}$, die ben&ouml;tigt werden, um einen Punkt zu erreichen, dessen Wert-->
+    <!--gr&ouml;&szlig;er als $y$ ist.-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--Beispiel: Bei der Eingabe $x = 15$, $y = 80$, $d = 30$ sind drei Schritte n&ouml;tig.-->
+<!--</p>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--In Abh&auml;gigkeit von welchem Wert bestimmen Sie Laufzeit und Speicherplatzbedarf?-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--Welchen Zeit- und welchen Platzaufwand hat eine naive Implementierung?-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--Implementieren Sie die Methode $steps(x,y,d)$, welche die gesuchte Anzahl der Schritte in Zeitaufwand $O(1)$ und-->
+        <!--Platzaufwand $O(1)$ berechnet.-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h2>-->
+    <!--Antwort 1-->
+<!--</h2>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--Naive Steps ist O(n)-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+    <!--Implementierung-->
+<!--</h3>-->
+<!--&lt;!&ndash; In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt &ndash;&gt;-->
+<!--<pre id="ad-1-1-source"></pre>-->
+<!--<h3>-->
+    <!--Testergebnisse-->
+<!--</h3>-->
+
+<!--<div id="ad-1-1-results"></div>-->
+<!--&lt;!&ndash; Code und Tests hier hin &ndash;&gt;-->
+<!--<script id="ad-1-1-code">-->
+    <!--var ad_1_1_data = [];-->
+
+    <!--&lt;!&ndash; x = Ausgangspunkt, y = endpunkt, d = Schrittmass &ndash;&gt;-->
+
+    <!--function steps(x, y, d) {-->
+        <!--if (d <= 0) return "error";-->
+        <!--else if (x >= y) return 0;-->
+        <!--else {-->
+            <!--return Math.ceil((y - x) / d);-->
+        <!--}-->
+    <!--}-->
+
+
+    <!--function step_naiv(x, y, d) {-->
+        <!--if (d <= 0) return "error";-->
+        <!--var count_step = 0;-->
+        <!--for (i = x; i < y; i = i + d) {-->
+            <!--count_step++;-->
+        <!--}-->
+        <!--return count_step;-->
+    <!--}-->
+
+    <!--// Experiments-->
+    <!--for (i = 0; i < 100; i++) {-->
+        <!--x = Math.ceil(Math.random() * 50);-->
+        <!--y = Math.ceil(Math.random() * 500);-->
+        <!--d = Math.ceil(Math.random() * 35);-->
+
+        <!--ad_1_1_data.push({-->
+            <!--experiment: i,-->
+            <!--entfernung: y - x,-->
+            <!--step_groesse: d,-->
+            <!--steps: steps(x, y, d)-->
+            <!--//value : step_naiv(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))-->
+        <!--});-->
+    <!--}-->
+
+    <!--// Tests-->
+    <!--assert(steps(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");-->
+    <!--assert(steps(150, 91, 30) === 0, "X > Y");-->
+    <!--assert(steps(15, 80, -1) === "error", " d <= 0 ");-->
+    <!--assert(steps(37, 297, 43) === step_naiv(37, 297, 43), "Beide funktionen liefern das gleiche Ergebnis");-->
+
+    <!--assert(step_naiv(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");-->
+
+    <!--assert(step_naiv(150, 91, 30) === 0, "X > Y");-->
+    <!--assert(step_naiv(15, 80, -1) === "error", " d >= 0 ");-->
+
+
+<!--</script>-->
+<!--&lt;!&ndash; dieser Code zeigt die Implementierung und die Tests an &ndash;&gt;-->
+<!--<script>-->
+    <!--$('pre#ad-1-1-source').html($('#ad-1-1-code').html())-->
+
+
+<!--</script>-->
+
+<!--<h3>-->
+    <!--Experimente-->
+<!--</h3>-->
+
+<!--<div id="ad-1-1-experiments" style="height: 250px;"></div>-->
+<!--<script>-->
+    <!--new Morris.Line({-->
+        <!--// ID of the element in which to draw the chart.-->
+        <!--element: 'ad-1-1-experiments',-->
+        <!--// do values relate to dates (time)?-->
+        <!--parseTime: false,-->
+        <!--// Chart data records &#45;&#45; each entry in this array corresponds to a point on-->
+        <!--// the chart.-->
+        <!--data: ad_1_1_data,-->
+        <!--// The name of the data record attribute that contains x-values.-->
+        <!--xkey: 'experiment',-->
+        <!--// A list of names of data record attributes that contain y-values.-->
+        <!--ykeys: ['steps', 'entfernung', 'step_groesse'],-->
+        <!--// Labels for the' ykeys &#45;&#45; will be displayed when you hover over the-->
+        <!--// chart.-->
+        <!--labels: ['steps', 'entfernung', 'Step_Size']-->
+    <!--});-->
+<!--</script>-->
+
+<!--&lt;!&ndash; Aufgabe 2 &ndash;&gt;-->
+<!--<h2>-->
+    <!--Aufgabe 2-->
+<!--</h2>-->
+<!--Dies ist nur eine Vorlage-->
+<!--<h2>-->
+    <!--Antwort 2-->
+<!--</h2>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+    <!--Implementierung-->
+<!--</h3>-->
+<!--&lt;!&ndash; In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt &ndash;&gt;-->
+<!--<pre id="ad-1-2-source"></pre>-->
+<!--<h3>-->
+    <!--Testergebnisse-->
+<!--</h3>-->
+
+<!--<div id="ad-1-2-results"></div>-->
+<!--&lt;!&ndash; Code und Tests hier hin &ndash;&gt;-->
+<!--<script id="ad-1-2-code">-->
+    <!--var ad_1_2_data = [];-->
+
+    <!--// Code-->
+
+    <!--var counter = 0;-->
+
+
+    <!--function fibo(n) {-->
+        <!--counter++;-->
+        <!--if (n <= 1) return n;-->
+        <!--else {-->
+            <!--return fibo(n - 1) + fibo(n - 2);-->
+        <!--}-->
+    <!--}-->
+
+
+    <!--// Experiments-->
+    <!--for (i = 0; i < 20; i++) {-->
+        <!--counter = 0;-->
+        <!--var erg = fibo(i);-->
+
+        <!--ad_1_2_data.push({-->
+            <!--experiment: i,-->
+            <!--value: counter, //new MyClass().value-->
+            <!--erg: erg-->
+        <!--});-->
+    <!--}-->
+
+    <!--// Tests-->
+    <!--assert(fibo(1) === 1, "Fibo(1) = 1");-->
+    <!--assert(fibo(10) === 55, "Fibo(10) = 55");-->
+<!--</script>-->
+<!--&lt;!&ndash; dieser Code zeigt die Implementierung und die Tests an &ndash;&gt;-->
+<!--<script>-->
+    <!--$('pre#ad-1-2-source').html($('#ad-1-2-code').html())-->
+<!--</script>-->
+
+<!--<h3>-->
+    <!--Experimente-->
+<!--</h3>-->
+
+<!--<div id="ad-1-2-experiments" style="height: 250px;"></div>-->
+<!--<script>-->
+    <!--new Morris.Line({-->
+        <!--// ID of the element in which to draw the chart.-->
+        <!--element: 'ad-1-2-experiments',-->
+        <!--// do values relate to dates (time)?-->
+        <!--parseTime: false,-->
+        <!--// Chart data records &#45;&#45; each entry in this array corresponds to a point on-->
+        <!--// the chart.-->
+        <!--data: ad_1_2_data,-->
+        <!--// The name of the data record attribute that contains x-values.-->
+        <!--xkey: 'experiment',-->
+        <!--// A list of names of data record attributes that contain y-values.-->
+        <!--ykeys: ['value', 'erg'],-->
+        <!--// Labels for the ykeys &#45;&#45; will be displayed when you hover over the-->
+        <!--// chart.-->
+        <!--labels: ['Anzahl Add', 'Add-Ergebnis']-->
+    <!--});-->
+<!--</script>-->
+
+<!--&lt;!&ndash; Aufgabe 3 &ndash;&gt;-->
+<!--<h2>-->
+    <!--Aufgabe 2.3-->
+<!--</h2>-->
+<!--Dies ist nur eine Vorlage-->
+<!--<h2>-->
+    <!--Antwort 2.3-->
+<!--</h2>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+    <!--Implementierung-->
+<!--</h3>-->
+<!--&lt;!&ndash; In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt &ndash;&gt;-->
+<!--<pre id="ad-1-3-source"></pre>-->
+<!--<h3>-->
+    <!--Testergebnisse-->
+<!--</h3>-->
+
+<!--<div id="ad-1-3-results"></div>-->
+<!--&lt;!&ndash; Code und Tests hier hin &ndash;&gt;-->
+<!--<script id="ad-1-3-code">-->
+    <!--var ad_1_3_data = [];-->
+
+    <!--// Code-->
+
+    <!--var counter = 0;-->
+
+    <!--var map = new Map();-->
+
+
+    <!--function fibo2(n) {-->
+        <!--counter++;-->
+        <!--if (n < 2) return n;-->
+        <!--else {-->
+            <!--var val = map.get(n)-->
+            <!--if (typeof val === "undefined") {-->
+                <!--val = fibo2(n - 1) + fibo2(n - 2);-->
+                <!--map.set(n, val);-->
+
+            <!--}-->
+            <!--return val;-->
+        <!--}-->
+    <!--}-->
+
+
+    <!--// Experiments-->
+    <!--for (i = 0; i < 20; i++) {-->
+        <!--counter = 0;-->
+        <!--var erg = fibo2(i);-->
+
+        <!--ad_1_3_data.push({-->
+            <!--experiment: i,-->
+            <!--value: counter //new MyClass().value-->
+            <!--//  erg: erg-->
+        <!--});-->
+
+        <!--map = new Map();-->
+    <!--}-->
+
+
+    <!--// Tests-->
+    <!--assert(fibo2(1) === 1, "Fibo(1) = 1");-->
+    <!--assert(fibo2(10) === 55, "Fibo(10) = 55");-->
+<!--</script>-->
+<!--&lt;!&ndash; dieser Code zeigt die Implementierung und die Tests an &ndash;&gt;-->
+<!--<script>-->
+    <!--$('pre#ad-1-3-source').html($('#ad-1-3-code').html())-->
+<!--</script>-->
+
+<!--<h3>-->
+    <!--Experimente-->
+<!--</h3>-->
+
+<!--<div id="ad-1-3-experiments" style="height: 250px;"></div>-->
+<!--<script>-->
+    <!--new Morris.Line({-->
+        <!--// ID of the element in which to draw the chart.-->
+        <!--element: 'ad-1-3-experiments',-->
+        <!--// do values relate to dates (time)?-->
+        <!--parseTime: false,-->
+        <!--// Chart data records &#45;&#45; each entry in this array corresponds to a point on-->
+        <!--// the chart.-->
+        <!--data: ad_1_3_data,-->
+        <!--// The name of the data record attribute that contains x-values.-->
+        <!--xkey: 'experiment',-->
+        <!--// A list of names of data record attributes that contain y-values.-->
+        <!--ykeys: ['value'],-->
+        <!--// Labels for the ykeys &#45;&#45; will be displayed when you hover over the-->
+        <!--// chart.-->
+        <!--labels: ['Anzahl Add']-->
+    <!--});-->
+<!--</script>-->
+
+
+<!--&lt;!&ndash; Aufgabe 2.4 &ndash;&gt;-->
+<!--<h2>-->
+    <!--Aufgabe 2.4-->
+<!--</h2>-->
+<!--Dies ist nur eine Vorlage-->
+<!--<h2>-->
+    <!--Antwort 2.4-->
+<!--</h2>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+    <!--Implementierung-->
+<!--</h3>-->
+<!--&lt;!&ndash; In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt &ndash;&gt;-->
+<!--<pre id="ad-1-4-source"></pre>-->
+<!--<h3>-->
+    <!--Testergebnisse-->
+<!--</h3>-->
+
+<!--<div id="ad-1-4-results"></div>-->
+<!--&lt;!&ndash; Code und Tests hier hin &ndash;&gt;-->
+<!--<script id="ad-1-4-code">-->
+    <!--var ad_1_4_data = [];-->
+
+    <!--var tcounter = 0;-->
+    <!--// Code-->
+    <!--function fibo3(n) {-->
+        <!--return fibo_rek(n, 1, 1)-->
+    <!--}-->
+
+    <!--function fibo_rek(n, x, y) {-->
+        <!--tcounter++;-->
+        <!--if (n < 2) return x;-->
+        <!--else {-->
+            <!--return fibo_rek(n - 1, y, x + y)-->
+        <!--}-->
+    <!--}-->
+
+    <!--// Experiments-->
+    <!--for (i = 0; i < 20; i++) {-->
+        <!--tcounter = 0;-->
+        <!--fibo3(i);-->
+        <!--ad_1_4_data.push({-->
+            <!--experiment: i,-->
+            <!--value: tcounter-->
+        <!--});-->
+    <!--}-->
+
+    <!--// Tests-->
+    <!--assert(fibo3(10) === 55, "fibo3(10) == 55");-->
+    <!--assert(fibo3(1) === 1, "fibo3(1) = 1");-->
+<!--</script>-->
+<!--&lt;!&ndash; dieser Code zeigt die Implementierung und die Tests an &ndash;&gt;-->
+<!--<script>-->
+    <!--$('pre#ad-1-2-source').html($('#ad-1-2-code').html())-->
+<!--</script>-->
+
+<!--<h3>-->
+    <!--Experimente-->
+<!--</h3>-->
+
+<!--<div id="ad-1-4-experiments" style="height: 250px;"></div>-->
+<!--<script>-->
+    <!--new Morris.Line({-->
+<!--// ID of the element in which to draw the chart.-->
+        <!--element: 'ad-1-4-experiments',-->
+<!--// do values relate to dates (time)?-->
+        <!--parseTime: false,-->
+<!--// Chart data records &#45;&#45; each entry in this array corresponds to a point on-->
+<!--// the chart.-->
+        <!--data: ad_1_4_data,-->
+<!--// The name of the data record attribute that contains x-values.-->
+        <!--xkey: 'experiment',-->
+<!--// A list of names of data record attributes that contain y-values.-->
+        <!--ykeys: ['value'],-->
+<!--// Labels for the ykeys &#45;&#45; will be displayed when you hover over the-->
+<!--// chart.-->
+        <!--labels: ['Value']-->
+    <!--});-->
+<!--</script>-->
+
+
+<!--&lt;!&ndash; Aufgabe 2.5 &ndash;&gt;-->
+<!--<h2>-->
+    <!--Aufgabe 2.5-->
+<!--</h2>-->
+<!--Dies ist nur eine Vorlage-->
+<!--<h2>-->
+    <!--Antwort 2.5-->
+<!--</h2>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+    <!--Implementierung-->
+<!--</h3>-->
+<!--&lt;!&ndash; In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt &ndash;&gt;-->
+<!--<pre id="ad-1-5-source"></pre>-->
+<!--<h3>-->
+    <!--Testergebnisse-->
+<!--</h3>-->
+
+<!--<div id="ad-1-5-results"></div>-->
+<!--&lt;!&ndash; Code und Tests hier hin &ndash;&gt;-->
+<!--<script id="ad-1-5-code">-->
+    <!--var ad_1_5_data = [];-->
+
+    <!--var counter = 0;-->
+    <!--// Code-->
+    <!--function fibo4(n) {-->
+        <!--if (n === 1) return 1;-->
+        <!--if (n === 0) return 0;-->
+        <!--var ret = 0;-->
+        <!--var h1 = 0;-->
+        <!--var h2 = 1;-->
+        <!--for (i = 1; i < n; ++i) {-->
+            <!--counter++;-->
+            <!--ret = h1 + h2;-->
+            <!--h1 = h2;-->
+            <!--h2 = ret;-->
+        <!--}-->
+        <!--return ret;-->
+    <!--}-->
+
+
+    <!--// Experiments-->
+    <!--for (i = 1; i <= 20; i++) {-->
+        <!--counter = 0;-->
+        <!--var erg_val = fibo4(i);-->
+
+        <!--ad_1_5_data.push({-->
+            <!--experiment: i,-->
+            <!--value: counter,-->
+            <!--erg: erg_val-->
+        <!--});-->
+    <!--}-->
+
+    <!--// Tests-->
+    <!--assert(fibo4(10) === 55, "fibo4(10) == 55");-->
+    <!--assert(fibo4(1) === 1, "fibo4(1) = 1");-->
+
+
+<!--</script>-->
+<!--&lt;!&ndash; dieser Code zeigt die Implementierung und die Tests an &ndash;&gt;-->
+<!--<script>-->
+    <!--$('pre#ad-1-5-source').html($('#ad-1-5-code').html())-->
+<!--</script>-->
+
+<!--<h3>-->
+    <!--Experimente-->
+<!--</h3>-->
+
+<!--<div id="ad-1-5-experiments" style="height: 250px;"></div>-->
+<!--<script>-->
+    <!--new Morris.Line({-->
+<!--// ID of the element in which to draw the chart.-->
+        <!--element: 'ad-1-5-experiments',-->
+<!--// do values relate to dates (time)?-->
+        <!--parseTime: false,-->
+<!--// Chart data records &#45;&#45; each entry in this array corresponds to a point on-->
+<!--// the chart.-->
+        <!--data: ad_1_5_data,-->
+<!--// The name of the data record attribute that contains x-values.-->
+        <!--xkey: 'experiment',-->
+<!--// A list of names of data record attributes that contain y-values.-->
+        <!--ykeys: ['value', 'erg'],-->
+<!--// Labels for the ykeys &#45;&#45; will be displayed when you hover over the-->
+<!--// chart.-->
+        <!--labels: ['Value', 'erg']-->
+    <!--});-->
+<!--</script>-->
+
+
 <ul>
 
 </ul>
@@ -68,14 +567,13 @@
 </h2>
 <ol>
     <li>
-        Naive Steps ist O(n)
+        Die steps_naiv-Funktion(x,y,d) benoetigt bei der naiven Implementation einen Platz- und Zeitaufwand von O(n), da die Berechnung schrittweise durchgefuehrt wird.
     </li>
     <li>
-        TODO
+        Die steps-Funktion(x,y,d) ist mit einem Platz- und Zeitaufwand von O(1) implementiert worden, da nur einmal eine Berechnung durchgefuehrt wird.
+
     </li>
-    <li>
-        TODO
-    </li>
+
 </ol>
 <h3>
     Implementierung
@@ -111,31 +609,22 @@
         return count_step;
     }
 
-    // Experiments
-    for (i = 0; i < 100; i++) {
-        x = Math.ceil(Math.random() * 50);
-        y = Math.ceil(Math.random() * 500)
-        d = Math.ceil(Math.random() * 35)
-
-        ad_1_1_data.push({
-            experiment: i,
-            entfernung: y - x,
-            step_groesse: d,
-            steps: steps(x, y, d)
-            //value : step_naiv(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 1000), Math.ceil(Math.random() * 10))
-        });
-    }
-
     // Tests
     assert(steps(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");
     assert(steps(150, 91, 30) === 0, "X > Y");
     assert(steps(15, 80, -1) === "error", " d <= 0 ");
-    assert(steps(37, 297, 43) === step_naiv(37, 297, 43), "Beide funktionen liefern das gleiche Ergebnis");
 
     assert(step_naiv(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");
 
     assert(step_naiv(150, 91, 30) === 0, "X > Y");
     assert(step_naiv(15, 80, -1) === "error", " d >= 0 ");
+
+    var zufall1 = Math.ceil(Math.random(100));
+    var zufall2 = Math.ceil(Math.random(100));
+    var zufall3 = Math.ceil(Math.random(50));
+
+    assert(steps(37, 297, 43) === step_naiv(37, 297, 43), "step_naiv() === steps() mit mit festen Werten");
+    assert(step_naiv(zufall1,zufall2,zufall3) === steps(zufall1,zufall2,zufall3), "step_naiv() === steps() mit Zufallszahlen");
 
 
 </script>
@@ -146,408 +635,304 @@
 
 </script>
 
-<h3>
-    Experimente
-</h3>
-
-<div id="ad-1-1-experiments" style="height: 250px;"></div>
-<script>
-    new Morris.Line({
-        // ID of the element in which to draw the chart.
-        element: 'ad-1-1-experiments',
-        // do values relate to dates (time)?
-        parseTime: false,
-        // Chart data records -- each entry in this array corresponds to a point on
-        // the chart.
-        data: ad_1_1_data,
-        // The name of the data record attribute that contains x-values.
-        xkey: 'experiment',
-        // A list of names of data record attributes that contain y-values.
-        ykeys: ['steps', 'entfernung', 'step_groesse'],
-        // Labels for the' ykeys -- will be displayed when you hover over the
-        // chart.
-        labels: ['steps', 'entfernung', 'Step_Size']
-    });
-</script>
-
 <!-- Aufgabe 2 -->
 <h2>
     Aufgabe 2
 </h2>
-Dies ist nur eine Vorlage
-<h2>
-    Antwort 2
-</h2>
+
+
+
+
+
+
+<p>Die Fibonacci-Zahlen. Gegeben sei die folgende Funktion:</p>
+<pre>fib(n) = (n&lt;=1) ? 1 : (fib(n-1)+fib(n-2))</pre>
 <ol>
-    <li>
-        TODO
+    <li>Implementieren Sie $fib$ direkt (also naiv).</li>
+    <li>Bestimmen Sie experimentell den Zeitaufwand von $fib$ und stellen Sie das Ergebnis graphisch dar. Geben Sie die gemessene Laufzeitklasse möglichst präzise in der O-Notation an.</li>
+    <li>Die Fibonacci Zahlen können auch schneller berechnet werden. Schreiben Sie jetzt zwei verbesserte Funktionen $fib2$ und $fib3$, die rekursiv mit linearem Zeitaufwand ablaufen ($O(n)$).
+        <ul>
+            <li>$fib2$ soll memoization verwenden.</li>
+            <li>$fib3$ soll ohne memoization auskommen.</li>
+        </ul>
     </li>
+    <li>Bestimmen Sie experimentell den jeweiligen Zeitaufwand von $fib2$ und $fib3$ und stellen Sie die Ergebnisse graphisch dar.</li>
+    <li>Erläutern Sie, ob und wie sich Ihre Implementierung $fib2$ und $fib3$ im Platzaufwand unterscheiden.</li>
+    <li>Implementieren Sie $fib4$ als iterative Version von $fib3$.</li>
 </ol>
-<h3>
-    Implementierung
-</h3>
+<p>Alle Versionen $fib1$, ... $fib4$ müssen durch Tests abgedeckt sein.</p>
+<h2>Antwort 2</h2>
+<p>Der Zeitaufwand von $fib$ beläuft sich auf ungefähr $O(2^n)$, bzw. etwas weniger.</p>
+<p>
+    Der Platzaufwand von $fib2$ unterscheidet sich von $fib3$ insofern, dass für $fib2$ die Werte in einem Array gespeichert werden.
+    Dieses Array bleibt auch nach den Methodenaufrufen vorhanden. Dementsprechend wird immer mehr Speicher allokiert.
+    Das Array kann dann auch sehr große Zahlen enthalten, was tendenziell speicherbelastender sein kann.
+    Bei fib3 werden immer nur die drei Übergabeparameter belegt. Dies geschieht jedoch für jeden Aufruf erneut.
+    Wir gehen derzeit davon aus, dass $fib2$ einen Platzaufwand von $O(n)$ hat, da im schlimmsten Fall genau $n$ Werte berechnet
+    und gespeichert werden müssen. Bei $fib3$ gehen wir dagegen davon aus, dass der Platzaufwand exponentiell, also $O(2^n)$ ansteigt,
+    da fü jeden Aufruf immer die nächsten Variablen übergeben müssen.
+</p>
+<h3>Implementierung</h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-1-2-source"></pre>
-<h3>
-    Testergebnisse
-</h3>
-
+<h3>Testergebnisse</h3>
 <div id="ad-1-2-results"></div>
-<!-- Code und Tests hier hin -->
 <script id="ad-1-2-code">
-    var ad_1_2_data = [];
-
     // Code
-
     var counter = 0;
 
-
-    function fibo(n) {
+    function fib(n) {
         counter++;
-        if (n <= 1) return n;
-        else {
-            return fibo(n - 1) + fibo(n - 2);
-        }
+        return n<=1 ? 1 : fib(n-1)+fib(n-2);
     }
 
-
-    // Experiments
-    for (i = 0; i < 20; i++) {
-        counter = 0;
-        var erg = fibo(i);
-
-        ad_1_2_data.push({
-            experiment: i,
-            value: counter, //new MyClass().value
-            erg: erg
-        });
-    }
-
-    // Tests
-    assert(fibo(1) === 1, "Fibo(1) = 1");
-    assert(fibo(10) === 55, "Fibo(10) = 55");
-</script>
-<!-- dieser Code zeigt die Implementierung und die Tests an -->
-<script>
-    $('pre#ad-1-2-source').html($('#ad-1-2-code').html())
-</script>
-
-<h3>
-    Experimente
-</h3>
-
-<div id="ad-1-2-experiments" style="height: 250px;"></div>
-<script>
-    new Morris.Line({
-        // ID of the element in which to draw the chart.
-        element: 'ad-1-2-experiments',
-        // do values relate to dates (time)?
-        parseTime: false,
-        // Chart data records -- each entry in this array corresponds to a point on
-        // the chart.
-        data: ad_1_2_data,
-        // The name of the data record attribute that contains x-values.
-        xkey: 'experiment',
-        // A list of names of data record attributes that contain y-values.
-        ykeys: ['value', 'erg'],
-        // Labels for the ykeys -- will be displayed when you hover over the
-        // chart.
-        labels: ['Anzahl Add', 'Add-Ergebnis']
-    });
-</script>
-
-<!-- Aufgabe 3 -->
-<h2>
-    Aufgabe 2.3
-</h2>
-Dies ist nur eine Vorlage
-<h2>
-    Antwort 2.3
-</h2>
-<ol>
-    <li>
-        TODO
-    </li>
-</ol>
-<h3>
-    Implementierung
-</h3>
-<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
-<pre id="ad-1-3-source"></pre>
-<h3>
-    Testergebnisse
-</h3>
-
-<div id="ad-1-3-results"></div>
-<!-- Code und Tests hier hin -->
-<script id="ad-1-3-code">
-    var ad_1_3_data = [];
-
-    // Code
-
-    var counter = 0;
-
-    var map = new Map();
-
-
-    function fibo2(n) {
+    var fib2memory = {};
+    function fib2(n) {
         counter++;
-        if (n < 2) return n;
-        else {
-            var val = map.get(n)
-            if (typeof val === "undefined") {
-                val = fibo2(n - 1) + fibo2(n - 2)
-                map.set(n, val)
-
+        if(n<=1) {
+            return 1;
+        } else {
+            if(n in fib2memory) {
+                return fib2memory[n];
+            } else {
+                var val = fib2(n-1) + fib2(n-2);
+                fib2memory[n] = val;
+                return val;
             }
-            return val;
         }
     }
 
-
-    // Experiments
-    for (i = 0; i < 20; i++) {
-        counter = 0;
-        var erg = fibo2(i);
-
-        ad_1_3_data.push({
-            experiment: i,
-            value: counter //new MyClass().value
-            //  erg: erg
-        });
-
-        map = new Map();
+    function fib3(n) {
+        return fib3_rec(n, 0, 1);
     }
 
-
-    // Tests
-    assert(fibo2(1) === 1, "Fibo(1) = 1");
-    assert(fibo2(10) === 55, "Fibo(10) = 55");
-</script>
-<!-- dieser Code zeigt die Implementierung und die Tests an -->
-<script>
-    $('pre#ad-1-3-source').html($('#ad-1-3-code').html())
-</script>
-
-<h3>
-    Experimente
-</h3>
-
-<div id="ad-1-3-experiments" style="height: 250px;"></div>
-<script>
-    new Morris.Line({
-        // ID of the element in which to draw the chart.
-        element: 'ad-1-3-experiments',
-        // do values relate to dates (time)?
-        parseTime: false,
-        // Chart data records -- each entry in this array corresponds to a point on
-        // the chart.
-        data: ad_1_3_data,
-        // The name of the data record attribute that contains x-values.
-        xkey: 'experiment',
-        // A list of names of data record attributes that contain y-values.
-        ykeys: ['value'],
-        // Labels for the ykeys -- will be displayed when you hover over the
-        // chart.
-        labels: ['Anzahl Add']
-    });
-</script>
-
-
-<!-- Aufgabe 2.4 -->
-<h2>
-    Aufgabe 2.4
-</h2>
-Dies ist nur eine Vorlage
-<h2>
-    Antwort 2.4
-</h2>
-<ol>
-    <li>
-        TODO
-    </li>
-</ol>
-<h3>
-    Implementierung
-</h3>
-<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
-<pre id="ad-1-4-source"></pre>
-<h3>
-    Testergebnisse
-</h3>
-
-<div id="ad-1-4-results"></div>
-<!-- Code und Tests hier hin -->
-<script id="ad-1-4-code">
-    var ad_1_4_data = [];
-
-    var tcounter = 0;
-    // Code
-    function fibo3(n) {
-        return fibo_rek(n, 1, 1)
+    function fib3_rec(n, a, b) {
+        counter++;
+        return n==0 ? a+b : fib3_rec(n-1, a+b, a);
     }
 
-    function fibo_rek(n, x, y) {
-        tcounter++;
-        if (n < 2) return x;
-        else {
-            return fibo_rek(n - 1, y, x + y)
-        }
-    }
-
-    // Experiments
-    for (i = 0; i < 20; i++) {
-        tcounter = 0;
-        fibo3(i)
-        ad_1_4_data.push({
-            experiment: i,
-            value: tcounter
-        });
-    }
-
-    // Tests
-    assert(fibo3(10) === 55, "fibo3(10) == 55");
-    assert(fibo3(1) === 1, "fibo3(1) = 1");
-</script>
-<!-- dieser Code zeigt die Implementierung und die Tests an -->
-<script>
-    $('pre#ad-1-2-source').html($('#ad-1-2-code').html())
-</script>
-
-<h3>
-    Experimente
-</h3>
-
-<div id="ad-1-4-experiments" style="height: 250px;"></div>
-<script>
-    new Morris.Line({
-// ID of the element in which to draw the chart.
-        element: 'ad-1-4-experiments',
-// do values relate to dates (time)?
-        parseTime: false,
-// Chart data records -- each entry in this array corresponds to a point on
-// the chart.
-        data: ad_1_4_data,
-// The name of the data record attribute that contains x-values.
-        xkey: 'experiment',
-// A list of names of data record attributes that contain y-values.
-        ykeys: ['value'],
-// Labels for the ykeys -- will be displayed when you hover over the
-// chart.
-        labels: ['Value']
-    });
-</script>
-
-
-<!-- Aufgabe 2.5 -->
-<h2>
-    Aufgabe 2.5
-</h2>
-Dies ist nur eine Vorlage
-<h2>
-    Antwort 2.5
-</h2>
-<ol>
-    <li>
-        TODO
-    </li>
-</ol>
-<h3>
-    Implementierung
-</h3>
-<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
-<pre id="ad-1-5-source"></pre>
-<h3>
-    Testergebnisse
-</h3>
-
-<div id="ad-1-5-results"></div>
-<!-- Code und Tests hier hin -->
-<script id="ad-1-5-code">
-    var ad_1_5_data = [];
-
-    var counter = 0;
-    // Code
-    function fibo4(n) {
-        if (n === 1) return 1;
-        if (n === 0) return 0;
-        var ret = 0;
-        var h1 = 0;
-        var h2 = 1;
-        for (i = 1; i < n; ++i) {
+    function fib4(n) {
+        var a = 1;
+        var b = 1;
+        for(i=0; i < n; i++) {
             counter++;
-            ret = h1 + h2;
-            h1 = h2;
-            h2 = ret;
+            var c = a+b;
+            a = b;
+            b = c;
         }
-        return ret;
+        return a;
     }
 
+    function measureCounter(func, param) {
+        counter = 0;
+        var value  = func(param);
+        return {value: value, time: counter};
+    }
 
     // Experiments
-    for (i = 1; i <= 20; i++) {
-        counter = 0;
-        var erg_val = fibo4(i);
+    var ad_1_2_data_times = [];
+    var ad_1_2_data_values = [];
+    for(i=0; i<=100; i++) {
+        var measure_fib  = i<=10 ? measureCounter(fib, i) : {value: undefined, time: undefined};
+        var measure_fib2 = measureCounter(fib2, i);
+        var measure_fib3 = measureCounter(fib3, i);
+        var measure_fib4 = measureCounter(fib4, i);
+        ad_1_2_data_times.push({
+            experiment : i,
+            fib  : measure_fib['time'],
+            fib2 : measure_fib2['time'],
+            fib3 : measure_fib3['time'],
+            fib4 : measure_fib4['time']
+        });
+        ad_1_2_data_values.push({
+            experiment : i,
+            fib  : measure_fib['value'],
+            fib2 : measure_fib2['value'],
+            fib3 : measure_fib3['value'],
+            fib4 : measure_fib4['value']
+        });
+    }
 
-        ad_1_5_data.push({
-            experiment: i,
-            value: counter,
-            erg: erg_val
+    var ad_1_2_data_times2 = [];
+    for(i=0; i<=100; i++) {
+        fib2memory = {};
+        var measure_fib  = i<=10 ? measureCounter(fib, i) : {value: undefined, time: undefined};
+        var measure_fib2 = measureCounter(fib2, i);
+        var measure_fib3 = measureCounter(fib3, i);
+        var measure_fib4 = measureCounter(fib4, i);
+        ad_1_2_data_times2.push({
+            experiment : i,
+            fib  : measure_fib['time'],
+            fib2 : measure_fib2['time'],
+            fib3 : measure_fib3['time'],
+            fib4 : measure_fib4['time']
+        });
+    }
+
+    var ad_1_2_data_times3 = [];
+    for(i=5000; i>=1000; i-=100) {
+        var measure_fib2 = measureCounter(fib2, i);
+        var measure_fib3 = measureCounter(fib3, i);
+        var measure_fib4 = measureCounter(fib4, i);
+        ad_1_2_data_times3.push({
+            experiment : i,
+            fib2 : measure_fib2['time'],
+            fib3 : measure_fib3['time'],
+            fib4 : measure_fib4['time']
         });
     }
 
     // Tests
-    assert(fibo4(10) === 55, "fibo4(10) == 55");
-    assert(fibo4(1) === 1, "fibo4(1) = 1");
+    assert(ad_1_2_data_times.length === 101, "experiments have collected data");
+    assert(typeof(fib) === 'function', "function 'fib' implemented");
+    assert(fib(1) === 1, "Test fuer fib(1) = 1");
+    assert(fib(5) === 8, "Test fuer fib(5) = 8");
+    assert(fib(10) === 89, "Test fuer fib(10) = 89");
+    document.write("<br>");
 
+    assert(typeof(fib2) === 'function', "function 'fib2' implemented");
+    assert(fib2(1) === 1, "Test fuer fib2(1) = 1");
+    assert(fib2(5) === 8, "Test fuer fib2(5) = 8");
+    assert(fib2(10) === 89, "Test fuer fib3(10) = 89");
+    assert(fib2(77) === 8944394323791464, "Test fuer fib4(77) = 8944394323791464");
+    document.write("<br>");
 
+    assert(typeof(fib3) === 'function', "function 'fib3' implemented");
+    assert(fib3(1) === 1, "Test fuer fib3(1) = 1");
+    assert(fib3(5) === 8, "Test fuer fib3(5) = 8");
+    assert(fib3(10) === 89, "Test fuer fib3(10) = 89");
+    assert(fib3(77) === 8944394323791464, "Test fuer fib4(77) = 8944394323791464");
+    document.write("<br>");
+
+    assert(typeof(fib4) === 'function', "function 'fib4' implemented");
+    assert(fib4(1) === 1, "Test fuer fib4(1) = 1");
+    assert(fib4(5) === 8, "Test fuer fib4(5) = 8");
+    assert(fib4(10) === 89, "Test fuer fib4(10) = 89");
+    assert(fib4(77) === 8944394323791464, "Test fuer fib4(77) = 8944394323791464");
 </script>
-<!-- dieser Code zeigt die Implementierung und die Tests an -->
-<script>
-    $('pre#ad-1-5-source').html($('#ad-1-5-code').html())
-</script>
 
-<h3>
-    Experimente
-</h3>
+<script>$('pre#ad-1-2-source').html($('#ad-1-2-code').html())</script>
 
-<div id="ad-1-5-experiments" style="height: 250px;"></div>
+<h3>Experimente</h3>
+
+<p>Laufzeitverhalten im Vergleich</p>
+<div id="ad-1-2-experiments" style="height: 250px;"></div>
+<p>Hier kommt der Text rein</p>
+<br/>
+<p>Laufzeitverhalten im Vergleich (memory von fib2 wurde zwischen den Aufrufen ausgehebelt)</p>
+<div id="ad-1-2-experiments2" style="height: 250px;"></div>
+<p>Hier kommt der Text rein</p>
+<br/>
+<p>Laufzeitverhalten im Vergleich - Rückwärts</p>
+<div id="ad-1-2-experiments3" style="height: 250px;"></div>
+<p>Hier kommt der Text rein</p>
+<br/>
+<p>Funktionsergebnisse</p>
+<div id="ad-1-2-values" style="height: 250px;"></div>
+<p>Hier kommt der Text rein</p>
+<br/>
 <script>
     new Morris.Line({
-// ID of the element in which to draw the chart.
-        element: 'ad-1-5-experiments',
-// do values relate to dates (time)?
+        element: 'ad-1-2-experiments', // ID of the element in which to draw the chart.
+        parseTime: false, // do values relate to dates (time)?
+        data: ad_1_2_data_times, // Chart data records -- each entry in this array corresponds to a point on the chart.
+        xkey: 'experiment', // The name of the data record attribute that contains x-values.
+        ykeys: ['fib', 'fib2', 'fib3', 'fib4'], // A list of names of data record attributes that contain y-values.
+        labels: ['fib O(2^n)', 'fib2 O(1)', 'fib3 O(n)', 'fib4 O(n)'] // Labels for the ykeys -- will be displayed when you hover over the chart.
+    });
+    new Morris.Line({
+        element: 'ad-1-2-experiments2', // ID of the element in which to draw the chart.
+        parseTime: false, // do values relate to dates (time)?
+        data: ad_1_2_data_times2, // Chart data records -- each entry in this array corresponds to a point on the chart.
+        xkey: 'experiment', // The name of the data record attribute that contains x-values.
+        ykeys: ['fib', 'fib2', 'fib3', 'fib4'], // A list of names of data record attributes that contain y-values.
+        labels: ['fib O(2^n)', 'fib2 O(n)', 'fib3 O(n)', 'fib4 O(n)'] // Labels for the ykeys -- will be displayed when you hover over the chart.
+    });
+    new Morris.Line({
+        element: 'ad-1-2-experiments3', // ID of the element in which to draw the chart.
+        parseTime: false, // do values relate to dates (time)?
+        data: ad_1_2_data_times3, // Chart data records -- each entry in this array corresponds to a point on the chart.
+        xkey: 'experiment', // The name of the data record attribute that contains x-values.
+        ykeys: ['fib2', 'fib3', 'fib4'], // A list of names of data record attributes that contain y-values.
+        labels: ['fib2 O(1)', 'fib3 O(n)', 'fib4 O(n)'] // Labels for the ykeys -- will be displayed when you hover over the chart.
+    });
+    new Morris.Line({
+        element: 'ad-1-2-values',
         parseTime: false,
-// Chart data records -- each entry in this array corresponds to a point on
-// the chart.
-        data: ad_1_5_data,
-// The name of the data record attribute that contains x-values.
+        data: ad_1_2_data_values,
         xkey: 'experiment',
-// A list of names of data record attributes that contain y-values.
-        ykeys: ['value', 'erg'],
-// Labels for the ykeys -- will be displayed when you hover over the
-// chart.
-        labels: ['Value', 'erg']
+        ykeys: ['fib', 'fib2', 'fib3', 'fib4'],
+        labels: ['fib', 'fib2', 'fib3', 'fib4']
     });
 </script>
 
+<!--<h2>-->
+    <!--Aufgabe 3-->
+<!--</h2>-->
+<!--Dies ist nur eine Vorlage-->
+<!--<h2>-->
+    <!--Antwort 3-->
+<!--</h2>-->
+<!--<ol>-->
+    <!--<li>-->
+        <!--TODO-->
+    <!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+    <!--Implementierung-->
+<!--</h3>-->
 
-<!-- Aufgabe 2 -->
 <h2>
     Aufgabe 3
 </h2>
-Dies ist nur eine Vorlage
-<h2>
-    Antwort 3
-</h2>
-<ol>
-    <li>
-        TODO
+<p>Verkettete und Sequentielle Listen. Unsere Listen sollen folgende Methoden unterstützen:</p>
+<ul>
+    <li>Ein Element vorne anfügen. $cons(x; list)$</li>
+    <li>Vorderstes Element zurückgeben. $head(list)$</li>
+    <li>Restliste zurückgeben. $tail(list)$</li>
+    <li>Länge einer Liste bestimmen. $length(list)$</li>
+    <li>Ist die Liste leer? $isempty(list)$</li>
+    <li>Ein Element nach n Elementen einfügen. $insert(x; n; list)$
+        <ul>
+            <li>Dabei bedeutet nach n = 0 Elementen einfügen, das man das Element am Anfang einfügt.</li>
+            <li>(Klären Sie, was passieren soll, wenn n größer als die Anzahl der Listenelemente ist!)</li>
+        </ul>
     </li>
+</ul>
+<ol>
+    <li>Implementieren Sie eine einfach verkettete Liste.</li>
+    <li>
+        Messung des Zeitaufwandes: Wir nehmen plausiblerweise an, dass der Zeitaufwand einer
+        Listenoperation in dieser Implementation proportional zur Anzahl der Dereferenzierungen
+        ist. Fügen Sie Messung des Zeitaufwandes Hilfsvariablen ein, die mitzählen, wie oft
+        Referenzen “verfolgt” wurden. Implementieren Sie Methoden, um diese Zähler abzufragen,
+        zurücksetzen usw.
+    </li>
+    <li>
+        Ein ersten Experiment: Fügen Sie nacheinander die Werte i von 1 bis n in eine leere
+        Liste ein – jeweils am Anfang der Liste. Bestimmen Sie den Zeitaufwand mit obigen
+        Zählern. Ist das gemessene Ergebnis der zu erwartende Wert?
+    </li>
+    <li>Wie zuvor, nur dass Sie am Ende einfügen.</li>
+    <li>
+        Noch ein Experiment: Fügen Sie nacheinander die Werte i von 1 bis n in eine leere Liste
+        ein, wobei das Element i an eine zufällige Position zwischen 0 und i eingefügt werden
+        soll. Führen Sie das Experiment t-mal durch und bestimmen Sie den Mittwelwert für den
+        Zeitaufwand.
+        Tragen Sie den mittleren Zeitaufwand als Funktion gegen die Anzahl t der Versuche auf.
+        Vergleichen Sie die Ergebnisse mit den beiden vorherigen Experimenten!
+    </li>
+    <li>Implementieren Sie eine sequentielle (Array-basierte) Liste.</li>
+    <li>Erweitern Sie Ihre Implementierung der sequentiellen Liste mit geeigneten Zählern zur Bestimmung dest Zeitaufwands der angebotenen Operationen.</li>
+    <li>Führen Sie die mit der verketteten Liste durchgeführten Experimente mit der sequentiellen Liste durch.</li>
+    <li>Vergleichen Sie die beiden Implementierungsvarianten der Liste anhand der Ergebnisse der oben geforderten Experimente.</li>
 </ol>
+<h2>Antwort 3</h2>
+
 <h3>
-    Implementierung
+Implementierung
 </h3>
+
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-1-6-source"></pre>
 <h3>
@@ -558,16 +943,17 @@ Dies ist nur eine Vorlage
 <!-- Code und Tests hier hin -->
 <script id="ad-1-6-code">
 
-    var ad_1_6_data = [];
 
-    var zugrCounter = 0;
+
+
 
     var newLinkedList = function () {
-        var instanceOfLinkedList = Object.create(linkedListcreate)
+        var instanceOfLinkedList = Object.create(linkedListcreate);
         instanceOfLinkedList.head = makeNode();
-        //instanceOfLinkedList.zugrCounter = 0;
+        instanceOfLinkedList.zugrCounter = 0;
+        instanceOfLinkedList.size = 0;
         return instanceOfLinkedList;
-    }
+    };
 
     var linkedListcreate = {
         toString: function() {
@@ -580,13 +966,16 @@ Dies ist nur eine Vorlage
 
     function cons(x, list) {
         var newNode = makeNode();
-        if (list.head.data === "undefined") {this.head.data = x;
-            addZugr();
+        if (list.head.data === "undefined") {
+            this.head.data = x;
+            list.size++;
+            addZugr(list);
         } else {
             newNode.data = x;
             newNode.next = list.head;
             list.head = newNode;
-            addZugr();
+            addZugr(list);
+            list.size++;
         }
         return list;
     }
@@ -608,17 +997,10 @@ Dies ist nur eine Vorlage
     }
 
     function length(list) {
-        var counter = 1;
         if ( typeof list.head.data === "undefined") {
             return 0;
-          //  addZugr();
-        }
-        var elem = list.head.next;
-        while (typeof elem.data != "undefined") {
-            elem = elem.next
-            counter++
-        }
-        return counter;
+        }else
+            return list.size;
     }
 
     function insert(x, n, list) {
@@ -628,18 +1010,20 @@ Dies ist nur eine Vorlage
         } else {
             var newList = newLinkedList()
             for (pos = 1; pos < n; pos++) {
-                newList.head.data = list.head.data
-                newList.head.next = list.head.next
-                addZugr();
+                newList.head.data = list.head.data;
+                newList.head.next = list.head.next;
+                addZugr(newList);
             }
-            var tail = list.head.next
-            var newNode = makeNode()
-            newNode.data = x
-            newNode.next = tail
-            newList.head.next = newNode
-            addZugr();
+            newList.size = list.size;
+            var tail = list.head.next;
+            var newNode = makeNode();
+            newNode.data = x;
+            newNode.next = tail;
+            newList.head.next = newNode;
+            newList.size++;
+            addZugr(newList);
+            return newList
         }
-        return newList
     }
 
     var makeNode = function (val) {
@@ -651,61 +1035,53 @@ Dies ist nur eine Vorlage
     }
 
     // Zugriffszählermethoden
-    function resetZugr() {
-        zugrCounter = 0;
+    function resetZugr(list) {
+        list.zugrCounter = 0;
     }
 
-    function addZugr() {
-        zugrCounter += 1;
+    function addZugr(list) {
+        list.zugrCounter ++;
     }
 
-    function getZugr() {
-        return zugrCounter;
+    function getZugr(list) {
+        return list.zugrCounter;
     }
 
-    function cleanZugr() {
-        return zugrCounter = 0;
+    function cleanZugr(list) {
+        return list.zugrCounter = 0;
     }
 
-    function experiment_I(list, val){
-        for(a = 0; a < val; a++)
-            cons(a, list);
-        return list;
-    }
-
-    function experiment_II(list, val){
-        for(a = 0; a < val; a++)
-           list = insert(a, length(list)+1, list);
-        return list;
-    }
-
-    function experiment_III(list, val){
-        for(a=0; a < val; a++)
-          list = insert(a, Math.ceil(Math.random()*length(list)+1), list);
-        return list;
-    }
-
+    var linkList_A = newLinkedList();
+    var linkList_B = newLinkedList();
+    var linkList_C = newLinkedList();
+    var linkList_D = newLinkedList();
+    var ad_1_6_data = [];
 
     // Experiments
-    for (i = 1; i <= 20; i++) {
-        resetZugr();
-        var anzahl_Zahlen = Math.ceil(Math.random()*100);
-        experiment_I(newLinkedList(), anzahl_Zahlen);
-        var zugrCounter_A = getZugr();
-        resetZugr();
-        experiment_II(newLinkedList(), anzahl_Zahlen);
-        var zugrCounter_B = getZugr();
-        resetZugr();
-        experiment_III(newLinkedList(), anzahl_Zahlen);
-        var zugrCounter_C = getZugr();
-        resetZugr();
+    for (i = 1; i <= 100; i++) {
+        linkList_A = insert(i, 0, linkList_A);
+        linkList_B = insert(i, length(linkList_B)+1, linkList_B);
+        linkList_C = insert(i, Math.ceil(Math.random()*length(linkList_C)+1), linkList_C);
+        var mittelWert = 0;
+        var iterationen = 10000;
+
+        for(var j=0; j < iterationen; j++) {
+            linkList_D = insert(i, Math.ceil(Math.random()*i), linkList_D);
+            mittelWert += getZugr(linkList_D);
+            resetZugr(linkList_D);
+        }
+        mittelWert = mittelWert/iterationen;
 
         ad_1_6_data.push({
-            experiment: anzahl_Zahlen,
-            value: zugrCounter_A,
-            val2: zugrCounter_B,
-            val3: zugrCounter_C
+            experiment: i,
+            value:      getZugr(linkList_A),
+            val2:       getZugr(linkList_B),
+            val3:       getZugr(linkList_C),
+            val4:       Math.ceil(mittelWert)
         });
+        resetZugr(linkList_A);
+        resetZugr(linkList_B);
+        resetZugr(linkList_C);
     }
 
     // Tests
@@ -726,7 +1102,7 @@ Dies ist nur eine Vorlage
     // Um tail-Funktion zu testen .data rangehängt
     assert(tail(myList).data === 1, "tail(myList) funktioniert");
     myList = insert(3,2,myList)
-    assert(length(myList) === 3, "Laenge myList ist 3");
+    assert(length(myList) === 3, "Laenge myList ist 3 "+ length(myList) + " Liste: " );
    // window.alert(myList.head.next.data);
 
 
@@ -753,10 +1129,10 @@ Dies ist nur eine Vorlage
 // The name of the data record attribute that contains x-values.
         xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-        ykeys: ['value', 'val2', 'val3'],
+        ykeys: ['value', 'val2', 'val3', 'val4'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-        labels: ['A','B','C']
+        labels: ['A','E','Z', 'M']
     });
 </script>
 
@@ -788,14 +1164,14 @@ Dies ist nur eine Vorlage
 <script id="ad-1-7-code">
     var ad_1_7_data = [];
 
-    var zugrCounter_A = 0;
+
 
     var newArrayList = function () {
-        var instanceOfArrayList = Object.create(arrayListcreate)
+        var instanceOfArrayList = Object.create(arrayListcreate);
         instanceOfArrayList.elem_count = 0;
         instanceOfArrayList.array = new Array(instanceOfArrayList.elem_count);
-
-      //  instanceOfArrayList.zugrCounter = 0;
+        instanceOfArrayList.zugrCounter_A = 0;
+        instanceOfArrayList.step_count = 10;
         return instanceOfArrayList;
     };
 
@@ -807,7 +1183,7 @@ Dies ist nur eine Vorlage
 
 
     function consA(x, list) {
-        return insertA(x, 1, list)
+        return insertA(x, 1, list);
     };
 
     function headA(list) {
@@ -817,10 +1193,10 @@ Dies ist nur eine Vorlage
     function tailA(list) {
         var tmpList = newArrayList();
         for (i = 1; i < list.elem_count; i++) {
-            tmpList.array[i] = list.array[i]
+            tmpList.array[i] = list.array[i];
         }
         tmpList.elem_count = list.elem_count - 1;
-        return tmpList
+        return tmpList;
     };
 
     function lengthA(list) {
@@ -841,75 +1217,56 @@ Dies ist nur eine Vorlage
         }else if(n === (lengthA(list) +1) ) {
             list.elem_count++;
             list.array[n] = x;
-            addZugrA();
+            addZugrA(list);
             return list;
         }else{
             list.elem_count++;
             var templist = list;
             for (qw = list.elem_count; qw >= n; qw--) {
                 templist.array[qw + 1] = list.array[qw];
-                addZugrA();
+                addZugrA(templist);
             }
             templist.array[n] = x
-            addZugrA();
+            addZugrA(templist);
             return templist;
         }
     };
 
     // Zugriffszählermethoden
-    function resetZugrA() {
-       zugrCounter_A = 0;
+    function resetZugrA(list) {
+       list.zugrCounter_A = 0;
     };
 
-    function addZugrA() {
-        zugrCounter_A += 1;
+    function addZugrA(list) {
+        list.zugrCounter_A += 1;
     };
 
-    function getZugrA() {
-        return zugrCounter_A;
+    function getZugrA(list) {
+        return list.zugrCounter_A;
     };
 
-    function experiment_A_I(list_A, anzahl){
-        for(a = 0; a < anzahl; a++)
-            list_A = consA(a, list_A)
-        return list_A;
-    }
-
-    function experiment_A_II(list_B, anzahl){
-        for(a = 0; a < anzahl; a++)
-            list_B = insertA(a, lengthA(list_B)+1, list_B)
-        return list_B;
-    }
-
-    function experiment_A_III(list_C, anzahl){
-        for(a = 0; a < anzahl; a++)
-            list_C = insertA(a, Math.ceil(Math.random() * lengthA(list_C)+1), list_C);
-        return list_C;
-    }
-
-    var list_A, list_B, list_C
-
+    var list_A = newArrayList();
+    var list_B = newArrayList();
+    var list_C = newArrayList();
+    var list_D = newArrayList();
 
     // Experiments
     for (q = 1; q <= 20; q++) {
-        resetZugrA();
-        var anzahl_Zahlen = Math.ceil(Math.random()*100);
-        list_A = experiment_A_I(newArrayList(), anzahl_Zahlen);
-        var zugrCounterA_A = getZugrA();
-        resetZugrA();
-        list_B = experiment_A_II(newArrayList(), anzahl_Zahlen);
-        var zugrCounterA_B = getZugrA();
-        resetZugrA();
-        list_C = experiment_A_III(newArrayList(), anzahl_Zahlen);
-        var zugrCounterA_C = getZugrA();
-        resetZugrA();
+        insertA(i, 0, lengthA());
+        insertA(i, lengthA(linkList_B)+1, list_B);
+        insertA(i, Math.ceil(Math.random()+lengthA(linkList_C)+1), linkList_C);
+
+
 
         ad_1_7_data.push({
             experiment: anzahl_Zahlen,
-            value_a: zugrCounterA_A,
-            value_b: zugrCounterA_B,
-            value_c: zugrCounterA_C
+            value_a: getZugrA(list_A),
+            value_b: getZugrA(list_B),
+            value_c: getZugrA(list_C)
         });
+        resetZugrA(list_A);
+        resetZugrA(list_B);
+        resetZugrA(list_C);
     }
 
 
