@@ -100,8 +100,8 @@ Testergebnisse
 
   var newArrayList = function () {
     var instanceOfArrayList = Object.create(arrayListcreate)
-    instanceOfArrayList.elem_count = 0;
-    instanceOfArrayList.array = new Array(instanceOfArrayList.elem_count);
+    instanceOfArrayList.size_a = 0;
+    instanceOfArrayList.array = new Array(instanceOfArrayList.size_a);
 
     //  instanceOfArrayList.zugrCounter = 0;
     return instanceOfArrayList;
@@ -125,17 +125,17 @@ Testergebnisse
 
   function tailA(list) {
     var tmpList = newArrayList();
-    for (i = 1; i < list.elem_count; i++) {
+    for (i = 1; i < list.size_a; i++) {
       addZugrA
       tmpList.array[i] = list.array[i]
     }
     addZugrA
-    tmpList.elem_count = list.elem_count - 1;
+    tmpList.size_a = list.size_a - 1;
     return tmpList
   };
 
   function lengthA(list) {
-    return list.elem_count
+    return list.size_a
     addZugrA
   };
 
@@ -154,14 +154,14 @@ Testergebnisse
     if (n > list.size + 1 || n < 0 ) {
       return list;
     }else if(n === list.size ) {
-      list.elem_count++;
+      list.size_a++;
       list.array[n+1] = x;
       addZugrA();
       return list;
     }else{
-      list.elem_count++;
+      list.size_a++;
       var templist = list;
-      for (qw = this.elem_count; qw >= n; qw--) {
+      for (qw = this.size_a; qw >= n; qw--) {
         templist.array[qw + 1] = list.array[qw];
         addZugrA;
       }
