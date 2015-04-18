@@ -1267,21 +1267,21 @@ Dies ist nur eine Vorlage
         list_C = insertA(q, Math.ceil(Math.random()*lengthA(list_C)), list_C);
 
         var mittelWert_A = 0;
-        var iterationen = 100;
+        var iterationen = 50;
 
         for(var po =0; po < iterationen; po++) {
             list_D = insertA(q, Math.ceil(Math.random()*q), list_D);
             mittelWert_A += getZugrA(list_D);
             resetZugrA(list_D);
         }
-        mittelWert_A = mittelWert_A/iterationen;
+        mittelWert_A = mittelWert_A/(iterationen*i);
 
 
         ad_1_7_data.push({
             experiment: q,
             value_a: getZugrA(list_A),
             value_b: getZugrA(list_B),
-            value_c: getZugrA(list_C),
+        //    value_c: getZugrA(list_C),
             value_d: mittelWert_A
         });
         resetZugrA(list_A);
@@ -1331,11 +1331,12 @@ Dies ist nur eine Vorlage
 // The name of the data record attribute that contains x-values.
         xkey: 'experiment',
 // A list of names of data record attributes that contain y-values.
-        ykeys: ['value_a', 'value_b', 'value_c','value_d'],
+        //ykeys: ['value_a', 'value_b', 'value_c','value_d'],
+        ykeys: ['value_a', 'value_b', 'value_d'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-        labels: ['A','E','Z','M']
-
+ //       labels: ['A','E','Z','M']
+        labels: ['A','E','M']
     });
 </script>
 
