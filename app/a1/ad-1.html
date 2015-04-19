@@ -567,10 +567,10 @@
 </h2>
 <ol>
     <li>
-        Die steps_naiv-Funktion(x,y,d) benoetigt bei der naiven Implementation einen Platz- und Zeitaufwand von O(n), da die Berechnung schrittweise durchgefuehrt wird.
+        Die steps_naiv-Funktion(x,y,d) ben&oumltigt bei der naiven Implementation einen Platz- und Zeitaufwand von O(n), da die Berechnung schrittweise durchgef&uumlhrt wird.
     </li>
     <li>
-        Die steps-Funktion(x,y,d) ist mit einem Platz- und Zeitaufwand von O(1) implementiert worden, da nur einmal eine Berechnung durchgefuehrt wird.
+        Die steps-Funktion(x,y,d) ist mit einem Platz- und Zeitaufwand von O(1) implementiert worden, da nur einmal eine Berechnung durchgef&uumlhrt wird.
 
     </li>
 
@@ -648,29 +648,30 @@
 <p>Die Fibonacci-Zahlen. Gegeben sei die folgende Funktion:</p>
 <pre>fib(n) = (n&lt;=1) ? 1 : (fib(n-1)+fib(n-2))</pre>
 <ol>
-    <li>Implementieren Sie $fib$ direkt (also naiv).</li>
-    <li>Bestimmen Sie experimentell den Zeitaufwand von $fib$ und stellen Sie das Ergebnis graphisch dar. Geben Sie die gemessene Laufzeitklasse möglichst präzise in der O-Notation an.</li>
-    <li>Die Fibonacci Zahlen können auch schneller berechnet werden. Schreiben Sie jetzt zwei verbesserte Funktionen $fib2$ und $fib3$, die rekursiv mit linearem Zeitaufwand ablaufen ($O(n)$).
+    <li>Implementieren Sie fib direkt (also naiv).</li>
+    <li>Bestimmen Sie experimentell den Zeitaufwand von fib und stellen Sie das Ergebnis graphisch dar. Geben Sie die gemessene Laufzeitklasse m&oumlglichst präzise in der O-Notation an.</li>
+    <li>Die Fibonacci Zahlen k&oumlnnen auch schneller berechnet werden. Schreiben Sie jetzt zwei verbesserte Funktionen fib2 und fib3, die rekursiv mit linearem Zeitaufwand ablaufen (O(n)).
         <ul>
-            <li>$fib2$ soll memoization verwenden.</li>
-            <li>$fib3$ soll ohne memoization auskommen.</li>
+            <li>fib2 soll memoization verwenden.</li>
+            <li>fib3 soll ohne memoization auskommen.</li>
         </ul>
     </li>
-    <li>Bestimmen Sie experimentell den jeweiligen Zeitaufwand von $fib2$ und $fib3$ und stellen Sie die Ergebnisse graphisch dar.</li>
-    <li>Erläutern Sie, ob und wie sich Ihre Implementierung $fib2$ und $fib3$ im Platzaufwand unterscheiden.</li>
-    <li>Implementieren Sie $fib4$ als iterative Version von $fib3$.</li>
+    <li>Bestimmen Sie experimentell den jeweiligen Zeitaufwand von fib2 und fib3 und stellen Sie die Ergebnisse graphisch dar.</li>
+    <li>Erl&aumlutern Sie, ob und wie sich Ihre Implementierung fib2 und fib3 im Platzaufwand unterscheiden.</li>
+    <li>Implementieren Sie fib4 als iterative Version von fib3.</li>
 </ol>
-<p>Alle Versionen $fib1$, ... $fib4$ müssen durch Tests abgedeckt sein.</p>
+<p>Alle Versionen fib1, ... fib4 müssen durch Tests abgedeckt sein.</p>
 <h2>Antwort 2</h2>
-<p>Der Zeitaufwand von $fib$ beläuft sich auf ungefähr $O(2^n)$, bzw. etwas weniger.</p>
+<p>Der Zeitaufwand von fib bel&aumluft sich auf ungef&aumlhr O(2^n), bzw. etwas weniger.</p>
 <p>
-    Der Platzaufwand von $fib2$ unterscheidet sich von $fib3$ insofern, dass für $fib2$ die Werte in einem Array gespeichert werden.
+    Der Platzaufwand von fib2 unterscheidet sich von fib3 insofern, dass für fib2 die Werte in einem Array gespeichert werden.
     Dieses Array bleibt auch nach den Methodenaufrufen vorhanden. Dementsprechend wird immer mehr Speicher allokiert.
     Das Array kann dann auch sehr große Zahlen enthalten, was tendenziell speicherbelastender sein kann.
-    Bei fib3 werden immer nur die drei Übergabeparameter belegt. Dies geschieht jedoch für jeden Aufruf erneut.
-    Wir gehen derzeit davon aus, dass $fib2$ einen Platzaufwand von $O(n)$ hat, da im schlimmsten Fall genau $n$ Werte berechnet
-    und gespeichert werden müssen. Bei $fib3$ gehen wir dagegen davon aus, dass der Platzaufwand exponentiell, also $O(2^n)$ ansteigt,
-    da fü jeden Aufruf immer die nächsten Variablen übergeben müssen.
+    Bei fib3 werden immer nur die drei &Uumlbergabeparameter belegt. Dies geschieht jedoch f&uumlr jeden Aufruf erneut.
+    Bei fib3 werden immer nur die drei &Uumlbergabeparameter belegt. Dies geschieht jedoch f&uumlr jeden Aufruf erneut.
+    Wir gehen derzeit davon aus, dass fib2 einen Platzaufwand von O(n) hat, da im schlimmsten Fall genau n Werte berechnet
+    und gespeichert werden m&uumlssen. Bei fib3 gehen wir dagegen davon aus, dass der Platzaufwand exponentiell, also O(2^n) ansteigt,
+    da f&uumlr jeden Aufruf immer die n&aumlchsten Variablen &uumlbergeben m&uumlssen.
 </p>
 <h3>Implementierung</h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
@@ -823,7 +824,7 @@
 <div id="ad-1-2-experiments2" style="height: 250px;"></div>
 <p>Hier kommt der Text rein</p>
 <br/>
-<p>Laufzeitverhalten im Vergleich - Rückwärts</p>
+<p>Laufzeitverhalten im Vergleich - R&uumlckw&aumlrts</p>
 <div id="ad-1-2-experiments3" style="height: 250px;"></div>
 <p>Hier kommt der Text rein</p>
 <br/>
