@@ -818,19 +818,26 @@
 
 <p>Laufzeitverhalten im Vergleich</p>
 <div id="ad-1-2-experiments" style="height: 250px;"></div>
-<p>Hier kommt der Text rein</p>
+<p>Aus dem Graphen-Diagram geht hervor, dass die naive Implementierung fib() ein expotentielles Laufzeitverhalten (O(2^n)) aufweist.
+    Wir haben gr&oumlssere Eingabeparameter f&uumlr die fib()-Funktion vermieden um die Graphen der anderen Funktionen gegen&uumlberstellen zu k&oumlnnen.
+    <br/>
+    Die fib2()- Funkion f&uumlhrt die Berechnung linear mit O(1) aus, was auf die Speicherung der Funktionsergebnisse zur&uumlckzuf&uumlhren ist.
+    <br/>
+    Die Funktionen fib3() und fib4() haben ein identisches Laufzeitverhalten von O(n).
+    </p>
 <br/>
 <p>Laufzeitverhalten im Vergleich (memory von fib2 wurde zwischen den Aufrufen ausgehebelt)</p>
 <div id="ad-1-2-experiments2" style="height: 250px;"></div>
-<p>Hier kommt der Text rein</p>
+<p>Aus diesem Graphen-Diagramm geht eindeutig hervor, wie sich die Laufzeit von fib2() auf O(n) erh&oumlht, wenn die Funktionsergebnisse nicht gespeichert werden.</p>
 <br/>
 <p>Laufzeitverhalten im Vergleich - R&uumlckw&aumlrts</p>
 <div id="ad-1-2-experiments3" style="height: 250px;"></div>
-<p>Hier kommt der Text rein</p>
+<p>In diesem Diagramm l&aumluft der Versuchsaufbau r&uumlckw&aumlrts. Zu Beginn l&aumluft die fib2()-Funktion mit O(n) bis alle Ergebnisse einmal in dem Memory
+    gespeichert worden sind. Dann weist die Funktion eine lineare Laufzeit von O(1) auf.   </p>
 <br/>
 <p>Funktionsergebnisse</p>
 <div id="ad-1-2-values" style="height: 250px;"></div>
-<p>Hier kommt der Text rein</p>
+<p>Alle Funktionen liefern das selbe Funktionsergebnis.</p>
 <br/>
 <script>
     new Morris.Line({
