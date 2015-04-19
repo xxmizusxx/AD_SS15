@@ -1,329 +1,886 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>L&ouml;sungsblatt Vorlage</title>
-<!-- morris graph lib -->
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-<!-- LaTeX-style equations -->
-<script type="text/x-mathjax-config">
+  <title>L&ouml;sungsblatt Vorlage Stephan Wekwert und Sebastian Ewert</title>
+  <!-- morris graph lib -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  <!-- LaTeX-style equations -->
+  <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
-<script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- tests -->
-<script>
-  function assert(value, desc) {
-    var li = document.createElement("li");
-    li.style.color = value ? "green" : "red";
-    li.appendChild(document.createTextNode(desc));
-    var list = document.getElementById("results");
-    if (!list) {
-      list = document.createElement("div");
-      document.body.appendChild(list);
+
+    </script>
+  <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <!-- tests -->
+  <script>
+    function assert(value, desc) {
+      var li = document.createElement("li");
+      li.style.color = value ? "green" : "red";
+      li.appendChild(document.createTextNode(desc));
+      var list = document.getElementById("results");
+      if (!list) {
+        list = document.createElement("div");
+        document.body.appendChild(list);
+      }
+      list.appendChild(li);
     }
-    list.appendChild(li);
-  }
-</script>
+  </script>
 </head>
 <body>
-<h1 id="title">L&ouml;sungsblatt Vorlage</h1>
+<h1 id="title"> Stephan Wekwert u. Sebstian Ewert</h1>
 
-Vorlage zur L&ouml;sung des ersten Aufgabenblatts.
 <ul>
-<li>
-Die erste &Uuml;berschrift soll Ihre Namen enthalten.
-</li>
-<li>
-Die Korrektheit Ihrer Implementierung muss durch sinnvolle Tests abgesichert sein.
-</li>
-<li>
-&Uuml;berlegen Sie sich sinnvolle Eingaben und Wiederholungen f&uuml;r die Experimente.
-</li>
+
 </ul>
 
 <h2>
-Aufgabe 1
+  Aufgabe 1
 </h2>
+
 <p>
-Gegeben seien ein Startpunkt $x \in \mathbb{N}$ und ein Zielpunkt $y \in \mathbb{N}$ auf einer Geraden,
-sowie ein Schrittma&szlig; $d \in \mathbb{N}$. Gesucht ist die Anzahl der Schritte
-$steps(x, y, d) \in \mathbb{N}$, die ben&ouml;tigt werden, um einen Punkt zu erreichen, dessen Wert
-gr&ouml;&szlig;er als $y$ ist.
+  Gegeben seien ein Startpunkt $x \in \mathbb{N}$ und ein Zielpunkt $y \in \mathbb{N}$ auf einer Geraden,
+  sowie ein Schrittma&szlig; $d \in \mathbb{N}$. Gesucht ist die Anzahl der Schritte
+  $steps(x, y, d) \in \mathbb{N}$, die ben&ouml;tigt werden, um einen Punkt zu erreichen, dessen Wert
+  gr&ouml;&szlig;er als $y$ ist.
 </p>
+
 <p>
-Beispiel: Bei der Eingabe $x = 15$, $y = 80$, $d = 30$ sind drei Schritte n&ouml;tig.
+  Beispiel: Bei der Eingabe $x = 15$, $y = 80$, $d = 30$ sind drei Schritte n&ouml;tig.
 </p>
 <ol>
-<li>
-In Abh&auml;gigkeit von welchem Wert bestimmen Sie Laufzeit und Speicherplatzbedarf?
-</li>
-<li>
-Welchen Zeit- und welchen Platzaufwand hat eine naive Implementierung?
-</li>
-<li>
-Implementieren Sie die Methode $steps(x,y,d)$, welche die gesuchte Anzahl der Schritte in Zeitaufwand $O(1)$ und  Platzaufwand $O(1)$ berechnet.
-</li>
+  <li>
+    In Abh&auml;gigkeit von welchem Wert bestimmen Sie Laufzeit und Speicherplatzbedarf?
+  </li>
+  <li>
+    Welchen Zeit- und welchen Platzaufwand hat eine naive Implementierung?
+  </li>
+  <li>
+    Implementieren Sie die Methode $steps(x,y,d)$, welche die gesuchte Anzahl der Schritte in Zeitaufwand $O(1)$ und
+    Platzaufwand $O(1)$ berechnet.
+  </li>
 </ol>
 <h2>
-Antwort 1
+  Antwort 1
 </h2>
 <ol>
-<li>
-TODO
-</li>
-<li>
-TODO
-</li>
-<li>
-TODO
-</li>
+  <li>
+    Die steps_naiv-Funktion(x,y,d) ben&oumltigt bei der naiven Implementation einen Platz- und Zeitaufwand von O(n), da die Berechnung schrittweise durchgef&uumlhrt wird.
+  </li>
+  <li>
+    Die steps-Funktion(x,y,d) ist mit einem Platz- und Zeitaufwand von O(1) implementiert worden, da nur einmal eine Berechnung durchgef&uumlhrt wird.
+
+  </li>
+
 </ol>
 <h3>
-Implementierung
+  Implementierung
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
 <pre id="ad-1-1-source"></pre>
 <h3>
-Testergebnisse
+  Testergebnisse
 </h3>
+
 <div id="ad-1-1-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-1-code">
   var ad_1_1_data = [];
 
+  <!-- x = Ausgangspunkt, y = endpunkt, d = Schrittmass -->
 
-  var zugrCounterA = 0;
+  function steps(x, y, d) {
+    if (d <= 0) return "error";
+    else if (x >= y) return 0;
+    else {
+      return Math.ceil((y - x) / d);
+    }
+  }
+
+
+  function step_naiv(x, y, d) {
+    if (d <= 0) return "error";
+    var count_step = 0;
+    for (i = x; i < y; i = i + d) {
+      count_step++;
+    }
+    return count_step;
+  }
+
+  // Tests
+  assert(steps(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");
+  assert(steps(150, 91, 30) === 0, "X > Y");
+  assert(steps(15, 80, -1) === "error", " d <= 0 ");
+
+  assert(step_naiv(15, 80, 30) === 3, "Beispielaufruf nach Vorgabe");
+
+  assert(step_naiv(150, 91, 30) === 0, "X > Y");
+  assert(step_naiv(15, 80, -1) === "error", " d >= 0 ");
+
+  var zufall1 = Math.ceil(Math.random(100));
+  var zufall2 = Math.ceil(Math.random(100));
+  var zufall3 = Math.ceil(Math.random(50));
+
+  assert(steps(37, 297, 43) === step_naiv(37, 297, 43), "step_naiv() === steps() mit mit festen Werten");
+  assert(step_naiv(zufall1,zufall2,zufall3) === steps(zufall1,zufall2,zufall3), "step_naiv() === steps() mit Zufallszahlen");
+
+
+</script>
+<!-- dieser Code zeigt die Implementierung und die Tests an -->
+<script>
+  $('pre#ad-1-1-source').html($('#ad-1-1-code').html())
+
+
+</script>
+
+<!-- Aufgabe 2 -->
+<h2>
+  Aufgabe 2
+</h2>
+
+
+
+
+
+
+<p>Die Fibonacci-Zahlen. Gegeben sei die folgende Funktion:</p>
+<pre>fib(n) = (n&lt;=1) ? 1 : (fib(n-1)+fib(n-2))</pre>
+<ol>
+  <li>Implementieren Sie fib direkt (also naiv).</li>
+  <li>Bestimmen Sie experimentell den Zeitaufwand von fib und stellen Sie das Ergebnis graphisch dar. Geben Sie die gemessene Laufzeitklasse m&oumlglichst präzise in der O-Notation an.</li>
+  <li>Die Fibonacci Zahlen k&oumlnnen auch schneller berechnet werden. Schreiben Sie jetzt zwei verbesserte Funktionen fib2 und fib3, die rekursiv mit linearem Zeitaufwand ablaufen (O(n)).
+    <ul>
+      <li>fib2 soll memoization verwenden.</li>
+      <li>fib3 soll ohne memoization auskommen.</li>
+    </ul>
+  </li>
+  <li>Bestimmen Sie experimentell den jeweiligen Zeitaufwand von fib2 und fib3 und stellen Sie die Ergebnisse graphisch dar.</li>
+  <li>Erl&aumlutern Sie, ob und wie sich Ihre Implementierung fib2 und fib3 im Platzaufwand unterscheiden.</li>
+  <li>Implementieren Sie fib4 als iterative Version von fib3.</li>
+</ol>
+<p>Alle Versionen fib1, ... fib4 m&uumlssen durch Tests abgedeckt sein.</p>
+<h2>Antwort 2</h2>
+<p>Der Zeitaufwand von fib bel&aumluft sich auf ungef&aumlhr O(2^n), bzw. etwas weniger.</p>
+<p>
+  Der Platzaufwand von fib2 unterscheidet sich von fib3 insofern, dass f&uumlr fib2 die Werte in einem Array gespeichert werden.
+  Dieses Array bleibt auch nach den Methodenaufrufen vorhanden. Dementsprechend wird immer mehr Speicher allokiert.
+  Das Array kann dann auch sehr grosse Zahlen enthalten, was tendenziell speicherbelastender sein kann.
+  Bei fib3 werden immer nur die drei &Uumlbergabeparameter belegt. Dies geschieht jedoch f&uumlr jeden Aufruf erneut.
+  Bei fib3 werden immer nur die drei &Uumlbergabeparameter belegt. Dies geschieht jedoch f&uumlr jeden Aufruf erneut.
+  Wir gehen derzeit davon aus, dass fib2 einen Platzaufwand von O(n) hat, da im schlimmsten Fall genau n Werte berechnet
+  und gespeichert werden m&uumlssen. Bei fib3 gehen wir dagegen davon aus, dass der Platzaufwand exponentiell, also O(2^n) ansteigt,
+  da f&uumlr jeden Aufruf immer die n&aumlchsten Variablen &uumlbergeben m&uumlssen.
+</p>
+<h3>Implementierung</h3>
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
+<pre id="ad-1-2-source"></pre>
+<h3>Testergebnisse</h3>
+<div id="ad-1-2-results"></div>
+<script id="ad-1-2-code">
+  // Code
+  var counter = 0;
+
+  function fib(n) {
+    counter++;
+    return n<=1 ? 1 : fib(n-1)+fib(n-2);
+  }
+
+  var fib2memory = {};
+  function fib2(n) {
+    counter++;
+    if(n<=1) {
+      return 1;
+    } else {
+      if(n in fib2memory) {
+        return fib2memory[n];
+      } else {
+        var val = fib2(n-1) + fib2(n-2);
+        fib2memory[n] = val;
+        return val;
+      }
+    }
+  }
+
+  function fib3(n) {
+    return fib3_rec(n, 0, 1);
+  }
+
+  function fib3_rec(n, a, b) {
+    counter++;
+    return n==0 ? a+b : fib3_rec(n-1, a+b, a);
+  }
+
+  function fib4(n) {
+    var a = 1;
+    var b = 1;
+    for(i=0; i < n; i++) {
+      counter++;
+      var c = a+b;
+      a = b;
+      b = c;
+    }
+    return a;
+  }
+
+  function measureCounter(func, param) {
+    counter = 0;
+    var value  = func(param);
+    return {value: value, time: counter};
+  }
+
+  // Experiments
+  var ad_1_2_data_times = [];
+  var ad_1_2_data_values = [];
+  for(i=0; i<=100; i++) {
+    var measure_fib  = i<=10 ? measureCounter(fib, i) : {value: undefined, time: undefined};
+    var measure_fib2 = measureCounter(fib2, i);
+    var measure_fib3 = measureCounter(fib3, i);
+    var measure_fib4 = measureCounter(fib4, i);
+    ad_1_2_data_times.push({
+      experiment : i,
+      fib  : measure_fib['time'],
+      fib2 : measure_fib2['time'],
+      fib3 : measure_fib3['time'],
+      fib4 : measure_fib4['time']
+    });
+    ad_1_2_data_values.push({
+      experiment : i,
+      fib  : measure_fib['value'],
+      fib2 : measure_fib2['value'],
+      fib3 : measure_fib3['value'],
+      fib4 : measure_fib4['value']
+    });
+  }
+
+  var ad_1_2_data_times2 = [];
+  for(i=0; i<=100; i++) {
+    fib2memory = {};
+    var measure_fib  = i<=10 ? measureCounter(fib, i) : {value: undefined, time: undefined};
+    var measure_fib2 = measureCounter(fib2, i);
+    var measure_fib3 = measureCounter(fib3, i);
+    var measure_fib4 = measureCounter(fib4, i);
+    ad_1_2_data_times2.push({
+      experiment : i,
+      fib  : measure_fib['time'],
+      fib2 : measure_fib2['time'],
+      fib3 : measure_fib3['time'],
+      fib4 : measure_fib4['time']
+    });
+  }
+
+  var ad_1_2_data_times3 = [];
+  for(i=5000; i>=1000; i-=100) {
+    var measure_fib2 = measureCounter(fib2, i);
+    var measure_fib3 = measureCounter(fib3, i);
+    var measure_fib4 = measureCounter(fib4, i);
+    ad_1_2_data_times3.push({
+      experiment : i,
+      fib2 : measure_fib2['time'],
+      fib3 : measure_fib3['time'],
+      fib4 : measure_fib4['time']
+    });
+  }
+
+  // Tests
+  assert(ad_1_2_data_times.length === 101, "experiments have collected data");
+  assert(typeof(fib) === 'function', "function 'fib' implemented");
+  assert(fib(1) === 1, "Test fuer fib(1) = 1");
+  assert(fib(5) === 8, "Test fuer fib(5) = 8");
+  assert(fib(10) === 89, "Test fuer fib(10) = 89");
+  document.write("<br>");
+
+  assert(typeof(fib2) === 'function', "function 'fib2' implemented");
+  assert(fib2(1) === 1, "Test fuer fib2(1) = 1");
+  assert(fib2(5) === 8, "Test fuer fib2(5) = 8");
+  assert(fib2(10) === 89, "Test fuer fib3(10) = 89");
+  assert(fib2(77) === 8944394323791464, "Test fuer fib4(77) = 8944394323791464");
+  document.write("<br>");
+
+  assert(typeof(fib3) === 'function', "function 'fib3' implemented");
+  assert(fib3(1) === 1, "Test fuer fib3(1) = 1");
+  assert(fib3(5) === 8, "Test fuer fib3(5) = 8");
+  assert(fib3(10) === 89, "Test fuer fib3(10) = 89");
+  assert(fib3(77) === 8944394323791464, "Test fuer fib4(77) = 8944394323791464");
+  document.write("<br>");
+
+  assert(typeof(fib4) === 'function', "function 'fib4' implemented");
+  assert(fib4(1) === 1, "Test fuer fib4(1) = 1");
+  assert(fib4(5) === 8, "Test fuer fib4(5) = 8");
+  assert(fib4(10) === 89, "Test fuer fib4(10) = 89");
+  assert(fib4(77) === 8944394323791464, "Test fuer fib4(77) = 8944394323791464");
+</script>
+
+<script>$('pre#ad-1-2-source').html($('#ad-1-2-code').html())</script>
+
+<h3>Experimente</h3>
+
+<p>Laufzeitverhalten im Vergleich</p>
+<div id="ad-1-2-experiments" style="height: 250px;"></div>
+<p>Aus dem Graphen-Diagram geht hervor, dass die naive Implementierung fib() ein expotentielles Laufzeitverhalten (O(2^n)) aufweist.
+  Wir haben gr&oumlssere Eingabeparameter f&uumlr die fib()-Funktion vermieden um die Graphen der anderen Funktionen gegen&uumlberstellen zu k&oumlnnen.
+  <br/>
+  Die fib2()- Funkion f&uumlhrt die Berechnung linear mit O(1) aus, was auf die Speicherung der Funktionsergebnisse zur&uumlckzuf&uumlhren ist.
+  <br/>
+  Die Funktionen fib3() und fib4() haben ein identisches Laufzeitverhalten von O(n).
+</p>
+<br/>
+<p>Laufzeitverhalten im Vergleich (memory von fib2 wurde zwischen den Aufrufen ausgehebelt)</p>
+<div id="ad-1-2-experiments2" style="height: 250px;"></div>
+<p>Aus diesem Graphen-Diagramm geht eindeutig hervor, wie sich die Laufzeit von fib2() auf O(n) erh&oumlht, wenn die Funktionsergebnisse nicht gespeichert werden.</p>
+<br/>
+<p>Laufzeitverhalten im Vergleich - R&uumlckw&aumlrts</p>
+<div id="ad-1-2-experiments3" style="height: 250px;"></div>
+<p>In diesem Diagramm l&aumluft der Versuchsaufbau r&uumlckw&aumlrts. Zu Beginn l&aumluft die fib2()-Funktion mit O(n) bis alle Ergebnisse einmal in dem Memory
+  gespeichert worden sind. Dann weist die Funktion eine lineare Laufzeit von O(1) auf.   </p>
+<br/>
+<p>Funktionsergebnisse</p>
+<div id="ad-1-2-values" style="height: 250px;"></div>
+<p>Alle Funktionen liefern das selbe Funktionsergebnis.</p>
+<br/>
+<script>
+  new Morris.Line({
+    element: 'ad-1-2-experiments', // ID of the element in which to draw the chart.
+    parseTime: false, // do values relate to dates (time)?
+    data: ad_1_2_data_times, // Chart data records -- each entry in this array corresponds to a point on the chart.
+    xkey: 'experiment', // The name of the data record attribute that contains x-values.
+    ykeys: ['fib', 'fib2', 'fib3', 'fib4'], // A list of names of data record attributes that contain y-values.
+    labels: ['fib O(2^n)', 'fib2 O(1)', 'fib3 O(n)', 'fib4 O(n)'] // Labels for the ykeys -- will be displayed when you hover over the chart.
+  });
+  new Morris.Line({
+    element: 'ad-1-2-experiments2', // ID of the element in which to draw the chart.
+    parseTime: false, // do values relate to dates (time)?
+    data: ad_1_2_data_times2, // Chart data records -- each entry in this array corresponds to a point on the chart.
+    xkey: 'experiment', // The name of the data record attribute that contains x-values.
+    ykeys: ['fib', 'fib2', 'fib3', 'fib4'], // A list of names of data record attributes that contain y-values.
+    labels: ['fib O(2^n)', 'fib2 O(n)', 'fib3 O(n)', 'fib4 O(n)'] // Labels for the ykeys -- will be displayed when you hover over the chart.
+  });
+  new Morris.Line({
+    element: 'ad-1-2-experiments3', // ID of the element in which to draw the chart.
+    parseTime: false, // do values relate to dates (time)?
+    data: ad_1_2_data_times3, // Chart data records -- each entry in this array corresponds to a point on the chart.
+    xkey: 'experiment', // The name of the data record attribute that contains x-values.
+    ykeys: ['fib2', 'fib3', 'fib4'], // A list of names of data record attributes that contain y-values.
+    labels: ['fib2 O(1)', 'fib3 O(n)', 'fib4 O(n)'] // Labels for the ykeys -- will be displayed when you hover over the chart.
+  });
+  new Morris.Line({
+    element: 'ad-1-2-values',
+    parseTime: false,
+    data: ad_1_2_data_values,
+    xkey: 'experiment',
+    ykeys: ['fib', 'fib2', 'fib3', 'fib4'],
+    labels: ['fib', 'fib2', 'fib3', 'fib4']
+  });
+</script>
+
+<!--<h2>-->
+<!--Aufgabe 3-->
+<!--</h2>-->
+<!--Dies ist nur eine Vorlage-->
+<!--<h2>-->
+<!--Antwort 3-->
+<!--</h2>-->
+<!--<ol>-->
+<!--<li>-->
+<!--TODO-->
+<!--</li>-->
+<!--</ol>-->
+<!--<h3>-->
+<!--Implementierung-->
+<!--</h3>-->
+
+<h2>
+  Aufgabe 3
+</h2>
+<p>Verkettete und Sequentielle Listen. Unsere Listen sollen folgende Methoden unterst&uumltzen:</p>
+<ul>
+  <li>Ein Element vorne anf&uumlgen. $cons(x; list)$</li>
+  <li>Vorderstes Element zur&uumlckgeben. $head(list)$</li>
+  <li>Restliste zur&uumlckgeben. $tail(list)$</li>
+  <li>L&aumlnge einer Liste bestimmen. $length(list)$</li>
+  <li>Ist die Liste leer? $isempty(list)$</li>
+  <li>Ein Element nach n Elementen einf&uumlgen. $insert(x; n; list)$
+    <ul>
+      <li>Dabei bedeutet nach n = 0 Elementen einf&uumlgen, das man das Element am Anfang einf&uumlgt.</li>
+      <li>(Kl&aumlren Sie, was passieren soll, wenn n gr&oumlsser als die Anzahl der Listenelemente ist!)</li>
+    </ul>
+  </li>
+</ul>
+<ol>
+  <li>Implementieren Sie eine einfach verkettete Liste.</li>
+  <li>
+    Messung des Zeitaufwandes: Wir nehmen plausiblerweise an, dass der Zeitaufwand einer
+    Listenoperation in dieser Implementation proportional zur Anzahl der Dereferenzierungen
+    ist. F&uumlgen Sie Messung des Zeitaufwandes Hilfsvariablen ein, die mitz&aumlhlen, wie oft
+    Referenzen “verfolgt” wurden. Implementieren Sie Methoden, um diese Z&aumlhler abzufragen,
+    zur&uumlcksetzen usw.
+  </li>
+  <li>
+    Ein ersten Experiment: F&uumlgen Sie nacheinander die Werte i von 1 bis n in eine leere
+    Liste ein, jeweils am Anfang der Liste. Bestimmen Sie den Zeitaufwand mit obigen
+    Z&aumlhlern. Ist das gemessene Ergebnis der zu erwartende Wert?
+  </li>
+  <li>Wie zuvor, nur dass Sie am Ende einf&uumlgen.</li>
+  <li>
+    Noch ein Experiment: F&uumlgen Sie nacheinander die Werte i von 1 bis n in eine leere Liste
+    ein, wobei das Element i an eine zuf&aumlllige Position zwischen 0 und i eingef&uumlgt werden
+    soll. F&uumlhren Sie das Experiment t-mal durch und bestimmen Sie den Mittwelwert f&uumlr den
+    Zeitaufwand.
+    Tragen Sie den mittleren Zeitaufwand als Funktion gegen die Anzahl t der Versuche auf.
+    Vergleichen Sie die Ergebnisse mit den beiden vorherigen Experimenten!
+  </li>
+  <li>Implementieren Sie eine sequentielle (Array-basierte) Liste.</li>
+  <li>Erweitern Sie Ihre Implementierung der sequentiellen Liste mit geeigneten Z&aumlhlern zur Bestimmung dest Zeitaufwands der angebotenen Operationen.</li>
+  <li>F&uumlhren Sie die mit der verketteten Liste durchgef&uumlhrten Experimente mit der sequentiellen Liste durch.</li>
+  <li>Vergleichen Sie die beiden Implementierungsvarianten der Liste anhand der Ergebnisse der oben geforderten Experimente.</li>
+</ol>
+<h2>Antwort 3</h2>
+
+<p>Die LinkedList bringt einen Laufzeitvorteil beim Einf&uumlgen an vorderster Position und die ArrayList an letzter Position. Im Mittelwert, der das
+  Hinzuf&uumlgen an zuf&aumllliger Position abbildet, liegen beide Listentypen ungef&aumlhr gleich auf. L&aumlsst sich das Einsatzgebiet der Liste vorhersehen, raten wir
+  dazu, sich f&uumlr den jeweiligen Listentyp zu entscheiden.</p>
+
+<h3>
+  Implementierung
+</h3>
+
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
+<pre id="ad-1-6-source"></pre>
+<h3>
+  Testergebnisse
+</h3>
+
+<div id="ad-1-6-results"></div>
+
+
+<script id="ad-1-6-code">
+
+  var newLinkedList = function () {
+    var instanceOfLinkedList = Object.create(linkedListcreate);
+    instanceOfLinkedList.head = makeNode();
+    instanceOfLinkedList.zugrCounter = 0;
+    instanceOfLinkedList.size = 0;
+    return instanceOfLinkedList;
+  };
+
+  var linkedListcreate = {
+    toString: function() {
+      if (typeof this.head.data === "undefined") return null;
+      while (typeof this.head.next === "undefined") {
+        return console.log(this.head.data)
+      }
+    }
+  }
+
+  function cons(x, list) {
+    var newNode = makeNode();
+    if (list.head.data === "undefined") {
+      this.head.data = x;
+      list.size++;
+      addZugr(list);
+    } else {
+      newNode.data = x;
+      newNode.next = list.head;
+      list.head = newNode;
+      addZugr(list);
+      list.size++;
+    }
+    return list;
+  }
+
+  function head(list) {
+    return list.head.data;
+  }
+
+  function tail(list) {
+    return list.head.next;
+  }
+
+  function isEmpty(list) {
+    if (typeof list.head.data === "undefined") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function length(list) {
+    if ( typeof list.head.data === "undefined") {
+      return 0;
+    }else
+      return list.size;
+  }
+
+  function insert(x, n, list) {
+    if (n === 0 || length(list) === 0) return cons(x, list)
+    else if (n > length(list) + 1) {
+      return list;
+    } else {
+      var newList = newLinkedList()
+      for (pos = 1; pos < n; pos++) {
+        newList.head.data = list.head.data;
+        newList.head.next = list.head.next;
+        addZugr(newList);
+      }
+      newList.size = list.size;
+      var tail = list.head.next;
+      var newNode = makeNode();
+      newNode.data = x;
+      newNode.next = tail;
+      newList.head.next = newNode;
+      newList.size++;
+      addZugr(newList);
+      return newList
+    }
+  }
+
+  var makeNode = function (val) {
+    var instanceOfNode = {
+      data: val,
+      next: "undefined"
+    };
+    return instanceOfNode
+  }
+
+  // Zugriffszählermethoden
+  function resetZugr(list) {
+    list.zugrCounter = 0;
+  }
+
+  function addZugr(list) {
+    list.zugrCounter ++;
+  }
+
+  function getZugr(list) {
+    return list.zugrCounter;
+  }
+
+  function cleanZugr(list) {
+    return list.zugrCounter = 0;
+  }
+
+  var linkList_A = newLinkedList();
+  var linkList_B = newLinkedList();
+  var linkList_C = newLinkedList();
+  var linkList_D = newLinkedList();
+  var ad_1_6_data = [];
+
+  // Experiments
+  for (i = 1; i <= 100; i++) {
+    linkList_A = insert(i, 0, linkList_A);
+    linkList_B = insert(i, length(linkList_B)+1, linkList_B);
+    linkList_C = insert(i, Math.ceil(Math.random()*length(linkList_C)+1), linkList_C);
+    var mittelWert = 0;
+    var iterationen = 10000;
+
+    for(var j=0; j < iterationen; j++) {
+      linkList_D = insert(i, Math.ceil(Math.random()*i), linkList_D);
+      mittelWert += getZugr(linkList_D);
+      resetZugr(linkList_D);
+    }
+    mittelWert = mittelWert/iterationen;
+
+    ad_1_6_data.push({
+      experiment: i,
+      value:      getZugr(linkList_A),
+      val2:       getZugr(linkList_B),
+      //      val3:       getZugr(linkList_C),
+      val4:       Math.ceil(mittelWert)
+    });
+    resetZugr(linkList_A);
+    resetZugr(linkList_B);
+    resetZugr(linkList_C);
+  }
+
+  // Tests
+  //  window.alert(myList.head.data);
+
+  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+  var myList = newLinkedList();
+  // myList.toString(); muss überarbeitet werden
+  assert(isEmpty(myList) === true, "liste ist empty");
+  assert(length(myList) === 0, "Laenge myList ist 0");
+  cons(1, myList);
+  assert(head(myList) === 1, "cons(1, myList) funktioniert");
+  assert(length(myList) === 1, "Laenge myList ist 1");
+  cons(2, myList);
+  assert(head(myList) === 2, "cons(2, myList) funktioniert");
+  assert(length(myList) === 2, "Laenge myList ist 2");
+  assert(head(myList) === 2, "head(myList) funktioniert");
+  // Um tail-Funktion zu testen .data rangehängt
+  assert(tail(myList).data === 1, "tail(myList) funktioniert");
+  myList = insert(3,2,myList)
+  assert(length(myList) === 3, "Laenge myList ist 3 "+ length(myList) + " Liste: " );
+  // window.alert(myList.head.next.data);
+
+
+</script>
+<!-- dieser Code zeigt die Implementierung und die Tests an -->
+<script>
+  $('pre#ad-1-6-source').html($('#ad-1-6-code').html())
+</script>
+
+<h3>
+  Experimente
+</h3>
+<p>Laufzeitvergleich LinkedList</p>
+<div id="ad-1-6-experiments" style="height: 250px;"></div>
+<p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der Liste zum Einf&uumlgen am Ende der Liste, da beim Einf&uumlgen vorne
+  nur ein neues Node Objekt voran geh&aumlngt wird. Damit wir eine Laufzeit von O(1) erreicht. Beim Einf&uumlgen am Ende der
+  Liste wird hingegen komplette Liste elementweise kopiert. Somit hat das Einf&uumlgen am  Ende eine Laufzeit von O(n).
+  Der Graph des Mittelwertes bildet das Hinzuf&uumlgen an zuf&aumllliger Position ab. Dabei ist im schlimmsten Fall von der letzten Position in der
+  Liste und im besten Fall von der ersten Position in der Liste auszugehen. Wir gehen dabei von einer Laufzeit von O(n) aus.
+</p>
+<script>
+  new Morris.Line({
+// ID of the element in which to draw the chart.
+    element: 'ad-1-6-experiments',
+// do values relate to dates (time)?
+    parseTime: false,
+// Chart data records -- each entry in this array corresponds to a point on
+// the chart.
+    data: ad_1_6_data,
+// The name of the data record attribute that contains x-values.
+    xkey: 'experiment',
+// A list of names of data record attributes that contain y-values.
+//        ykeys: ['value', 'val2', 'val3', 'val4'],
+
+    ykeys: ['value', 'val2', 'val4'],
+// Labels for the ykeys -- will be displayed when you hover over the
+// chart.
+//        labels: ['A','E','Z', 'M']
+    labels: ['AmAnfang(O(1))','AmEnde(O(n))', 'Mittelwert(O(n))']
+  });
+</script>
+
+
+<!-- Aufgabe 3.2-->
+<h2>
+  Aufgabe 3.2
+</h2>
+
+<h2>
+</h2>
+
+<h3>
+  Implementierung
+</h3>
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
+<pre id="ad-1-7-source"></pre>
+<h3>
+  Testergebnisse
+</h3>
+
+<div id="ad-1-7-results"></div>
+<!-- Code und Tests hier hin -->
+<script id="ad-1-7-code">
+  var ad_1_7_data = [];
+
+
 
   var newArrayList = function () {
-    var instanceOfArrayList = Object.create(arrayListcreate)
+    var instanceOfArrayList = Object.create(arrayListcreate);
     instanceOfArrayList.size_a = 0;
-    instanceOfArrayList.array = new Array(instanceOfArrayList.size_a);
-
-    //  instanceOfArrayList.zugrCounter = 0;
+    instanceOfArrayList.zugrCounter_A = 0;
+    instanceOfArrayList.capacity = 10;
+    instanceOfArrayList.array = new Array(instanceOfArrayList.capacity);
     return instanceOfArrayList;
   };
 
 
   var arrayListcreate = {
-    test: {
-    }
+
   }
 
 
   function consA(x, list) {
-    return insertA(x, 1, list)
-  };
+    return insertA(x, 0, list);
+  }
 
   function headA(list) {
-    addZugrA
-    return list.array[1];
-  };
+    return list.array[0];
+  }
 
   function tailA(list) {
     var tmpList = newArrayList();
-    for (i = 1; i < list.size_a; i++) {
-      addZugrA
-      tmpList.array[i] = list.array[i]
+    for (i = 0; i < list.size_a; i++) {
+      tmpList.array[i] = list.array[i+1];
     }
-    addZugrA
     tmpList.size_a = list.size_a - 1;
-    return tmpList
-  };
+    return tmpList;
+  }
 
   function lengthA(list) {
-    return list.size_a
-    addZugrA
-  };
+    return list.size_a;
+  }
 
   function isEmptyA(list) {
-    if (lengthA(list) === 0) {
-      return true;
-    } else {
-      false;
-    }
-  };
-
-  // ToDo es werden keine Elemente hinzugefügt
-  // ToDo es muss dass Array eine Größe beide der Initizalierung mitübergeben werden...
+    return lengthA(list) === 0 ? true:false;
+  }
 
   function insertA(x, n, list) {
-    if (n > list.size + 1 || n < 0 ) {
-      return list;
-    }else if(n === list.size ) {
-      list.size_a++;
-      list.array[n+1] = x;
-      addZugrA();
-      return list;
+    if (n > list.size_a + 1 || n < 0 ) {
+      return "error";
     }else{
-      list.size_a++;
-      var templist = list;
-      for (qw = this.size_a; qw >= n; qw--) {
-        templist.array[qw + 1] = list.array[qw];
-        addZugrA;
+      if(list.size_a >= list.capacity){
+        var old_ary = list.array;
+        var old_capacity = list.capacity;
+        list.capacity += list.capacity;
+        list.array = new Array(list.capacity);
+        for(old = 0; old < old_capacity; old++){
+          list.array[old] = old_ary[old];
+          addZugrA(list);
+        }
       }
-      templist.array[n] = x
-      addZugrA();
-      return templist;
+      if(n === (lengthA(list)) ) {
+        list.size_a++;
+        list.array[n] = x;
+        addZugrA(list);
+        return list;
+      }else{
+        list.size_a++;
+        var templist = list;
+        for (qw = list.size_a; qw >= n; qw--) {
+          templist.array[qw + 1] = list.array[qw];
+          addZugrA(templist);
+        }
+        templist.array[n] = x
+        addZugrA(templist);
+        return templist;
+      }
     }
   };
 
   // Zugriffszählermethoden
-  function resetZugrA() {
-    zugrCounterA = 0;
+  function resetZugrA(list) {
+    list.zugrCounter_A = 0;
   };
 
-  function addZugrA() {
-    zugrCounterA += 1;
+  function addZugrA(list) {
+    list.zugrCounter_A++;
   };
 
-  function getZugrA() {
-    return zugrCounterA
+  function getZugrA(list) {
+    return list.zugrCounter_A;
   };
 
-  function experiment_A_I(listA, anzahl){
-    for(a = 0; a < anzahl; a++)
-      listA = consA(a, listA)
-    return listA;
-  }
+  var list_A = newArrayList();
+  var list_B = newArrayList();
+  var list_C = newArrayList();
+  var list_D = newArrayList();
 
-  function experiment_A_II(listA, anzahl){
-    for(a = 0; a < anzahl; a++)
-      listA = insertA(a, lengthA(listA)+1, listA)
-    return listA;
-  }
-
-  function experiment_A_III(listA, anzahl){
-    for(a = 0; a < anzahl; a++)
-      listA = insertA(a, Math.ceil(Math.random() * lengthA(listA)+1), listA);
-    return listA;
-  }
-
-  assert(typeof(steps) === 'function', "function 'steps' not implemented");
-
-  var list_A, list_B, list_C;
-
-  list_A = newArrayList();
-  list_A
-
- // consA(1,list_A);
-  // var listtest = insertA(2,2,list_A);
-
-  window.alert(list_A[0]);
-
-
-
-
-
-
-
-
-
-
-</script>
-<!-- dieser Code zeigt die Implementierung und die Tests an -->
-<script>
-$('pre#ad-1-1-source').html($('#ad-1-1-code').html())
-</script>
-
-<h3>
-Experimente
-</h3>
-
-<div id="ad-1-1-experiments" style="height: 250px;"></div>
-<script>
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'ad-1-1-experiments',
-  // do values relate to dates (time)?
-  parseTime: false,
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: ad_1_1_data,
-  // The name of the data record attribute that contains x-values.
-  xkey: 'experiment',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
-});
-</script>
-
-<!-- Aufgabe 2 -->
-<h2>
-Aufgabe 2
-</h2>
-Dies ist nur eine Vorlage
-<h2>
-Antwort 2
-</h2>
-<ol>
-<li>
-TODO
-</li>
-</ol>
-<h3>
-Implementierung
-</h3>
-<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
-<pre id="ad-1-2-source"></pre>
-<h3>
-Testergebnisse
-</h3>
-<div id="ad-1-2-results"></div>
-<!-- Code und Tests hier hin -->
-<script id="ad-1-2-code">
-  var ad_1_2_data = [];
-
-
-
-
-  // Code  
+  //    function mittelwert(elem, list){
+  //        var mittelWert_A = 0;
+  //        var iterationen = 50;
+  //        for(iter = 0; iter < iterationen; iter++){
+  //            for(op = 0; op < elem;op++){
+  //                list = insertA(elem, Math.ceil(Math.random()*lengthA(list)), list);
+  //                mittelWert_A += getZugrA(list);
+  //                resetZugrA(list);
+  //            }
+  //        }
+  //      //  window.alert("Zugriffe: " + mittelWert_A);
+  //
+  //       // window.alert("Mittelwert: " + mittelWert_A);
+  //        return mittelWert_A;
+  //
+  //    }
 
   // Experiments
-  for(i = 0; i < 10; i ++) {
-    ad_1_2_data.push({
-      experiment : i,
-      value : new MyClass().value
-      });
+  for (q = 0; q < 100; q++) {
+    list_A = insertA(q, 0, list_A);
+    list_B = insertA(q, lengthA(list_B), list_B);
+    list_C = insertA(q, Math.ceil(Math.random()*lengthA(list_C)), list_C);
+    //    var mittelWert_A = 0;
+    var mittelWert_A = 0;
+    var iterationen = 10;
+
+    for(var po =0; po < iterationen; po++) {
+      list_D = insertA(q, Math.ceil(Math.random()*q), list_D);
+      mittelWert_A += getZugrA(list_D);
+      resetZugrA(list_D);
+    }
+    //mittelWert_A = mittelWert_A/(iterationen);
+    mittelWert_A =0;
+    // window.alert("Size: " + list_D.size_a);
+
+    ad_1_7_data.push({
+      experiment: q,
+      value_a: getZugrA(list_A),
+      value_b: getZugrA(list_B),
+      value_c: getZugrA(list_C),
+      value_d: Math.ceil(mittelWert_A)
+    });
+    resetZugrA(list_A);
+    resetZugrA(list_B);
+    resetZugrA(list_C);
+    // list_D = newArrayList();
   }
 
   // Tests
-  assert(ad_1_2_data.length === 10, "experiments have collected data");
-  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+  var arrayList = newArrayList();
+  assert(isEmptyA(arrayList) === true, "ArrayList ist empty  " + arrayList.size_a);
+  consA(0, arrayList);
+  assert(headA(arrayList) === 0, "ConsA funktioniert, Value 0 hinzugfuegt");
+  assert(lengthA(arrayList) === 1, "Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 1 nach dem Einfuegen von dem Value 0");
+  consA(1, arrayList);
+  assert(headA(arrayList) === 1, "ConsA funktioniert, Value 1 hinzugfuegt");
+  assert(lengthA(arrayList) === 2, "Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 2 nach dem Einfuegen von dem Value 1");
+  arrayList = insertA(3,2,arrayList);
+  assert(arrayList.array[2] === 3, "Mit insertA() an Pos 2 Value 3 hinzugefuegt, Anzahl Elemente: " + arrayList.size_a +", insert funktioniert. Elem an Pos 2 ist " + arrayList.array[2]);
+  arrayList = insertA(4,2, arrayList);
+  assert(arrayList.array[2] === 4, "Mit insertA() an Pos 2 Value 3 hinzugefuegt, Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 3 nach dem Einfuegen von dem Value 4 an Pos 2");
+  assert(headA(arrayList) === 1, "headA() funktioniert. Der Head ist 1");
+  assert(insertA(9,-1, arrayList) === "error", "An Pos -1 kann nichts der Liste hinzufuegt werden");
+
+  assert(lengthA(list_A) === 100, "Anzahl Elemente: " + list_A.size_a +" Elemente wurde hinzugefuegt ");
+  assert(lengthA(list_B) === 100, "Anzahl Elemente: " + list_B.size_a +" Elemente wurde hinzugefuegt ");
+  assert(lengthA(list_C) === 100, "Anzahl Elemente: " + list_C.size_a +" Elemente wurde hinzugefuegt ");
+
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-1-2-source').html($('#ad-1-2-code').html())
+  $('pre#ad-1-7-source').html($('#ad-1-7-code').html())
 </script>
 
 <h3>
-Experimente
+  Experimente
 </h3>
 
-<div id="ad-1-2-experiments" style="height: 250px;"></div>
+<p>Laufzeitenvergleich ArrayList</p>
+<div id="ad-1-7-experiments" style="height: 250px;"></div>
+<p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der ArrayListe zum Einf&uumlgen am Ende der ArrayListe, da beim Einf&uumlgen vorne die
+  komplette ArrayListe elementweise kopiert werden muss. Somit hat das Einf&uumlgen am Anfang eine Laufzeit von O(n). Beim Einf&uumlgen am Ende der
+  ArrayListe wird sie hingegen nur erweitert. Damit wir eine Laufzeit von O(1) erreicht. Die zackartigen Ausbr&uumlche sind den Erweiterungen der ArrayListe geschuldet, da hier die eine neue
+  ArrayListe mit der 2-fachen Gr&oumlsse erstellt wird und elementweise kopiert wird, aber auch diese Peaks sind linear.
+  Der Graph Zu&aumlllig bildet das Hinzuf&uumlgen an zuf&aumllliger Position ab. Dabei ist im schlimmsten Fall von der ersten Position in der
+  ArrayListe und im besten Fall von der letzten Position in der ArrayListe auszugehen. Wir gehen dabei von einer Laufzeit von O(n) aus. Auch hier sind
+  die Ausbrüche im Graphen erkennbar. Der Graph des Mittelwertes befindet von der Laufzeit zwischen O(1) und O(n). Aus unerkl&aumlrlichen Gr&uumlnden werden hier
+  keine Peaks im Graphen angezeigt.
+</p>
 <script>
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'ad-1-2-experiments',
-  // do values relate to dates (time)?
-  parseTime: false,
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: ad_1_2_data,
-  // The name of the data record attribute that contains x-values.
-  xkey: 'experiment',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
-});
+  new Morris.Line({
+// ID of the element in which to draw the chart.
+    element: 'ad-1-7-experiments',
+// do values relate to dates (time)?
+    parseTime: false,
+// Chart data records -- each entry in this array corresponds to a point on
+// the chart.
+    data: ad_1_7_data,
+// The name of the data record attribute that contains x-values.
+    xkey: 'experiment',
+// A list of names of data record attributes that contain y-values.
+    ykeys: ['value_a', 'value_b', 'value_c','value_d'],
+    //    ykeys: ['value_a', 'value_b', 'value_d'],
+// Labels for the ykeys -- will be displayed when you hover over the
+// chart.
+    labels: ['AmAnfang(O(n))','AmEnde(O(1))','Zuf&aumlllig(O(n))','Mittelwert()']
+    //      labels: ['A','E','M']
+  });
 </script>
+
 
 </body>
 </html>

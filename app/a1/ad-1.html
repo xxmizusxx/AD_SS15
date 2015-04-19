@@ -438,7 +438,7 @@
 </ol>
 <h2>Antwort 3</h2>
 
-<p>Die LinkedList bringt einen Laufzeitvorteil beim Einf&uumlgen an vordersten Position und die ArrayList an letzter Position. Im Mittelwert, der das
+<p>Die LinkedList bringt einen Laufzeitvorteil beim Einf&uumlgen an vorderster Position und die ArrayList an letzter Position. Im Mittelwert, der das
     Hinzuf&uumlgen an zuf&aumllliger Position abbildet, liegen beide Listentypen ungef&aumlhr gleich auf. L&aumlsst sich das Einsatzgebiet der Liste vorhersehen, raten wir
     dazu, sich f&uumlr den jeweiligen Listentyp zu entscheiden.</p>
 
@@ -651,7 +651,7 @@ Implementierung
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
 //        labels: ['A','E','Z', 'M']
-        labels: ['A','E', 'M']
+        labels: ['AmAnfang(O(1))','AmEnde(O(n))', 'Mittelwert(O(n))']
     });
 </script>
 
@@ -854,9 +854,12 @@ Implementierung
 <p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der ArrayListe zum Einf&uumlgen am Ende der ArrayListe, da beim Einf&uumlgen vorne die
     komplette ArrayListe elementweise kopiert werden muss. Somit hat das Einf&uumlgen am Anfang eine Laufzeit von O(n). Beim Einf&uumlgen am Ende der
     ArrayListe wird sie hingegen nur erweitert. Damit wir eine Laufzeit von O(1) erreicht. Die zackartigen Ausbr&uumlche sind den Erweiterungen der ArrayListe geschuldet, da hier die eine neue
-    ArrayListe mit der 2-fachen Gr&oumlsse erstellt wird und elementweise kopiert wird.
-    Der Graph des Mittelwertes bildet das Hinzuf&uumlgen an zuf&aumllliger Position ab. Dabei ist im schlimmsten Fall von der ersten Position in der
-    ArrayListe und im besten Fall von der letzten Position in der ArrayListe auszugehen. Wir gehen dabei von einer Laufzeit von O(n) aus.</p>
+    ArrayListe mit der 2-fachen Gr&oumlsse erstellt wird und elementweise kopiert wird, aber auch diese Peaks sind linear.
+    Der Graph Zu&aumlllig bildet das Hinzuf&uumlgen an zuf&aumllliger Position ab. Dabei ist im schlimmsten Fall von der ersten Position in der
+    ArrayListe und im besten Fall von der letzten Position in der ArrayListe auszugehen. Wir gehen dabei von einer Laufzeit von O(n) aus. Auch hier sind
+    die Ausbrüche im Graphen erkennbar. Der Graph des Mittelwertes befindet von der Laufzeit zwischen O(1) und O(n). Aus unerkl&aumlrlichen Gr&uumlnden werden hier
+    keine Peaks im Graphen angezeigt.
+    </p>
 <script>
     new Morris.Line({
 // ID of the element in which to draw the chart.
@@ -873,7 +876,7 @@ Implementierung
     //    ykeys: ['value_a', 'value_b', 'value_d'],
 // Labels for the ykeys -- will be displayed when you hover over the
 // chart.
-       labels: ['A','E','Z','M']
+       labels: ['AmAnfang(O(n))','AmEnde(O(1))','Zuf&aumlllig(O(n))','Mittelwert()']
   //      labels: ['A','E','M']
     });
 </script>
