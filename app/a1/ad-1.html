@@ -778,14 +778,12 @@ Implementierung
         list_C = insertA(q, Math.ceil(Math.random()*lengthA(list_C)), list_C);
         var mittelWert_A = 0;
         var iterationen = 50;
-
         for(var po =0; po < iterationen; po++) {
             list_D = insertA(q, Math.ceil(Math.random()*q), list_D);
             mittelWert_A += getZugrA(list_D);
             resetZugrA(list_D);
         }
         mittelWert_A = mittelWert_A/(iterationen*i);
-
         ad_1_7_data.push({
             experiment: q,
             value_a: getZugrA(list_A),
