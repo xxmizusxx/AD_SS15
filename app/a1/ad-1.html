@@ -724,9 +724,8 @@ Dies ist nur eine Vorlage
 
     function insertA(x, n, list) {
         if (n > list.size_a + 1 || n < 0 ) {
-            return list;
+            return "error";
         }else{
-         //   window.alert("Size: " + list.size_a + " capatiy " + list.capacity);
             if(list.size_a >= list.capacity){
                 var old_ary = list.array;
                 var old_capacity = list.capacity;
@@ -803,24 +802,25 @@ Dies ist nur eine Vorlage
         resetZugrA(list_C);
     }
 
-
-
     // Tests
-   // assert(typeof(steps) === 'function', "function 'steps' not implemented");
-
     var arrayList = newArrayList();
-    assert(isEmptyA(arrayList) === true, "liste ist empty  " + arrayList.size_a);
+    assert(isEmptyA(arrayList) === true, "ArrayList ist empty  " + arrayList.size_a);
+    consA(0, arrayList);
+    assert(headA(arrayList) === 0, "ConsA funktioniert, Value 0 hinzugfuegt");
+    assert(lengthA(arrayList) === 1, "Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 1 nach dem Einfuegen von dem Value 0");
     consA(1, arrayList);
-    assert(headA(arrayList) === 1, "ConsA funkt");
+    assert(headA(arrayList) === 1, "ConsA funktioniert, Value 1 hinzugfuegt");
+    assert(lengthA(arrayList) === 2, "Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 2 nach dem Einfuegen von dem Value 1");
     arrayList = insertA(3,2,arrayList);
-    assert(lengthA(arrayList) === 2, "Anzahl Elemente: " + arrayList.size_a +" lengthA() funktioniert");
-    arrayList = insertA(2,2, arrayList);
-    assert(lengthA(arrayList) === 3, "Anzahl Elemente: " + arrayList.size_a +" lengthA() funktioniert");
+    assert(arrayList.array[2] === 3, "Mit insertA() an Pos 2 Value 3 hinzugefuegt, Anzahl Elemente: " + arrayList.size_a +", insert funktioniert. Elem an Pos 2 ist " + arrayList.array[2]);
+    arrayList = insertA(4,2, arrayList);
+    assert(arrayList.array[2] === 4, "Mit insertA() an Pos 2 Value 3 hinzugefuegt, Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 3 nach dem Einfuegen von dem Value 4 an Pos 2");
+    assert(headA(arrayList) === 1, "headA() funktioniert. Der Head ist 1");
+    assert(insert(9,-1, arrayList) === "error", "An Pos -1 kann nichts der Liste hinzufuegt werden");
 
-    assert(lengthA(list_A) === 100, "Anzahl Elemente: " + list_A.size_a +" Elemente wurde hinzugefuegt " + list_A.array[list_A.size_a-3]);
-    assert(lengthA(list_B) === 100, "Anzahl Elemente: " + list_B.size_a +" Elemente wurde hinzugefuegt " +  list_B.array[list_A.size_a-3]);
-    assert(lengthA(list_C) === 100, "Anzahl Elemente: " + list_C.size_a +" Elemente wurde hinzugefuegt " +  list_C.array[list_A.size_a-3]);
-
+    assert(lengthA(list_A) === 100, "Anzahl Elemente: " + list_A.size_a +" Elemente wurde hinzugefuegt ");
+    assert(lengthA(list_B) === 100, "Anzahl Elemente: " + list_B.size_a +" Elemente wurde hinzugefuegt ");
+    assert(lengthA(list_C) === 100, "Anzahl Elemente: " + list_C.size_a +" Elemente wurde hinzugefuegt ");
 
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
@@ -832,9 +832,12 @@ Dies ist nur eine Vorlage
     Experimente
 </h3>
 
-<p>Überschrift hier rein</p>
+<p>Laufzeitenvergleich</p>
 <div id="ad-1-7-experiments" style="height: 250px;"></div>
-<p>Beschreibung hier rein</p>
+<p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der Liste zum Einf&uumlgen am Ende der Liste, da beim Einf&uumlgen vorne die
+    komplette Liste elementweise kopiert werden muss. Beim Einf&uumlgen am Ende der Liste wird sie hingegen nur erweitert. Die zackartigen Ausbr&uumlche
+    sind den Erweiterungen der Liste geschuldet, da hier die eine neue Liste mit der 2-fachen Gr&oumlsse erstellt wird und elementweise kopiert
+    wird.</p>
 <script>
     new Morris.Line({
 // ID of the element in which to draw the chart.
