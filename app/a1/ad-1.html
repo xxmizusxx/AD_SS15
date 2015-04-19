@@ -419,7 +419,7 @@
     </li>
     <li>
         Ein ersten Experiment: F&uumlgen Sie nacheinander die Werte i von 1 bis n in eine leere
-        Liste ein – jeweils am Anfang der Liste. Bestimmen Sie den Zeitaufwand mit obigen
+        Liste ein, jeweils am Anfang der Liste. Bestimmen Sie den Zeitaufwand mit obigen
         Z&aumlhlern. Ist das gemessene Ergebnis der zu erwartende Wert?
     </li>
     <li>Wie zuvor, nur dass Sie am Ende einf&uumlgen.</li>
@@ -438,7 +438,9 @@
 </ol>
 <h2>Antwort 3</h2>
 
-<p>Antwort hier rein</p>
+<p>Die LinkedList bringt einen Laufzeitvorteil beim Einf&uumlgen an vordersten Position und die ArrayList an letzter Position. Im Mittelwert, der das
+    Hinzuf&uumlgen an zuf&aumllliger Position abbildet, liegen beide Listentypen ungef&aumlhr gleich auf. L&aumlsst sich das Einsatzgebiet der Liste vorhersehen, raten wir
+    dazu, sich f&uumlr den jeweiligen Listentyp zu entscheiden.</p>
 
 <h3>
 Implementierung
@@ -623,9 +625,14 @@ Implementierung
 <h3>
     Experimente
 </h3>
-<p>Überschrift hier rein</p>
+<p>Laufzeitvergleich LinkedList</p>
 <div id="ad-1-6-experiments" style="height: 250px;"></div>
-<p>Beschreibung hier rein</p>
+<p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der Liste zum Einf&uumlgen am Ende der Liste, da beim Einf&uumlgen vorne
+    nur ein neues Node Objekt voran geh&aumlngt wird. Damit wir eine Laufzeit von O(1) erreicht. Beim Einf&uumlgen am Ende der
+    Liste wird hingegen komplette Liste elementweise kopiert. Somit hat das Einf&uumlgen am  Ende eine Laufzeit von O(n).
+    Der Graph des Mittelwertes bildet das Hinzuf&uumlgen an zuf&aumllliger Position ab. Dabei ist im schlimmsten Fall von der letzten Position in der
+    Liste und im besten Fall von der ersten Position in der Liste auszugehen. Wir gehen dabei von einer Laufzeit von O(n) aus.
+</p>
 <script>
     new Morris.Line({
 // ID of the element in which to draw the chart.
@@ -653,17 +660,10 @@ Implementierung
 <h2>
     Aufgabe 3.2
 </h2>
-Dies ist nur eine Vorlage
-<h2>
-    Antwort 3.2
-</h2>
-<p>Antwort hier rein</p>
 
-<ol>
-    <li>
-        TODO
-    </li>
-</ol>
+<h2>
+</h2>
+
 <h3>
     Implementierung
 </h3>
@@ -816,7 +816,7 @@ Dies ist nur eine Vorlage
     arrayList = insertA(4,2, arrayList);
     assert(arrayList.array[2] === 4, "Mit insertA() an Pos 2 Value 3 hinzugefuegt, Anzahl Elemente: " + arrayList.size_a +", lengthA() funktioniert. Laenge ist 3 nach dem Einfuegen von dem Value 4 an Pos 2");
     assert(headA(arrayList) === 1, "headA() funktioniert. Der Head ist 1");
-    assert(insert(9,-1, arrayList) === "error", "An Pos -1 kann nichts der Liste hinzufuegt werden");
+    assert(insertA(9,-1, arrayList) === "error", "An Pos -1 kann nichts der Liste hinzufuegt werden");
 
     assert(lengthA(list_A) === 100, "Anzahl Elemente: " + list_A.size_a +" Elemente wurde hinzugefuegt ");
     assert(lengthA(list_B) === 100, "Anzahl Elemente: " + list_B.size_a +" Elemente wurde hinzugefuegt ");
@@ -832,12 +832,14 @@ Dies ist nur eine Vorlage
     Experimente
 </h3>
 
-<p>Laufzeitenvergleich</p>
+<p>Laufzeitenvergleich ArrayList</p>
 <div id="ad-1-7-experiments" style="height: 250px;"></div>
-<p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der Liste zum Einf&uumlgen am Ende der Liste, da beim Einf&uumlgen vorne die
-    komplette Liste elementweise kopiert werden muss. Beim Einf&uumlgen am Ende der Liste wird sie hingegen nur erweitert. Die zackartigen Ausbr&uumlche
-    sind den Erweiterungen der Liste geschuldet, da hier die eine neue Liste mit der 2-fachen Gr&oumlsse erstellt wird und elementweise kopiert
-    wird.</p>
+<p>Die Laufzeit unterschiedet sich stark beim Einf&uumlgen am Anfang der ArrayListe zum Einf&uumlgen am Ende der ArrayListe, da beim Einf&uumlgen vorne die
+    komplette ArrayListe elementweise kopiert werden muss. Somit hat das Einf&uumlgen am Anfang eine Laufzeit von O(n). Beim Einf&uumlgen am Ende der
+    ArrayListe wird sie hingegen nur erweitert. Damit wir eine Laufzeit von O(1) erreicht. Die zackartigen Ausbr&uumlche sind den Erweiterungen der ArrayListe geschuldet, da hier die eine neue
+    ArrayListe mit der 2-fachen Gr&oumlsse erstellt wird und elementweise kopiert wird.
+    Der Graph des Mittelwertes bildet das Hinzuf&uumlgen an zuf&aumllliger Position ab. Dabei ist im schlimmsten Fall von der ersten Position in der
+    ArrayListe und im besten Fall von der letzten Position in der ArrayListe auszugehen. Wir gehen dabei von einer Laufzeit von O(n) aus.</p>
 <script>
     new Morris.Line({
 // ID of the element in which to draw the chart.
