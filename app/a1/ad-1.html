@@ -685,8 +685,8 @@ Dies ist nur eine Vorlage
         instanceOfArrayList.size_a = 0;
         instanceOfArrayList.zugrCounter_A = 0;
 
-        instanceOfArrayList.capacity = capacity;
-        capacity === "undefined"? instanceOfArrayList.capacity = 10 : instanceOfArrayList.capacity = capacity;
+       // instanceOfArrayList.capacity = capacity;
+        capacity == null ? instanceOfArrayList.capacity = 10 : instanceOfArrayList.capacity = capacity;
         instanceOfArrayList.array = new Array(instanceOfArrayList.capacity);
         return instanceOfArrayList;
     };
@@ -726,31 +726,30 @@ Dies ist nur eine Vorlage
         if (n > list.size_a + 1 || n < 0 ) {
             return list;
         }else{
-            if(list.size_a <= list.capacity){
-                var old_ary = list;
+         //   window.alert("Size: " + list.size_a + " capatiy " + list.capacity);
+            if(list.size_a >= list.capacity){
+                var old_ary = list.array;
                 var old_capacity = list.capacity;
-                var newcapacity = 2*list.capacity;
-                window.alert("bingo");
-                list = newArrayList(newcapacity);
+                list.capacity += list.capacity;
+                list.array = new Array(list.capacity);
                 for(old = 0; old < old_capacity; old++){
-                    list.array[old] = old_ary.array[old];
+                    list.array[old] = old_ary[old];
                     addZugrA(list);
                 }
             }
-
             if(n === (lengthA(list) +1) ) {
                 list.size_a++;
                 list.array[n] = x;
                 addZugrA(list);
                 return list;
             }else{
+                list.size_a++;
                 var templist = list;
                 for (qw = list.size_a; qw >= n; qw--) {
                     templist.array[qw + 1] = list.array[qw];
                     addZugrA(templist);
                 }
                 templist.array[n] = x
-                list.size_a++;
                 addZugrA(templist);
                 return templist;
             }
