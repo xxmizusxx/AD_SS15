@@ -684,7 +684,9 @@ Dies ist nur eine Vorlage
         var instanceOfArrayList = Object.create(arrayListcreate);
         instanceOfArrayList.size_a = 0;
         instanceOfArrayList.zugrCounter_A = 0;
-        instanceOfArrayList.capacity = capacity  ? capacity : 10;
+
+        instanceOfArrayList.capacity = capacity;
+        capacity === "undefined"? instanceOfArrayList.capacity = 10 : instanceOfArrayList.capacity = capacity;
         instanceOfArrayList.array = new Array(instanceOfArrayList.capacity);
         return instanceOfArrayList;
     };
@@ -723,34 +725,35 @@ Dies ist nur eine Vorlage
     function insertA(x, n, list) {
         if (n > list.size_a + 1 || n < 0 ) {
             return list;
-        }else if(n === (lengthA(list) +1) ) {
-            list.size_a++;
-            list.array[n] = x;
-            addZugrA(list);
-            return list;
         }else{
-            //ToDO einbauen der Capacity
-//            if(list.size_a <= list.capacity){
-//                var old_ary = list;
-//                list.capacity += list.capacity;
-//                list = newArrayList(list.capacity);
-//                for(old = 0; old <old_ary.capacity; old++){
-//                    list[old] = old_ary[old];
-//
-
-//                }
-//            }
-
-            list.size_a++;
-
-            var templist = list;
-            for (qw = list.size_a; qw >= n; qw--) {
-                templist.array[qw + 1] = list.array[qw];
-                addZugrA(templist);
+            if(list.size_a <= list.capacity){
+                var old_ary = list;
+                var old_capacity = list.capacity;
+                var newcapacity = 2*list.capacity;
+                window.alert("bingo");
+                list = newArrayList(newcapacity);
+                for(old = 0; old < old_capacity; old++){
+                    list.array[old] = old_ary.array[old];
+                    addZugrA(list);
+                }
             }
-            templist.array[n] = x
-            addZugrA(templist);
-            return templist;
+
+            if(n === (lengthA(list) +1) ) {
+                list.size_a++;
+                list.array[n] = x;
+                addZugrA(list);
+                return list;
+            }else{
+                var templist = list;
+                for (qw = list.size_a; qw >= n; qw--) {
+                    templist.array[qw + 1] = list.array[qw];
+                    addZugrA(templist);
+                }
+                templist.array[n] = x
+                list.size_a++;
+                addZugrA(templist);
+                return templist;
+            }
         }
     };
 
