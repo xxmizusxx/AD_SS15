@@ -771,41 +771,19 @@ Implementierung
     var list_C = newArrayList();
     var list_D = newArrayList();
 
-//    function mittelwert(elem, list){
-//        var mittelWert_A = 0;
-//        var iterationen = 50;
-//        for(iter = 0; iter < iterationen; iter++){
-//            for(op = 0; op < elem;op++){
-//                list = insertA(elem, Math.ceil(Math.random()*lengthA(list)), list);
-//                mittelWert_A += getZugrA(list);
-//                resetZugrA(list);
-//            }
-//        }
-//      //  window.alert("Zugriffe: " + mittelWert_A);
-//
-//       // window.alert("Mittelwert: " + mittelWert_A);
-//        return mittelWert_A;
-//
-//    }
-
     // Experiments
     for (q = 0; q < 100; q++) {
         list_A = insertA(q, 0, list_A);
         list_B = insertA(q, lengthA(list_B), list_B);
         list_C = insertA(q, Math.ceil(Math.random()*lengthA(list_C)), list_C);
-        //    var mittelWert_A = 0;
         var mittelWert_A = 0;
-        var iterationen = 10;
-
+        var iterationen = 50;
         for(var po =0; po < iterationen; po++) {
             list_D = insertA(q, Math.ceil(Math.random()*q), list_D);
             mittelWert_A += getZugrA(list_D);
             resetZugrA(list_D);
         }
-        //mittelWert_A = mittelWert_A/(iterationen);
-        mittelWert_A =0;
-       // window.alert("Size: " + list_D.size_a);
-
+        mittelWert_A = mittelWert_A/(iterationen*i);
         ad_1_7_data.push({
             experiment: q,
             value_a: getZugrA(list_A),
@@ -816,7 +794,6 @@ Implementierung
         resetZugrA(list_A);
         resetZugrA(list_B);
         resetZugrA(list_C);
-       // list_D = newArrayList();
     }
 
     // Tests
