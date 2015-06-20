@@ -83,9 +83,10 @@ TODO
 </li>
 </ol>
 <h3>
-Implementierung
+Implementierung A4 Summenpaare
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
+
 <pre id="ad-1-1-source"></pre>
 <h3>
 Testergebnisse
@@ -95,22 +96,126 @@ Testergebnisse
 <script id="ad-1-1-code">
   var ad_1_1_data = [];
 
+
   // Code
-  MyClass = function() {
-    this.value = Math.ceil(Math.random()*100);
+  function longest_path_no_direction_change(tree) {
+      stepCount = 0;
+      step = 0;
+
+      if (tree == null) {
+          return 0;
+      }
+      var left_distance = 1;
+      var right_distance = 1;
+      var left = tree.left;
+      var right = tree.right;
+
+
+//      while (left != null || right != null) {
+//          if (left != null) {
+//              left_distance++;
+//              left = left.left;
+//          }
+//          if (right != null) {
+//              right_distance++;
+//              right = right.right;
+//          }
+
+        left_distance = count_step_left(left, left_distance);
+        right_distance = count_step_right(right, right_distance);
+
+
+//          stepCount++;
+//          step++;
+//          ad_4_data.push({
+//              experiment: step,
+//              value: stepCount
+//          });
+//      }
+      if (left_distance >= right_distance) {
+          return left_distance;
+      } else {
+          return right_distance;
+      }
   }
 
-  // Experiments
-  for(i = 0; i < 100; i ++) {
-    ad_1_1_data.push({
-      experiment : i,
-      value : new MyClass().value
-      });
+
+    function count_step_left(knoten, tiefe){
+        if(knoten !=null){
+            count_step_left(knoten.left, Math.round(tiefe) + 1);
+        }else{
+            return tiefe;
+        }
+    }
+
+    function count_step_right(knoten, tiefe){
+        if(knoten !=null){
+            count_step_right(knoten.right, Math.round(tiefe)+1);
+        }else{
+            return tiefe;
+        }
   }
 
   // Tests
-  assert(ad_1_1_data.length === 100, "experiments have collected data");
-  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+  var node_llr = {
+      left: null,
+      right: null
+  };
+  var node_ll = {
+      left: null,
+      right: node_llr
+  };
+  var node_lr = {
+      left: null,
+      right: null
+  };                                                          //        O
+  var node_rl = {                                             //      /   \
+      left: null,                                             //     O     O
+      right: null                                             //    / \   / \
+  };                                                          //   O   O O   O
+  var node_rr = {                                             //    \
+      left: null,                                             //     O
+      right: null
+  };
+  var node_l = {
+      left: node_ll,
+      right: node_lr
+  };
+  var node_r = {
+      left: node_rl,
+      right: node_rr
+  };
+  var tree1 = {
+      left: node_l,
+      right: node_r
+  };
+  assert(longest_path_no_direction_change(tree1) === 3, "Der Baum hat eine Länge von 3 auf der linken Hälfte, obwohl die maximal Länge 4 ist. " + longest_path_no_direction_change(tree1));
+  // Tests
+  var tree2 = {
+      left: null,
+      right: null
+  };
+  assert(longest_path_no_direction_change(tree2) === 1, "Der Baum hat eine Länge von 1 wenn er nur einen Wurzelknoten besitzt.");
+  assert(longest_path_no_direction_change(null) === 0, "Ein leerer Baum hat die Länge 0;");
+
+
+//
+//  // Code
+//  MyClass = function() {
+//    this.value = Math.ceil(Math.random()*100);
+//  }
+//
+//  // Experiments
+//  for(i = 0; i < 100; i ++) {
+//    ad_1_1_data.push({
+//      experiment : i,
+//      value : new MyClass().value
+//      });
+//  }
+//
+//  // Tests
+//  assert(ad_1_1_data.length === 100, "experiments have collected data");
+//  assert(typeof(steps) === 'function', "function 'steps' not implemented");
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
