@@ -208,13 +208,13 @@ new Morris.Line({
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
 
-<pre id="ad-1-2-source"></pre>
+<pre id="ad-4-2-source"></pre>
 <h3>
     Testergebnisse
 </h3>
-<div id="ad-1-2-results"></div>
+<div id="ad-4-2-results"></div>
 <!-- Code und Tests hier hin -->
-<script id="ad-1-2-code">
+<script id="ad-4-2-code">
     var ad_4_2_data = [];
     var counter_4_2 = 0;
 
@@ -263,7 +263,7 @@ new Morris.Line({
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-    $('pre#ad-1-2-source').html($('#ad-1-2-code').html())
+    $('pre#ad-4-2-source').html($('#ad-4-2-code').html())
 </script>
 
 <h3>
@@ -466,25 +466,30 @@ new Morris.Line({
 
 
 
-
-
-
-
 <!-- Aufgabe 4 -->
 <h2>
 Aufgabe 4
 </h2>
-Dies ist nur eine Vorlage
+<p>
+    Zu berechnen ist die L&aumlnge n des l&aumlngsten Pfades (v0; : : : ; vn) eines gerichteten Graphen
+    G = (V;E) mit Gewichtsfunktion w : E ! R f&uumlr den gilt, dass die Kantengewichte streng monoton
+    zunehmen:<br><br>
+
+    8i : 0 < i < n  w(vi􀀀1; vi) < w(vi; vi+1<br><br>
+    )
+    Der Graph erlaubt Kanten der Form (v; v).
+    Die Implementierung soll in O(V + E log(E)) laufen und h&ouumlchstens O(V + E) zus&aumltzlichen
+    Speicherbedarf haben.
+</p>
+
 <h2>
-Antwort 4
+Antwort
 </h2>
-<ol>
 <li>
-TODO
+    HIER KOMMT DER TEXT REIN
 </li>
-</ol>
 <h3>
-Implementierung
+Implementierung A4 Längste Pfade mit aufsteigendem Gewicht
 </h3>
 <!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-2-code angezeigt -->
 <pre id="ad-4-4-source"></pre>
@@ -520,13 +525,13 @@ function longest_path_with_ascendent_weight(graph) {
     return max_way;
 }
 
-  // Experiments
-  for(i = 0; i < 10; i ++) {
-    ad_1_4_data.push({
-      experiment : i,
-      value : new MyClass().value
-      });
-  }
+//  // Experiments
+//  for(i = 0; i < 10; i ++) {
+//    ad_4_4_data.push({
+//      experiment : i,
+//      value : new MyClass().value
+//      });
+//  }
 
   // Tests
   assert(ad_4_4_data.length === 10, "experiments have collected data");
@@ -534,7 +539,7 @@ function longest_path_with_ascendent_weight(graph) {
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
-$('pre#ad-4-4-source').html($('#ad-1-2-code').html())
+$('pre#ad-4-4-source').html($('#ad-4-4-code').html())
 </script>
 
 <h3>
