@@ -331,7 +331,7 @@ new Morris.Line({
 <div id="ad-4-3-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-4-3-code">
-    var ad_4_2_data = [];
+    var ad_4_3_data = [];
     var counter_4_3 = 0;
 
 
@@ -343,35 +343,21 @@ new Morris.Line({
         var left = tree.left;
         var right = tree.right;
 
-        ad_1_1_data.push({experiment: 0, left: 0, right: 0 });
+        ad_4_3_data.push({experiment: 0, left: 0, right: 0 });
 
         var left_ary = count_step_left(left, 1, 0);
         var right_ary = count_step_right(right, 1, 0);
 
-
-
         var left_distance = left_ary[0];
         var right_distance = right_ary[0]
 
-        //     var left_step_count = left_ary[1];
-        //     var right_step_count = right_ary[1];
-
         var stepcount = left_ary[1] + right_ary[1];
-
-//          stepCount++;
-//          step++;
-//          ad_4_data.push({
-//              experiment: step,
-//              value: stepCount
-//          });
-//      }
-
         return left_distance >= right_distance ? left_distance: right_distance;
     }
 
 
     function count_step_left(knoten, tiefe, step_count_left){
-        ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
+        ad_4_3_data.push({experiment: step_count_left, left: step_count_left });
         if(knoten !=null){
             return count_step_left(knoten.left, tiefe, step_count_left);
         }else{
@@ -381,7 +367,7 @@ new Morris.Line({
     }
 
     function count_step_right(knoten, tiefe, step_count_right){
-        ad_1_1_data.push({experiment: step_count_right, right: step_count_right });
+        ad_4_3_data.push({experiment: step_count_right, right: step_count_right });
         if(knoten !=null){
             return count_step_right(knoten.right, tiefe+1, step_count_right+1);
         }else{
@@ -433,15 +419,6 @@ new Morris.Line({
     assert(longest_path_no_direction_change(tree1) === 3, "Der Baum hat eine Länge von 3 auf der linken Hälfte, obwohl die maximal Länge 4 ist. " + longest_path_no_direction_change(tree1));
     assert(longest_path_no_direction_change(tree2) === 1, "Der Baum hat eine Länge von 1 wenn er nur einen Wurzelknoten besitzt.");
     assert(longest_path_no_direction_change(null) === 0, "Ein leerer Baum hat die Länge 0;");
-
-
-
-    // Tests
-//    assert(mittelpunkt([6, 5, 6]) === 1, "Bei Index = 1 ist die linke Seite gleich der rechten Seite");
-//    assert(mittelpunkt([2, 3, 4, 5]) === 2, "Bei Index = 2 ist die linke Seite gleich der rechten Seite");
-//    assert(mittelpunkt([2, 3, 8, 4, 2, 8, 3]) === 3, "Bei Index = 3 ist die linke Seite gleich der rechten Seite");
-//    assert(mittelpunkt([]) === -1, "Bei einer leeren Sequenz wird -1 zurückgegeben.");
-
 
 
 </script>
