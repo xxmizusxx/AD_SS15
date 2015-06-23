@@ -422,12 +422,15 @@ new Morris.Line({
         left: node_l,
         right: node_r
     };
-    assert(longest_path_no_direction_change(tree1) === 3, "Der Baum hat eine Länge von 3 auf der linken Hälfte, obwohl die maximal Länge 4 ist. " + longest_path_no_direction_change(tree1));
-    // Tests
+
     var tree2 = {
         left: null,
         right: null
     };
+
+    // Tests
+
+    assert(longest_path_no_direction_change(tree1) === 3, "Der Baum hat eine Länge von 3 auf der linken Hälfte, obwohl die maximal Länge 4 ist. " + longest_path_no_direction_change(tree1));
     assert(longest_path_no_direction_change(tree2) === 1, "Der Baum hat eine Länge von 1 wenn er nur einen Wurzelknoten besitzt.");
     assert(longest_path_no_direction_change(null) === 0, "Ein leerer Baum hat die Länge 0;");
 
