@@ -50,7 +50,7 @@ Aufgabe 1
 
 </ol>
 <h2>
-Antwort 1
+Antwort
 </h2>
 <li>
 HIER KOMMT DER TEXT REIN
@@ -69,7 +69,7 @@ Testergebnisse
 <!-- Code und Tests hier hin -->
 <script id="ad-1-1-code">
   var ad_4_1_data = [];
-  var ad_4_2_data = [];
+  var ad_4_1_2_data = [];
   var counter = 0;
 
   function summenpaar(seq, k) {
@@ -100,6 +100,8 @@ Testergebnisse
   };
 
 
+
+
   var counter2 = 0;
   function summenpaar_rekursiv(seq, k, stand, zaehler, counter2, result){
 
@@ -128,7 +130,7 @@ Testergebnisse
     for (i = 0; i < 100; i++) {
         seq.push(Math.floor(Math.random()*21)-10);
         summenpaar_rek(seq, 20);
-        ad_4_2_data.push({
+        ad_4_1_2_data.push({
             experiment: seq.length,
             value: counter2++
         });
@@ -167,12 +169,12 @@ new Morris.Line({
 });
 </script>
 
-<div id="ad-4-2-experiments" style="height: 250px;"></div>
+<div id="ad-4-1-2-experiments" style="height: 250px;"></div>
 <script>
     new Morris.Line({
-        element: 'ad-4-2-experiments',
+        element: 'ad-4-1-2-experiments',
         parseTime: false,
-        data: ad_4_2_data,
+        data: ad_4_1_2_data,
         xkey: 'experiment',
         ykeys: ['value'],
         labels: ['Schrittzahl']
@@ -196,7 +198,7 @@ new Morris.Line({
 
 </ol>
 <h2>
-    Antwort 1
+    Antwort
 </h2>
 <li>
     HIER KOMMT DER TEXT REIN
@@ -214,33 +216,51 @@ new Morris.Line({
 <div id="ad-1-2-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-2-code">
-    var ad_1_2_data = [];
+    var ad_4_2_data = [];
+    var counter_4_2 = 0;
 
+    function mittelpunkt(seq){
+        if (seq.length == 0) {
+            return -1;
+        }
+        counter_4_2 = 0;
+        var i = 0;
+        var j = seq.length-1;
+        var left_sum = 0;
+        var right_sum = 0;
 
+        while ( i < j) {
+            counter_4_2++;
+            if (left_sum >= right_sum) {
+                right_sum += seq[j];
+                j--;
+            }else {
+                left_sum += seq[i];
+                i++;
+            }
+            if (left_sum == right_sum) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
+ // Tests
+    assert(mittelpunkt([6, 5, 6]) === 1, "Bei Index = 1 ist die linke Seite gleich der rechten Seite");
+    assert(mittelpunkt([2, 3, 4, 5]) === 2, "Bei Index = 2 ist die linke Seite gleich der rechten Seite");
+    assert(mittelpunkt([2, 3, 8, 4, 2, 8, 3]) === 3, "Bei Index = 3 ist die linke Seite gleich der rechten Seite");
+    assert(mittelpunkt([]) === -1, "Bei einer leeren Sequenz wird -1 zurückgegeben.");
 
+    var seq = [];
+    for (i = 0; i < 100; i++) {
+        seq.push(Math.floor(Math.random()*21)-10);
+        mittelpunkt(seq);
+        ad_4_2_data.push({
+            experiment: seq.length,
+            value: counter_4_2++
+        });
+    };
 
-
-
-
-
-    //
-    //  // Code
-    //  MyClass = function() {
-    //    this.value = Math.ceil(Math.random()*100);
-    //  }
-    //
-    //  // Experiments
-    //  for(i = 0; i < 100; i ++) {
-    //    ad_1_1_data.push({
-    //      experiment : i,
-    //      value : new MyClass().value
-    //      });
-    //  }
-    //
-    //  // Tests
-    //  assert(ad_1_1_data.length === 100, "experiments have collected data");
-    //  assert(typeof(steps) === 'function', "function 'steps' not implemented");
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
@@ -251,23 +271,23 @@ new Morris.Line({
     Experimente
 </h3>
 
-<div id="ad-1-2-experiments" style="height: 250px;"></div>
+<div id="ad-4-2-experiments" style="height: 250px;"></div>
 <script>
     new Morris.Line({
         // ID of the element in which to draw the chart.
-        element: 'ad-1-1-experiments',
+        element: 'ad-4-2-experiments',
         // do values relate to dates (time)?
         parseTime: false,
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
-        data: ad_1_2_data,
+        data: ad_4_2_data,
         // The name of the data record attribute that contains x-values.
         xkey: 'experiment',
         // A list of names of data record attributes that contain y-values.
-        ykeys: ['left', 'right'],
+        ykeys: ['value'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['left','right']
+        labels: ['Zugriffe']
     });
 </script>
 
