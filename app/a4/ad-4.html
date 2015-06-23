@@ -99,31 +99,26 @@ Testergebnisse
 
   // Code
   function longest_path_no_direction_change(tree) {
+      if (tree == null) return 0;
       stepCount = 0;
       step = 0;
-
-      if (tree == null) {
-          return 0;
-      }
-      var left_distance = 1;
-      var right_distance = 1;
       var left = tree.left;
       var right = tree.right;
 
+      ad_1_1_data.push({experiment: 0, left: 0, right: 0 });
 
-//      while (left != null || right != null) {
-//          if (left != null) {
-//              left_distance++;
-//              left = left.left;
-//          }
-//          if (right != null) {
-//              right_distance++;
-//              right = right.right;
-//          }
+      var left_ary = count_step_left(left, 1, 0);
+      var right_ary = count_step_right(right, 1, 0);
 
-        left_distance = count_step_left(left, left_distance);
-        right_distance = count_step_right(right, right_distance);
 
+
+      var left_distance = left_ary[0];
+      var right_distance = right_ary[0]
+
+ //     var left_step_count = left_ary[1];
+ //     var right_step_count = right_ary[1];
+
+      var stepcount = left_ary[1] + right_ary[1];
 
 //          stepCount++;
 //          step++;
@@ -132,27 +127,27 @@ Testergebnisse
 //              value: stepCount
 //          });
 //      }
-      if (left_distance >= right_distance) {
-          return left_distance;
-      } else {
-          return right_distance;
-      }
+
+      return left_distance >= right_distance ? left_distance: right_distance;
   }
 
 
-    function count_step_left(knoten, tiefe){
+    function count_step_left(knoten, tiefe, step_count_left){
+        ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
         if(knoten !=null){
-            count_step_left(knoten.left, Math.round(tiefe) + 1);
+            return count_step_left(knoten.left, tiefe, step_count_left);
         }else{
-            return tiefe;
+         //   ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
+            return [tiefe,step_count_left];
         }
     }
 
-    function count_step_right(knoten, tiefe){
+    function count_step_right(knoten, tiefe, step_count_right){
+        ad_1_1_data.push({experiment: step_count_right, right: step_count_right });
         if(knoten !=null){
-            count_step_right(knoten.right, Math.round(tiefe)+1);
+            return count_step_right(knoten.right, tiefe+1, step_count_right+1);
         }else{
-            return tiefe;
+            return [tiefe, step_count_right];
         }
   }
 
@@ -239,10 +234,10 @@ new Morris.Line({
   // The name of the data record attribute that contains x-values.
   xkey: 'experiment',
   // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
+  ykeys: ['left', 'right'],
   // Labels for the ykeys -- will be displayed when you hover over the
   // chart.
-  labels: ['Value']
+  labels: ['left','right']
 });
 </script>
 
