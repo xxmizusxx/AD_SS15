@@ -30,58 +30,32 @@
 </script>
 </head>
 <body>
-<h1 id="title">L&ouml;sungsblatt Vorlage</h1>
+<h1 id="title">Sebastian Ewert & Stephan Wekwert</h1>
 
-Vorlage zur L&ouml;sung des ersten Aufgabenblatts.
-<ul>
-<li>
-Die erste &Uuml;berschrift soll Ihre Namen enthalten.
-</li>
-<li>
-Die Korrektheit Ihrer Implementierung muss durch sinnvolle Tests abgesichert sein.
-</li>
-<li>
-&Uuml;berlegen Sie sich sinnvolle Eingaben und Wiederholungen f&uuml;r die Experimente.
-</li>
-</ul>
+Aufgabenblatt AD A4
+
 
 <h2>
 Aufgabe 1
 </h2>
 <p>
-Gegeben seien ein Startpunkt $x \in \mathbb{N}$ und ein Zielpunkt $y \in \mathbb{N}$ auf einer Geraden,
-sowie ein Schrittma&szlig; $d \in \mathbb{N}$. Gesucht ist die Anzahl der Schritte
-$steps(x, y, d) \in \mathbb{N}$, die ben&ouml;tigt werden, um einen Punkt zu erreichen, dessen Wert
-gr&ouml;&szlig;er als $y$ ist.
+    Gegeben sei eine Sequenz S von ganzen Zahlen und eine ganze Zahl K. Zu berechnen ist die
+    Anzahl der Paare von Elementen (P;Q) aus S f&uumlr die gilt: <br><br>
+    P + Q = K <br><br>
+    Die Implementierung soll in O(|S| log(|S|)) laufen und h&oumlchstens O(|S|) zus&aumltzlichen Speicherbedarf
+    haben.
 </p>
-<p>
-Beispiel: Bei der Eingabe $x = 15$, $y = 80$, $d = 30$ sind drei Schritte n&ouml;tig.
-</p>
+
 <ol>
-<li>
-In Abh&auml;gigkeit von welchem Wert bestimmen Sie Laufzeit und Speicherplatzbedarf?
-</li>
-<li>
-Welchen Zeit- und welchen Platzaufwand hat eine naive Implementierung?
-</li>
-<li>
-Implementieren Sie die Methode $steps(x,y,d)$, welche die gesuchte Anzahl der Schritte in Zeitaufwand $O(1)$ und  Platzaufwand $O(1)$ berechnet.
-</li>
+
 </ol>
 <h2>
 Antwort 1
 </h2>
-<ol>
 <li>
-TODO
+HIER KOMMT DER TEXT REIN
 </li>
-<li>
-TODO
-</li>
-<li>
-TODO
-</li>
-</ol>
+
 <h3>
 Implementierung A4 Summenpaare
 </h3>
@@ -94,123 +68,83 @@ Testergebnisse
 <div id="ad-1-1-results"></div>
 <!-- Code und Tests hier hin -->
 <script id="ad-1-1-code">
-  var ad_1_1_data = [];
+  var ad_4_1_data = [];
+  var ad_4_2_data = [];
+  var counter = 0;
 
+  function summenpaar(seq, k) {
+      var result = 0;
+      counter = 0;
 
-  // Code
-  function longest_path_no_direction_change(tree) {
-      if (tree == null) return 0;
-      stepCount = 0;
-      step = 0;
-      var left = tree.left;
-      var right = tree.right;
+      if (seq.length == 0) return result;
 
-      ad_1_1_data.push({experiment: 0, left: 0, right: 0 });
-
-      var left_ary = count_step_left(left, 1, 0);
-      var right_ary = count_step_right(right, 1, 0);
-
-
-
-      var left_distance = left_ary[0];
-      var right_distance = right_ary[0]
-
- //     var left_step_count = left_ary[1];
- //     var right_step_count = right_ary[1];
-
-      var stepcount = left_ary[1] + right_ary[1];
-
-//          stepCount++;
-//          step++;
-//          ad_4_data.push({
-//              experiment: step,
-//              value: stepCount
-//          });
-//      }
-
-      return left_distance >= right_distance ? left_distance: right_distance;
+      for (i = 0; i <  seq.length; i++) {
+          for (j = i; j < seq.length; j++) {
+              if (seq[i] + seq[j] == k) {
+                  result = result + 2;
+                  counter++;
+              }
+          }
+      }
+      return result;
   }
 
+  var seq = [];
+  for (i = 0; i < 100; i++) {
+      seq.push(Math.floor(Math.random()*21)-10);
+      summenpaar(seq, 20);
+      ad_4_1_data.push({
+          experiment: seq.length,
+          value: counter++
+      });
+  };
 
-    function count_step_left(knoten, tiefe, step_count_left){
-        ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
-        if(knoten !=null){
-            return count_step_left(knoten.left, tiefe, step_count_left);
-        }else{
-         //   ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
-            return [tiefe,step_count_left];
-        }
-    }
 
-    function count_step_right(knoten, tiefe, step_count_right){
-        ad_1_1_data.push({experiment: step_count_right, right: step_count_right });
-        if(knoten !=null){
-            return count_step_right(knoten.right, tiefe+1, step_count_right+1);
-        }else{
-            return [tiefe, step_count_right];
-        }
+  var counter2 = 0;
+  function summenpaar_rekursiv(seq, k, stand, zaehler, counter2, result){
+
+      if (zaehler >= seq.length) {
+          return result;
+      }else {
+          if (seq[stand] + seq[zaehler] == k){
+           result = summenpaar_rekursiv(seq, k, stand, zaehler+1, counter2+1, result+2);
+          }
+           result = summenpaar_rekursiv(seq, k, stand, zaehler+1, counter2+1, result);
+      }
+      return result;
   }
 
+  function summenpaar_rek(seq, k){
+      counter2 = 0;
+      var result = 0;
+      if (seq.length == 0) return 0;
+      for (i = 0; i < seq.length; i++) {
+          result += summenpaar_rekursiv(seq, k, i, i, counter2, 0);
+      }
+      return result;
+  }
+
+    var seq = [];
+    for (i = 0; i < 100; i++) {
+        seq.push(Math.floor(Math.random()*21)-10);
+        summenpaar_rek(seq, 20);
+        ad_4_2_data.push({
+            experiment: seq.length,
+            value: counter2++
+        });
+    };
+
   // Tests
-  var node_llr = {
-      left: null,
-      right: null
-  };
-  var node_ll = {
-      left: null,
-      right: node_llr
-  };
-  var node_lr = {
-      left: null,
-      right: null
-  };                                                          //        O
-  var node_rl = {                                             //      /   \
-      left: null,                                             //     O     O
-      right: null                                             //    / \   / \
-  };                                                          //   O   O O   O
-  var node_rr = {                                             //    \
-      left: null,                                             //     O
-      right: null
-  };
-  var node_l = {
-      left: node_ll,
-      right: node_lr
-  };
-  var node_r = {
-      left: node_rl,
-      right: node_rr
-  };
-  var tree1 = {
-      left: node_l,
-      right: node_r
-  };
-  assert(longest_path_no_direction_change(tree1) === 3, "Der Baum hat eine Länge von 3 auf der linken Hälfte, obwohl die maximal Länge 4 ist. " + longest_path_no_direction_change(tree1));
-  // Tests
-  var tree2 = {
-      left: null,
-      right: null
-  };
-  assert(longest_path_no_direction_change(tree2) === 1, "Der Baum hat eine Länge von 1 wenn er nur einen Wurzelknoten besitzt.");
-  assert(longest_path_no_direction_change(null) === 0, "Ein leerer Baum hat die Länge 0;");
+    assert(summenpaar([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 15) === 6, "Die Sequenz von 0 bis 10 hat 6 Paare für k = 15.");
+    assert(summenpaar([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 100) === 0, "Die Sequenz von 0 bis 10 hat 0 Paare für k = 100.");
+    assert(summenpaar([], 1) === 0, "Eine leere Sequenz und k = 0 (k ist hier irrelevant) gibt 0 zurück.");
+
+    assert(summenpaar_rek([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 15) === 6, "Rek: Die Sequenz von 0 bis 10 hat 6 Paare für k = 15.");
+    assert(summenpaar_rek([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 100) === 0, "Rek: Die Sequenz von 0 bis 10 hat 0 Paare für k = 100.");
+    assert(summenpaar_rek([], 1) === 0, "Rek: Eine leere Sequenz und k = 0 (k ist hier irrelevant) gibt 0 zurück.");
 
 
-//
-//  // Code
-//  MyClass = function() {
-//    this.value = Math.ceil(Math.random()*100);
-//  }
-//
-//  // Experiments
-//  for(i = 0; i < 100; i ++) {
-//    ad_1_1_data.push({
-//      experiment : i,
-//      value : new MyClass().value
-//      });
-//  }
-//
-//  // Tests
-//  assert(ad_1_1_data.length === 100, "experiments have collected data");
-//  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+
 </script>
 <!-- dieser Code zeigt die Implementierung und die Tests an -->
 <script>
@@ -221,33 +155,137 @@ $('pre#ad-1-1-source').html($('#ad-1-1-code').html())
 Experimente
 </h3>
 
-<div id="ad-1-1-experiments" style="height: 250px;"></div>
+<div id="ad-4-1-experiments" style="height: 250px;"></div>
 <script>
 new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'ad-1-1-experiments',
-  // do values relate to dates (time)?
+  element: 'ad-4-1-experiments',
   parseTime: false,
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: ad_1_1_data,
-  // The name of the data record attribute that contains x-values.
+  data: ad_4_1_data,
   xkey: 'experiment',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['left', 'right'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['left','right']
+  ykeys: ['value'],
+  labels: ['Schrittzahl']
 });
 </script>
 
-<!-- Aufgabe 2 -->
+<div id="ad-4-2-experiments" style="height: 250px;"></div>
+<script>
+    new Morris.Line({
+        element: 'ad-4-2-experiments',
+        parseTime: false,
+        data: ad_4_2_data,
+        xkey: 'experiment',
+        ykeys: ['value'],
+        labels: ['Schrittzahl']
+    });
+</script>
+
 <h2>
-Aufgabe 2
+    Aufgabe 2
+</h2>
+<p>
+    Gegeben sei eine Sequenz S von ganzen Zahlen. Zu berechnen ist ein Index i für den gilt, dass
+    die Summe der Elemente links gleich der Summe der Elemente rechts von i ist: <br><br>
+
+    SUMME 0 <= j < i S[j] = SUMME i < k < |S|S[k]   <br><br>
+
+    Der R&uumlckgabewert -1 zeigt an, dass es keinen solchen Index gibt. Die Implementierung soll
+    in O(|S|) laufen und h&oumlchstens O(|S|) zus&aumltzlichen Speicherbedarf haben.
+</p>
+
+<ol>
+
+</ol>
+<h2>
+    Antwort 1
+</h2>
+<li>
+    HIER KOMMT DER TEXT REIN
+</li>
+
+<h3>
+    Implementierung A4 Mittelpunkte
+</h3>
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
+
+<pre id="ad-1-2-source"></pre>
+<h3>
+    Testergebnisse
+</h3>
+<div id="ad-1-2-results"></div>
+<!-- Code und Tests hier hin -->
+<script id="ad-1-2-code">
+    var ad_1_2_data = [];
+
+
+
+
+
+
+
+
+
+    //
+    //  // Code
+    //  MyClass = function() {
+    //    this.value = Math.ceil(Math.random()*100);
+    //  }
+    //
+    //  // Experiments
+    //  for(i = 0; i < 100; i ++) {
+    //    ad_1_1_data.push({
+    //      experiment : i,
+    //      value : new MyClass().value
+    //      });
+    //  }
+    //
+    //  // Tests
+    //  assert(ad_1_1_data.length === 100, "experiments have collected data");
+    //  assert(typeof(steps) === 'function', "function 'steps' not implemented");
+</script>
+<!-- dieser Code zeigt die Implementierung und die Tests an -->
+<script>
+    $('pre#ad-1-2-source').html($('#ad-1-2-code').html())
+</script>
+
+<h3>
+    Experimente
+</h3>
+
+<div id="ad-1-2-experiments" style="height: 250px;"></div>
+<script>
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'ad-1-1-experiments',
+        // do values relate to dates (time)?
+        parseTime: false,
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: ad_1_2_data,
+        // The name of the data record attribute that contains x-values.
+        xkey: 'experiment',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['left', 'right'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['left','right']
+    });
+</script>
+
+
+
+
+
+
+
+
+
+<!-- Aufgabe 4 -->
+<h2>
+Aufgabe 4
 </h2>
 Dies ist nur eine Vorlage
 <h2>
-Antwort 2
+Antwort 4
 </h2>
 <ol>
 <li>
@@ -272,12 +310,10 @@ Testergebnisse
 // Graphenhülle     Kante mit Gewicht
 // [    [A, B, 1], [B, D, 2], ...   ]
 
-
-function longest_path_with_ascendent_weight(graph) {
-
+    function longest_path_with_ascendent_weight(graph) {
 
 
-}
+    }
 
 
 
