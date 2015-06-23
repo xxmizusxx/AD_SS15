@@ -293,6 +293,184 @@ new Morris.Line({
 
 
 
+<h2>
+    Aufgabe 3
+</h2>
+<p>
+    Gegeben sei ein bin&aumlrer Baum T = (V;E) und die Funktionen r; l : V ! V [ fnilg, die zu
+    einem Knoten das jeweils rechte oder linke Kind bestimmen (nil bedeutet, dass der Knoten
+    kein rechtes bzw. linkes Kind hat). Zu berechnen ist die maximale Distanz zwischen den
+    Knoten v0; vn f&uumlr die gilt, dass sie auf einem Pfad von der Wurzel des Baums zu einem Blatt
+    liegen und zus&aumltzlich gilt <br><br>
+
+    8i : 0  i < n  l(vi) in (v0; : : : ; vn) oder 8i : 0  i < n  r(vi) in (v0; : : : ; vn)<br><br>
+
+    Die Implementierung soll in O(V ) laufen und h&oumlchstens O(V ) zus&aumltzlichen Speicherbedarf
+    haben.
+</p>
+
+<ol>
+
+</ol>
+<h2>
+    Antwort
+</h2>
+<li>
+    HIER KOMMT DER TEXT REIN
+</li>
+
+<h3>
+    Implementierung A4 L&aumlngste Pfade ohne Richtungswechsel
+</h3>
+<!-- In diesem Element wird der Inhalt des scripts mit der ID ad-1-1-results angezeigt -->
+
+<pre id="ad-4-3-source"></pre>
+<h3>
+    Testergebnisse
+</h3>
+<div id="ad-4-3-results"></div>
+<!-- Code und Tests hier hin -->
+<script id="ad-4-3-code">
+    var ad_4_2_data = [];
+    var counter_4_3 = 0;
+
+
+    // Code
+    function longest_path_no_direction_change(tree) {
+        if (tree == null) return 0;
+        stepCount = 0;
+        step = 0;
+        var left = tree.left;
+        var right = tree.right;
+
+        ad_1_1_data.push({experiment: 0, left: 0, right: 0 });
+
+        var left_ary = count_step_left(left, 1, 0);
+        var right_ary = count_step_right(right, 1, 0);
+
+
+
+        var left_distance = left_ary[0];
+        var right_distance = right_ary[0]
+
+        //     var left_step_count = left_ary[1];
+        //     var right_step_count = right_ary[1];
+
+        var stepcount = left_ary[1] + right_ary[1];
+
+//          stepCount++;
+//          step++;
+//          ad_4_data.push({
+//              experiment: step,
+//              value: stepCount
+//          });
+//      }
+
+        return left_distance >= right_distance ? left_distance: right_distance;
+    }
+
+
+    function count_step_left(knoten, tiefe, step_count_left){
+        ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
+        if(knoten !=null){
+            return count_step_left(knoten.left, tiefe, step_count_left);
+        }else{
+            //   ad_1_1_data.push({experiment: step_count_left, left: step_count_left });
+            return [tiefe,step_count_left];
+        }
+    }
+
+    function count_step_right(knoten, tiefe, step_count_right){
+        ad_1_1_data.push({experiment: step_count_right, right: step_count_right });
+        if(knoten !=null){
+            return count_step_right(knoten.right, tiefe+1, step_count_right+1);
+        }else{
+            return [tiefe, step_count_right];
+        }
+    }
+
+    // Tests
+    var node_llr = {
+        left: null,
+        right: null
+    };
+    var node_ll = {
+        left: null,
+        right: node_llr
+    };
+    var node_lr = {
+        left: null,
+        right: null
+    };                                                          //        O
+    var node_rl = {                                             //      /   \
+        left: null,                                             //     O     O
+        right: null                                             //    / \   / \
+    };                                                          //   O   O O   O
+    var node_rr = {                                             //    \
+        left: null,                                             //     O
+        right: null
+    };
+    var node_l = {
+        left: node_ll,
+        right: node_lr
+    };
+    var node_r = {
+        left: node_rl,
+        right: node_rr
+    };
+    var tree1 = {
+        left: node_l,
+        right: node_r
+    };
+    assert(longest_path_no_direction_change(tree1) === 3, "Der Baum hat eine Länge von 3 auf der linken Hälfte, obwohl die maximal Länge 4 ist. " + longest_path_no_direction_change(tree1));
+    // Tests
+    var tree2 = {
+        left: null,
+        right: null
+    };
+    assert(longest_path_no_direction_change(tree2) === 1, "Der Baum hat eine Länge von 1 wenn er nur einen Wurzelknoten besitzt.");
+    assert(longest_path_no_direction_change(null) === 0, "Ein leerer Baum hat die Länge 0;");
+
+
+
+    // Tests
+//    assert(mittelpunkt([6, 5, 6]) === 1, "Bei Index = 1 ist die linke Seite gleich der rechten Seite");
+//    assert(mittelpunkt([2, 3, 4, 5]) === 2, "Bei Index = 2 ist die linke Seite gleich der rechten Seite");
+//    assert(mittelpunkt([2, 3, 8, 4, 2, 8, 3]) === 3, "Bei Index = 3 ist die linke Seite gleich der rechten Seite");
+//    assert(mittelpunkt([]) === -1, "Bei einer leeren Sequenz wird -1 zurückgegeben.");
+
+
+
+</script>
+<!-- dieser Code zeigt die Implementierung und die Tests an -->
+<script>
+    $('pre#ad-4-3-source').html($('#ad-4-3-code').html())
+</script>
+
+<h3>
+    Experimente
+</h3>
+
+<div id="ad-4-3-experiments" style="height: 250px;"></div>
+<script>
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'ad-4-3-experiments',
+        // do values relate to dates (time)?
+        parseTime: false,
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: ad_4_3_data,
+        // The name of the data record attribute that contains x-values.
+        xkey: 'experiment',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Zugriffe']
+    });
+</script>
+
 
 
 
