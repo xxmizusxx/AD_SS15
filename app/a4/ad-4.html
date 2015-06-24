@@ -107,7 +107,6 @@ Testergebnisse
           }
            result = summenpaar_rekursiv(seq, k, stand, zaehler+1, count+1, result);
       }
-      return result;
   }
 
   function summenpaar_rek(seq, k){
@@ -531,20 +530,43 @@ Testergebnisse
   var zu = 1;
   var weg = 2;
 
-    function longest_path_with_ascendent_weight(graph) {
+  var Vertex = {
+      von : "",
+      zu: "",
+      weg: 0
+  }
 
 
-    }
+
+
 function longest_path_with_ascendent_weight(graph) {
     var max_way = Number.MIN_VALUE;
     for(i = 0; i < length(graph); i++){
        var kante = graph[i];
-       var longstest_way =  longest_way(kante, graph, 0);
+       var WayOfGraph = [];
+       var longstest_way =  longest_way(graph, kante, kante.weg, WayOfGraph);
        if(max_way < longstest_way)
             max_way = longstest_way;
     }
     return max_way;
 }
+
+
+
+function longest_way(graph, kante, way, WayOfGraph){
+    var maxkante = 0;
+    for(i = 0; i < length(graph); i++){
+        var tKante = graph[i];
+        if(tKante.von === kante.zu && tKante.weg > kante.weg){
+            WayOfGraph.push(kante);
+            way = longest_way(graph, tKante, way+tKante.weg, WayOfGraph);
+        }
+        if (maxKante < way) maxKante = way;
+    }
+    return maxkante;
+}
+
+
 
 //  // Experiments
 //  for(i = 0; i < 10; i ++) {
