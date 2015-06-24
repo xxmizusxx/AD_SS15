@@ -52,9 +52,16 @@ Aufgabe 1
 <h2>
 Antwort
 </h2>
-<li>
-HIER KOMMT DER TEXT REIN
-</li>
+<p>
+    Naiv:<br>
+        Laufzeit: O(n^2)<br>
+        Speicherplatzbedarf: O(1)<br>
+        <br>
+    Rekursiv:<br>
+        Laufzeit: O(n^2)<br>
+        Speicherplatzbedarf: O(1)<br>
+
+</p>
 
 <h3>
 Implementierung A4 Summenpaare
@@ -70,7 +77,7 @@ Testergebnisse
 <script id="ad-1-1-code">
   var ad_4_1_data = [];
   var ad_4_1_2_data = [];
-  var counter = 0;
+  var counter_1_1 = 0;
 
   function summenpaar(seq, k) {
       var result = 0;
@@ -82,56 +89,51 @@ Testergebnisse
           for (j = i; j < seq.length; j++) {
               if (seq[i] + seq[j] == k) {
                   result = result + 2;
-                  counter++;
+                  counter_1_1++;
               }
           }
       }
       return result;
   }
 
-  var seq = [];
-  for (i = 0; i < 100; i++) {
-      seq.push(Math.floor(Math.random()*21)-10);
-      summenpaar(seq, 20);
-      ad_4_1_data.push({
-          experiment: seq.length,
-          value: counter
-      });
-  };
-
-
-
-
-  var counter2 = 0;
-  function summenpaar_rekursiv(seq, k, stand, zaehler, counter2, result){
+  var counter_1_2 = 0;
+  function summenpaar_rekursiv(seq, k, stand, zaehler, count, result){
       if (zaehler >= seq.length) {
           return result;
       }else {
           if (seq[stand] + seq[zaehler] == k){
-           result = summenpaar_rekursiv(seq, k, stand, zaehler+1, counter2+1, result+2);
+           result = summenpaar_rekursiv(seq, k, stand, zaehler+1, count+1, result+2);
+
           }
-           result = summenpaar_rekursiv(seq, k, stand, zaehler+1, counter2+1, result);
+           result = summenpaar_rekursiv(seq, k, stand, zaehler+1, count+1, result);
       }
       return result;
   }
 
   function summenpaar_rek(seq, k){
-      counter2 = 0;
+      counter_1_2 = 0;
       var result = 0;
       if (seq.length == 0) return 0;
       for (i = 0; i < seq.length; i++) {
-          result += summenpaar_rekursiv(seq, k, i, i, counter2, 0);
+          result += summenpaar_rekursiv(seq, k, i, i, counter_1_2, 0);
       }
       return result;
   }
 
     var seq = [];
+    var val = Math.floor(Math.random()*21)-10;
     for (i = 0; i < 100; i++) {
+        summenpaar(seq, val);
+        ad_4_1_data.push({
+            experiment: seq.length,
+            value: counter_1_1
+        });
+
         seq.push(Math.floor(Math.random()*21)-10);
-        summenpaar_rek(seq, 20);
+        summenpaar_rek(seq, val);
         ad_4_1_2_data.push({
             experiment: seq.length,
-            value: counter2
+            value: counter_1_2
         });
     };
 
@@ -156,6 +158,15 @@ $('pre#ad-1-1-source').html($('#ad-1-1-code').html())
 Experimente
 </h3>
 
+<p>
+X-Achse: Anzahl der Elemente<br>
+Y-Achse: Anzahl der Zugriffe
+</p>
+
+<p>
+ Naive Loesung
+</p>
+
 <div id="ad-4-1-experiments" style="height: 250px;"></div>
 <script>
 new Morris.Line({
@@ -164,9 +175,13 @@ new Morris.Line({
   data: ad_4_1_data,
   xkey: 'experiment',
   ykeys: ['value'],
-  labels: ['Schrittzahl']
+  labels: ['O(n^2)']
 });
 </script>
+
+<p>
+    Rekursive Loesung
+</p>
 
 <div id="ad-4-1-2-experiments" style="height: 250px;"></div>
 <script>
@@ -176,7 +191,7 @@ new Morris.Line({
         data: ad_4_1_2_data,
         xkey: 'experiment',
         ykeys: ['value'],
-        labels: ['Schrittzahl']
+        labels: ['O(n^2) ???']
     });
 </script>
 
@@ -184,7 +199,7 @@ new Morris.Line({
     Aufgabe 2
 </h2>
 <p>
-    Gegeben sei eine Sequenz S von ganzen Zahlen. Zu berechnen ist ein Index i für den gilt, dass
+    Gegeben sei eine Sequenz S von ganzen Zahlen. Zu berechnen ist ein Index i fuer den gilt, dass
     die Summe der Elemente links gleich der Summe der Elemente rechts von i ist: <br><br>
 
     SUMME 0 <= j < i S[j] = SUMME i < k < |S|S[k]   <br><br>
@@ -199,9 +214,10 @@ new Morris.Line({
 <h2>
     Antwort
 </h2>
-<li>
-    HIER KOMMT DER TEXT REIN
-</li>
+<p>
+    Laufzeit: O(n)<br>
+    Speicherplatzbedarf O(1)
+</p>
 
 <h3>
     Implementierung A4 Mittelpunkte
@@ -270,6 +286,11 @@ new Morris.Line({
     Experimente
 </h3>
 
+<p>
+    X-Achse: Anzahl der Elemente<br>
+    Y-Achse: Anzahl der Zugriffe
+</p>
+
 <div id="ad-4-2-experiments" style="height: 250px;"></div>
 <script>
     new Morris.Line({
@@ -286,7 +307,7 @@ new Morris.Line({
         ykeys: ['value'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Zugriffe']
+        labels: ['O(n-1)']
     });
 </script>
 
